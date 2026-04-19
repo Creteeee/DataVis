@@ -1,0 +1,405 @@
+﻿LocationID,Region,Province,City,Locality,Locality_Type,Elevation (m),decimalLatitude,decimalLongitude,MAT (℃),MAP (mm),Area (ha),EstablishedYear
+1,Eastern,Anhui,Hefei,Anhui Agricultural University,Campus,22,31.86474157,117.2519879,16.26250019,1142,235.2,1928
+2,Eastern,Anhui,Wuhu,"Anhui Normal University, Huajin Campus",Campus,6,31.28600097,118.3736169,16.22083321,1198,151.43,1949
+3,Eastern,Anhui,Chuzhou,Anhui Science and Technology University,Campus,36,32.879922,117.570109,15.52083347,839,113.3333,1950
+4,Eastern,Anhui,Hefei,"Anhui University, Xinyuan Campus",Campus,29,31.77869369,117.1820802,16.0750001,1145,153,2004
+5,Northwestern,Inner Mongolia,Baotou,Baotou Medical College,Campus,1069,40.61,109.98,6.658333372,310,67,1958
+6,Northwestern,Inner Mongolia,Baotou,Baotou Teachers's College,Campus,1055,40.65,109.88,6.899999893,280,32.33333333,1958
+7,Southern,Guangxi,Beihai,Beihai College of Beihang University,Campus,8,21.42961277,109.1813219,22.96666666,1655,80,2005
+8,Northern,Beijing,Beijing,Beijing Forestry University,Campus,56,40.00067805,116.3387976,12.31666657,552,46.4,1952
+9,Northern,Beijing,Beijing,"Beijing Institute of Technology, Liangxiang Campus",Campus,46,39.72901297,116.1633906,12.40416652,583,202.97,2002
+10,Northern,Hebei,Qinhuangdao,"Beijing Institute of Technology, Qinhuangdao Campus",Campus,20,39.82856609,119.4970429,10.58750009,610,2,1984
+11,Northern,Beijing,Beijing,"Beijing Institute of Technology, Xishanshiyan Campus",Campus,58,40.03534361,116.2251411,12.3041667,538,14.027,1986
+12,Northern,Beijing,Beijing,"Beijing Institute of Technology, Zhongguancun Campus",Campus,58,39.95833841,116.3165362,12.35833332,566,70.87,1988
+13,Southern,Guangdong,Zhuhai,"Beijing Normal University, Zhuhai Campus",Campus,19,22.35240767,113.5319045,22.51666645,1963,333.33,2001
+14,Northern,Beijing,Beijing,Beijing University Of Agriculture,Campus,46,40.09261696,116.3024581,12.30833351,535,66.67,1958
+15,Northern,Shandong,Binzhou,Binzhou University,Campus,10,37.38443053,117.9832559,13.53333334,594,162.4,1954
+16,Northern,Beijing,Beijing,Capital Normal University,Campus,60,39.9288771,116.3000143,12.36249997,566,29,1954
+17,Central,Hunan,Changsha,Central South University of Forestry and Technology,Campus,91,28.13658657,112.9916667,17.52500001,1392,92.53,1958
+18,Central,Hunan,Changsha,"Central South University, Wangjiawan Campus",Campus,57,28.17154838,112.9261929,17.66250021,1408,386,2000
+19,Northeastern,Jilin,Changchun,Changchun Normal University,Campus,197,43.91167575,125.3903557,5.108333379,604,46.03,1958
+20,Central,Hunan,Changsha,Changsha Social Work College,Campus,73,28.14235639,113.0067685,17.55000009,1398,81.13,1986
+21,Central,Hunan,Changsha,"Changsha University of Science & Technology, Yuntang Campus",Campus,63,28.06968064,113.004205,17.71666659,1427,138,2008
+22,Northern,Shanxi,Changzhi,Changzhi University,Campus,930,36.21021301,113.1298368,10.58333337,594,9.2,1958
+23,Northern,Hebei,Chengde,Chengde Medical College,Campus,365,41.03134919,117.9492291,9.075000025,479,74.9,1945
+24,Southwestern,Sichuan,Chengdu,Chengdu Agricultural College,Campus,539,30.69908814,103.8138083,16.55416679,1040,29.4,1958
+25,Southwestern,Sichuan,Chengdu,"Chengdu Normal University, Wenjiang Campus",Campus,530,30.67883226,103.8264446,16.59166676,1031,66.67,1955
+26,Northeastern,Inner Mongolia,Chifeng,Chifeng University,Campus,581,42.24,118.92,7.441666643,366,74.13333333,2003
+27,Eastern,Zhejiang,Hangzhou,"China Academy of Art, Xiangshan Campus",Campus,35,30.15808527,120.0730911,16.38749997,1343,53.33,2007
+28,Eastern,Jiangsu,Nanjing,"China Pharmaceutical University, Jiangning Campus",Campus,9,31.90269915,118.9111435,15.75833334,1058,133.33,2012
+29,Central,Hubei,Yichang,China Three Gorges University,Campus,75,30.72374671,111.3064446,17.04166662,1101,252.47,1946
+30,Eastern,Jiangsu,Xuzhou,"China University of Mining and Technology, Nanhu Campus",Campus,41,34.21759119,117.1409291,14.59583351,685,191,2003
+31,Southwestern,Chongqing,Chongqing,"Chongqing University of Arts and Sciences, Xinghu Campus",Campus,307,29.243479,105.876437,17.97916669,1106,57.3426,2001
+32,Southwestern,Chongqing,Chongqing,Chongqing University of Post and Telecommunications,Campus,449,29.53546652,106.6036316,17.55833351,1143,253.3,1950
+33,Southwestern,Chongqing,Chongqing,"Chongqing University, B Campus",Campus,248,29.5698142,106.4557458,18.49583334,1128,33.5569,1965
+34,Eastern,Anhui,Chuzhou,"Chuzhou Vocational And Technical College, North Campus",Campus,29,32.28561845,118.3127123,15.67499998,1005,16.7,2002
+35,Southwestern,Chongqing,Chongqing,City College of Science and Technology. Chongqing University,Campus,299,29.39367346,105.8822397,17.89583335,1101,73.33,2006
+36,Southwestern,Yunnan,Dali,Dali University,Campus,1972,25.59712927,100.2192028,15.27083343,846,7.33,1977
+37,Northern,Shanxi,Datong,Datong University,Campus,1069,40.09024397,113.3478001,7.233333367,374,153,1950
+38,Northwestern,Gansu,Dingxi,Dingxi Teacthers College,Campus,1931,35.56102173,104.5907295,6.333333394,420,17.9,1979
+39,Eastern,Shanghai,Shanghai,"East China Normal University, Minhang Campus",Campus,5,31.03039817,121.4484718,16.3166667,1007,130,2001
+40,Eastern,Jiangxi,Nanchang,"East China University of Technology, Guanglan Campus",Campus,25,28.72280766,115.8214559,17.78333332,1584,133.33,1956
+41,Southern,Guangdong,Foshan,Foshan University,Campus,3,23.02771928,113.0914718,22.29583327,1724,141.22,1958
+42,Eastern,Shanghai,Shanghai,"Fudan University, Handan Campus",Campus,6,31.30072153,121.4990551,16.46249979,1091,92.2297,1922
+43,Eastern,Shanghai,Shanghai,"Fudan University, Jiangwan Campus",Campus,2,31.33884183,121.502092,16.37916678,1078,106.67,2003
+44,Eastern,Fujian,Fuzhou,Fujian Agriculture and Forestry University,Campus,13,26.090751,119.253173,19.95416663,1360,234,1936
+45,Eastern,Fujian,Fuzhou,"Fujian Medical University, Shangjie Campus",Campus,8,26.07376817,119.1834556,20.15416668,1369,103,1937
+46,Eastern,Fujian,Fuzhou,"Fujian Normal University, Qishan Campus",Campus,7,26.03011283,119.2053395,20.02500012,1355,187.1,1907
+47,Eastern,Anhui,Fuyang,Fuyang Institute of Technology,Campus,31,32.88831005,115.7880458,15.49583331,870,27.5,1956
+48,Eastern,Jiangxi,Ganzhou,"Gannan Normal University, Huangjin Campus",Campus,152,25.79901173,114.8817897,19.37083342,1470,140,2000
+49,Northwestern,Gansu,Lanzhou,Gansu Agricultural University,Campus,1534,36.09082386,103.6983122,9.516666631,344,165,1947
+50,Northwestern,Gansu,Lanzhou,Gansu Provincial Party School of The CPC.,Campus,1542,36.09371679,103.7315586,9.541666602,346,33.33,1952
+51,Southern,Guangdong,Guangzhou,Guangdong Peizheng College,Campus,19,23.41308469,113.0853071,22.01666657,1687,113.33,1993
+52,Southern,Guangxi,Nanning,Guangxi Agricultural Vocational College,Campus,84,22.8461533,108.2380653,21.95833341,1452,65,1958
+53,Southern,Guangxi,Nanning,Guangxi Arts Institute,Campus,81,22.80567534,108.3355416,22.14583337,1402,8,1938
+54,Southern,Guangxi,Nanning,Guangxi Electrical Polytechnic Institute,Campus,84,22.85438108,108.2662422,21.93333332,1450,15.33,1956
+55,Southern,Guangxi,Nanning,Guangxi Medical University,Campus,81,22.79996924,108.346415,22.07916677,1408,71.33,1954
+56,Southern,Guangxi,Guilin,Guangxi Normal University,Campus,151,25.09867825,110.2850301,19.52499996,1835,225,2005
+57,Southern,Guangxi,Chongzuo,Guangxi Normal University for Nationalities,Campus,125,22.34793876,106.8610509,22.76249977,1330,13.87,1978
+58,Southern,Guangxi,Nanning,Guangxi Polytechnic of Construction,Campus,78,22.84599652,108.2114625,22.05416687,1449,13.07,1958
+59,Southern,Guangxi,Nanning,"Guangxi Teachers Education University, Changgang Campus",Campus,92,22.83779343,108.3447021,21.98333339,1388,13.47,1978
+60,Southern,Guangxi,Nanning,"Guangxi Teachers Education University, Mingxiu Campus",Campus,83,22.84437876,108.3160371,22.12916652,1416,15,1978
+61,Southern,Guangxi,Nanning,Guangxi University,Campus,81,22.84123343,108.2814814,22.05416683,1437,307.13,1958
+62,Southern,Guangxi,Nanning,GuangXi University for Nationalities,Campus,89,22.82571777,108.3194402,22.19583329,1414,132.2,1953
+63,Southern,Guangxi,Nanning,Guangxi University of Chinese Medicine,Campus,83,22.84301695,108.3162572,22.12916652,1416,15.6,1954
+64,Southern,Guangxi,Nanning,Guangxi University of Finance and Economics,Campus,81,22.83920854,108.2944767,22.12083332,1439,42.09,1960
+65,Southern,Guangxi,Nanning,Guangxi Vocational & Technical of Industry,Campus,83,22.84275854,108.2969667,22.02916674,1437,15.53,1956
+66,Southern,Guangxi,Nanning,"Guangxi Vocational And Technical College Of Communications, Yuanhu Campus",Campus,87,22.82721834,108.3394111,22.07499997,1401,4.2,1958
+67,Southern,Guangxi,Nanning,Guangxi Vocational College of Water Resources and Electric Power,Campus,92,22.83864343,108.3473821,21.98333339,1388,7.67,1956
+68,Southern,Guangdong,Guangzhou,Guangzhou University,Campus,0,23.04329777,113.3652352,22.18750004,1673,115.12,1927
+69,Southern,Guangxi,Guilin,Guilin Normal College,Campus,153,25.28569492,110.2545589,19.37916648,1799,28.67,1938
+70,Southern,Guangxi,Guilin,Guilin University of Technology,Campus,154,25.06536408,110.2991807,19.47083332,1832,140,2007
+71,Southwestern,Guizhou,Guiyang,Guiyang University,Campus,1094,26.56037216,106.7738349,15.54166663,1109,80,2004
+72,Southwestern,Guizhou,Bijie,Guizhou University of Engineering Science,Campus,1482,27.29900409,105.3090964,13.64166666,1048,86.67,1938
+73,Southern,Hainan,Haikou,"HaiNan Normal University, Guilinyang Campus",Campus,14,19.98519366,110.5097682,24.35416659,1728,132.87,2008
+74,Southern,Hainan,Haikou,"HaiNan Normal University, Longkunnan Campus",Campus,18,19.99863824,110.3404002,24.45833321,1772,21.7,1949
+75,Southern,Hainan,Haikou,Hainan University,Campus,3,20.05797726,110.3251899,24.27083341,1708,340,1983
+76,Eastern,Zhejiang,Hangzhou,"Hangzhou Normal University, Yuquanshan Campus",Campus,19,30.23072874,120.1514104,16.56666675,1350,7.2,1992
+77,Central,Hubei,Shiyan,Hanjiang Normal University,Campus,154,32.55824137,111.5338405,15.85000023,964,28.67,1954
+78,Northern,Hebei,Baoding,"Hebei Agricultural University, East Campus",Campus,23,38.85018909,115.4769066,13.16250009,534,50,1902
+79,Northern,Hebei,Baoding,"Hebei Agricultural University, West Campus",Campus,21,38.82579898,115.4418383,13.09166657,502,66.53,2003
+80,Northern,Hebei,Shijiazhuang,Hebei Normal University,Campus,68,37.99724927,114.5148045,13.45833349,512,121.93,2011
+81,Northern,Hebei,Qinhuangdao,"Hebei Normal University of Science and Technology, Changli Campus",Campus,15,39.70777719,119.1742511,10.90833334,624,22,1941
+82,Southern,Guangxi,Hechi,Hechi University,Campus,276,24.504964,108.673519,20.26666657,1580,40,1951
+83,Northeastern,Heilongjiang,Daqing,Heilongjiang Bayi Agricultural University,Campus,141,46.58559299,125.1615841,4.058333356,451,113.5,1958
+84,Central,Henan,Zhengzhou,Henan Agricultural University,Campus,98,34.78637403,113.657227,14.91250006,624,26.4,1902
+85,Central,Henan,Zhengzhou,Henan Institute of Education,Campus,175,34.4628,113.4051,14.67500011,648,58.87,1955
+86,Central,Henan,Xinxiang,Henan Normal University,Campus,72,35.32882983,113.9072402,14.54583326,570,106.41,1923
+87,Central,Henan,Zhengzhou,Henan University of Chinese Medicine,Campus,97,34.76603012,113.6960443,14.80416674,628,13.3,1958
+88,Central,Henan,Zhengzhou,Henan University of Economics and Law,Campus,93,34.80445256,113.6565443,14.80833327,621,19.3,1948
+89,Central,Henan,Zhengzhou,Henan University of Technology,Campus,114,34.74188979,113.6188592,14.74999981,624,33.5,1956
+90,Central,Henan,Kaifeng,"Henan University, Minglun Campus",Campus,74,34.81184876,114.3634547,14.66666664,632,56.67,1912
+91,Northern,Hebei,Hengshui,Heng Shui University,Campus,22,37.74331387,115.6566081,13.41250009,470,32.1,1923
+92,Northwestern,Inner Mongolia,Bayannaoer,Hetao University,Campus,1039,40.77,107.44,8.208333428,146,46.13333333,1985
+93,Central,Hunan,Huaihua,Huaihua University,Campus,251,27.57622109,110.0183341,17.04999986,1314,73.33,1958
+94,Eastern,Anhui,Huainan,Huainan Normal University,Campus,50,32.6160376,116.9551359,15.51666668,903,81.067,1958
+95,Eastern,Jiangsu,Huaian,Huaiyin Normal University,Campus,17,33.60262746,119.0222381,14.75000006,914,120,1959
+96,Eastern,Anhui,Huangshan,HuangShan University,Campus,140,29.69386651,118.2876296,16.80833346,1620,120,1978
+97,Eastern,Fujian,Xiamen,"Huaqiao University, Xiamen Campus",Campus,2,24.60523161,118.0802349,20.70833325,1111,132,2006
+98,Eastern,Fujian,Quanzhou,"Huaqiao University, Quanzhou Campus",Campus,21,24.93727004,118.6407603,20.63333337,1150,226.8,1960
+99,Central,Hubei,Wuhan,Huazhong Agricultural University,Campus,33,30.47619992,114.3525475,17.07083338,1265,495,1898
+100,Central,Hubei,Wuhan,"Hubei University of Chinese Medicine, New Campus",Campus,26,30.45102138,114.2640008,17.10833315,1235,107.33,2003
+101,Central,Hubei,Wuhan,Hubei University Of Education,Campus,44,30.48237564,114.4452157,17.03750015,1304,114.53,1931
+102,Southern,Guangdong,Huizhou,"Huizhou University, Jinshanhu Campus",Campus,17,23.03986141,114.4134101,22.22499994,1869,165.073,1946
+103,Northeastern,Inner Mongolia,Hulunbuir,Hulunbuir College,Campus,648,49.19661423,119.7783417,-1.208333313,353,52,1977
+104,Central,Hunan,Yiyang,Hunan City University,Campus,135,28.315,112.2115,17.25833323,1378,634.583505,2002
+105,Central,Hunan,Changsha,Hunan University,Campus,55,28.18302785,112.9384467,17.61250018,1396,153.196,1926
+106,Central,Hunan,Changde,Hunan university of Arts and Science,Campus,34,29.0524186,111.6649491,17.30000011,1316,119.4,1958
+107,Central,Hunan,Xiangtan,Hunan University of Science and Technology,Campus,73,27.9119336,112.9090496,17.75833334,1424,207.13,2003
+108,Northwestern,Inner Mongolia,Hohhot,"Inner Mongolia Agricultural University, East Campus",Campus,1057,40.81060363,111.703985,6.32500006,271,29.7,1952
+109,Northwestern,Inner Mongolia,Hohhot,"Inner Mongolia Agricultural University, West Campus",Campus,1055,40.80441065,111.6954682,6.491666834,275,53.2,1952
+110,Northwestern,Inner Mongolia,Hohhot,"Inner Mongolia Normal University, Saihan Campus",Campus,1052,40.80296779,111.6899885,6.641666585,288,53.33,1952
+111,Northwestern,Inner Mongolia,Hohhot,Inner Mongolia University,Campus,1056,40.81,111.69,6.570833276,278,53.3333,1957
+112,Northeastern,Inner Mongolia,Tongliao,Inner Mongolia University For Nationalities,Campus,179,43.63,122.25,7.075000177,438,104.34,1958
+113,Northwestern,Inner Mongolia,Hohhot,Inner Mongolia University of Finance and Economics,Campus,1081,40.86,111.63,6.133333281,266,135,2000
+114,Northwestern,Inner Mongolia,Baotou,Inner Mongolia University of Science & Technology,Campus,1052,40.61919846,109.8282186,7.133333311,300,113,1956
+115,Northwestern,Inner Mongolia,Hohhot,"Inner Mongolia University of Technology, Jinchuan Campus",Campus,1066,40.79,111.55,6.162499954,275,66.6667,1994
+116,Northwestern,Inner Mongolia,Hohhot,"Inner Mongolia University, South Campus",Campus,1038,40.76,111.68,6.300000054,284,85.5333,2008
+117,Northeastern,Inner Mongolia,Zhalantun,Inner Mongolia Zhalantun Forestry School,Campus,320,48.02761947,122.7296228,2.679166714,445,26.0661,1952
+118,Central,Hubei,Wuhan,Jianghan University,Campus,26,30.51246111,114.1632806,17.09583324,1214,108.29,2001
+119,Eastern,Jiangsu,Wuxi,Jiangnan University,Campus,5,31.48422869,120.2724336,15.67083322,1016,210.05,1902
+120,Eastern,Jiangxi,Nanchang,Jiangxi Agricultural University,Campus,59,28.76546344,115.8278279,17.79999991,1565,263.3,1905
+121,Eastern,Jiangxi,Nanchang,Jiangxi University of Finance and Economics Mail,Campus,40,28.72924547,115.810145,17.77916656,1594,43.33,2004
+122,Eastern,Zhejiang,Jiaxing,Jiaxing Vocational Technical College,Campus,8,30.74521337,120.708631,16.05416649,1125,55.3,1950
+123,Southern,Guangdong,Meizhou,Jiaying University,Campus,133,24.1652,116.054,21.02083345,1535,107.07,1913
+124,Southern,Guangdong,Jieyang,Jieyang Polytechnic,Campus,13,23.4792488,116.3104632,21.86249999,1567,20.2,2000
+125,Northeastern,Jilin,Changchun,Jilin Agricultural University,Campus,225,43.808112,125.405141,5.13333339,597,100,1978
+126,Northeastern,Jilin,Changchun,Jilin Jianzhu University,Campus,230,43.79285934,125.4006667,5.125000025,606,94.8,2010
+127,Northeastern,Jilin,Siping,Jilin Normal University,Campus,175,43.1542787,124.3381897,6.899999926,629,92.2146,1958
+128,Northeastern,Jilin,Changchun,"Jilin University, South of Qianwei Campus",Campus,213,43.8209214,125.2771499,5.125000089,603,116.9,1946
+129,Eastern,Fujian,Xiamen,Jimei University,Campus,3,24.58247894,118.0903898,20.73749991,1081,153.33,1918
+130,Eastern,Jiangxi,Jingdezhen,Jingdezhen University,Campus,42,29.28001826,117.1781552,17.73749999,1672,67.08,1977
+131,Eastern,Jiangxi,Ji'an,Jinggangshan University,Campus,77,27.114911,115.031877,18.3083334,1570,180,1958
+132,Eastern,Zhejiang,Jinhua,Jinhua Polytechnic,Campus,59,29.06490019,119.6324995,17.77500016,1487,82.7,1994
+133,Northwestern,Inner Mongolia,Wulanchabu,"Jining Normal University, Quanshan Campus",Campus,1387,41.01221601,113.1307546,4.795833299,347,36,2001
+134,Southwestern,Guizhou,Kaili,Kaili University,Campus,752,26.532821,107.898405,16.39999987,1197,111.67,1958
+135,Northern,Shandong,Laiwu,Laiwu Vocational and Technical College,Campus,267,36.24300643,117.7241027,12.8666667,733,55.93,1952
+136,Northwestern,Gansu,Lanzhou,Lanzhou Jiaotong University,Campus,1541,36.10579575,103.7218465,9.49999998,350,104.33,1958
+137,Northwestern,Gansu,Lanzhou,"Lanzhou University, Panxuanlu Campus",Campus,1522,36.04640328,103.8575027,9.708333368,352,39.47,1909
+138,Northwestern,Gansu,Lanzhou,"Lanzhou University, Yixueyuan Campus",Campus,1522,36.04500652,103.8631049,9.704166686,350,38.87,1932
+139,Northwestern,Gansu,Lanzhou,"Lanzhou University, Yuzhong Campus",Campus,1752,35.9426179,104.1558626,7.945833322,331,364.53,2000
+140,Northern,Shandong,Liaocheng,Liaocheng University,Campus,33,36.43081009,116.0062548,13.74583328,587,266.67,1971
+141,Northeastern,Liaoning,Dalian,"Liaoning University of Traditional Chinese Medicine, Dalian Campus",Campus,0,39.06208804,121.876377,NA, ,13.3,2006
+142,Northeastern,Inner Mongolia,Hulunbuir,Manzhouli College Of Inner Mongolia University,Campus,650,49.61,117.42,-0.23333328,296,200,2008
+143,Eastern,Fujian,Fuzhou,MinJiang University,Campus,7,26.0664853,119.1646518,19.8833334,1357,120,1958
+144,Eastern,Jiangxi,Nanchang,"Nanchang University, Qianhu Campus",Campus,35,28.66363665,115.7995477,17.80833325,1581,297.47,2002
+145,Eastern,Jiangxi,Nanchang,"Nanchang University, Qingshanhu Campus",Campus,23,28.68832629,115.9341483,17.89166647,1535,40,2001
+146,Southern,Guangxi,Nanning,Nanning College for Vocational Technology,Campus,83,22.84382876,108.3166971,22.10416651,1385,8.53,1984
+147,Eastern,Jiangsu,Nanjing,Nanjing Forestry University,Campus,16,32.08089196,118.8099682,15.84166668,1052,686.33,1902
+148,Eastern,Jiangsu,Nanjing,"Nanjing Normal University,  Xianlin Campus",Campus,38,32.1056579,118.9019512,15.76250015,1038,253.33,1902
+149,Eastern,Jiangsu,Nanjing,"Nanjing University, Gulou Campus",Campus,24,32.05801865,118.7750275,16.02499983,1074,53.33,1952
+150,Eastern,Jiangsu,Nanjing,"Nanjing University, Pukou Campus",Campus,26,32.18057565,118.700225,15.77916672,1013,189.87,1993
+151,Eastern,Jiangsu,Nanjing,"Nanjing University, Xianlin Campus",Campus,37,32.12078142,118.9532451,15.62083333,1026,327.33,2009
+152,Eastern,Jiangsu,Nanjing,NanJing XiaoZhuang University,Campus,36,32.04138,118.847801,15.8291666,1049,86.6,1927
+153,Northern,Tianjin,Tianjin,Nankai University,Campus,3,38.9876259,117.3401406,13.01249999,546,455.69,1919
+154,Central,Henan,Nanyang,Nanyang Normal University,Campus,133,32.97584343,112.4877938,15.49166673,923,123.8,1907
+155,Eastern,Taiwan,Yilan,National Chengchi University,Campus,11,24.7462695,121.7489071,22.21249994,3027,104,1954
+156,Eastern,Taiwan,Yilan,National Ilan University NIU,Campus,11,24.7462695,121.7489071,22.21249994,3027,15,1926
+157,Eastern,Taiwan,Gaoxiong,National Kaohsiung University of Applied Science,Campus,13,22.6491141,120.328829,24.47499986,2052,13.87,1963
+158,Eastern,Taiwan,Pingtung,National Pingtung University of Science and Technology,Campus,90,22.644444,120.609764,24.16666667,3061,285,1983
+159,Eastern,Taiwan,Gaoxiong,National Sun Yat-sen University,Campus,15,22.6264249,120.265843,24.16666659,1911,70.29,1980
+160,Eastern,Taiwan,Taoyuan,National Taiwan Sport University,Campus,233,25.0306639,121.387674,21.02916678,2701,63.4,1987
+161,Eastern,Taiwan,Taipei,National Taiwan University,Campus,16,25.0173405,121.5397518,22.27499974,2759,108.62,1928
+162,Eastern,Taiwan,Hsinchu,National Tsing Hua University,Campus,30,24.79447,120.9652112,21.83333341,1819,8.2297,1940
+163,Eastern,Taiwan,Tainan,National University of Tainan,Campus,23,22.9847814,120.2079978,23.99583348,2363,11.85,1922
+164,Northeastern,Inner Mongolia,Chifeng,Nei Meng Gu Jiao Tong Zhi Ye Ji Shu Xue Xiao,Campus,587,42.27,118.89,7.541666687,369,40,1974
+165,Eastern,Zhejiang,Ningbo,"Ningbo City College of Vocational Technology, Kouxi Campus",Campus,22,29.68918656,121.282632,16.38333332,1264,15.67,2003
+166,Northwestern,Ningxia,Yinchuan,Ningxia University,Campus,1114,38.49599981,106.1343345,8.845833414,192,158,1958
+167,Northern,Hebei,Langfang,North China University of Science and Technology,Campus,27,39.62277032,118.1564072,12.12500008,650,180,1895
+168,Central,Henan,Zhengzhou,North China University of Water Resources and Electric Power,Campus,92,34.81365499,113.6689904,14.75416663,623,37.3,1951
+169,Northwestern,Ningxia,Yinchuan,North Minzu University,Campus,1119,38.49614286,106.1026313,8.920833436,189,108.27,1984
+170,Southwestern,Sichuan,Nanchong,North Sichuan Medical College,Campus,276,30.79816922,106.0768851,17.64166667,1113,86.67,1951
+171,Northeastern,Heilongjiang,Harbin,Northeast Agricultural University,Campus,137,45.74032904,126.7229171,4.283333381,542,197.3,1948
+172,Northeastern,Jilin,Changchun,Northeast Normal University,Campus,216,43.85945049,125.3248564,5.445833291,609,73,1949
+173,Northeastern,Jilin,Changchun,"Northeast Normal University, Jingyue Campus",Campus,214,43.82483928,125.4207579,5.141666755,608,94,2002
+174,Northwestern,Shaanxi,Xianyang,Northwest A&F University,Campus,458,34.26347034,108.0667287,13.26249996,660,376.9,1934
+175,Northwestern,Gansu,Lanzhou,Northwest Normal University,Campus,1546,36.09891009,103.7356296,9.504166683,341,64,1902
+176,Northwestern,Gansu,Lanzhou,"Northwest University for Nationalities, Yuzhong Campus",Campus,1761,35.93507021,104.1599329,7.791666677,332,92.4,2004
+177,Northern,Shandong,Qingdao,"Ocean University of China, Yushan Campus",Campus,25,36.06237788,120.3308915,12.86250008,677,50.67,1924
+178,Northwestern,Inner Mongolia,Ordos,ORDOS INSTITUDE OF TECHNOLOGY,Campus,1307,39.61,109.82,6.13333336,375,107.7933333,2008
+179,Northwestern,Inner Mongolia,Ordos,Ordos Vocational College,Campus,1307,39.61,109.82,6.13333336,375,67.66666667,1979
+180,Northern,Beijing,Beijing,Party School of the Central Committee of C.P.C,Campus,58,40.0062808,116.2722097,12.42916674,546,21.73,1949
+181,Northern,Beijing,Beijing,"Peking University, Yanyuan Campus",Campus,55,39.99159858,116.304155,12.35416659,552,274.1118,1898
+182,Southwestern,Yunnan,Simao,Pu'er University,Campus,1330,22.77113195,100.9991885,18.9708333,1495,6.8,1978
+183,Northern,Shandong,Qingdao,Qingdao Agricultural University,Campus,9,36.31889087,120.3910543,13.12083336,704,134.4,2000
+184,Northwestern,Qinghai,Xining,Qinghai university,Campus,2316,36.72922559,101.7493594,5.074999865,380,192,1958
+185,Northeastern,Heilongjiang,Qiqihar,Qiqihar University,Campus,149,47.35148591,123.9234439,4.195833353,424,135.9,1952
+186,Northern,Shandong,Qufu,Qufu Normal University,Campus,66,35.59580983,116.9635418,13.95833337,728,72,1956
+187,Southwestern,Yunnan,Qujing,Qujing Normal University,Campus,1910,25.50733914,103.785889,14.7291666,988,66.67,2003
+188,Eastern,Fujian,Sanming,Sanming University,Campus,152,26.20215854,117.5599946,19.89583345,1524,67.47,2004
+189,Northwestern,Shaanxi,Xi'an,"Shaanxi Normal University, Changan Campus",Campus,436,34.15468788,108.8873113,13.57916664,615,100,2000
+190,Northwestern,Shaanxi,Xi'an,"Shaanxi Normal University, Yanta Campus",Campus,429,34.20510319,108.94795,13.97083331,623,53.3,1944
+191,Northern,Shandong,Tai'an,"Shandong Agricultural University, North Campus",Campus,153,36.19421734,117.1127087,13.53333331,754,191.4977,1902
+192,Northern,Shandong,Tai'an,"Shandong Agricultural University, South Campus",Campus,127,36.16382743,117.1513113,13.56249993,730,138.6,2003
+193,Northern,Shandong,Jinan,"Shandong University, East Campus",Campus,51,36.67163365,117.054077,13.84999998,699,54.67,1958
+194,Northern,Shandong,Weihai,"Shandong University, Weihai Campus",Campus,8,37.52934772,122.0551807,12.45833321,689,106.67,1984
+195,Eastern,Shanghai,Shanghai,Shanghai Institute of Technology,Campus,7,31.16870046,121.4170516,16.39166672,1038,10.5,1956
+196,Eastern,Shanghai,Shanghai,Shanghai Jiao Tong University,Campus,5,31.02764974,121.4318597,16.38750002,1009,309.25,1985
+197,Eastern,Shanghai,Shanghai,"Shanghai University, Baoshan Campus",Campus,7,31.31798635,121.3879797,16.29166673,1065,27.5,1999
+198,Northwestern,Shaanxi,Shangluo,Shangluo University,Campus,723,33.86591605,109.9493856,13.75000006,731,34.9886,1976
+199,Central,Henan,Shangqiu,Shangqiu Normal University,Campus,52,34.2607,115.37,14.69166676,722,713.29938,1905
+200,Central,Henan,Shangqiu,Shangqiu University,Campus,49,34.40312938,115.7149855,14.7208333,722,134.5,2002
+201,Northern,Shanxi,Jinzhong,Shanxi Agricultural University,Campus,800,37.42339732,112.5760178,10.37083329,448,149.33,1907
+202,Northern,Shanxi,Taiyuan,Shanxi University,Campus,781,37.8002799,112.5805267,10.34583337,405,137.8,1954
+203,Southern,Guangdong,Shaoguan,Shaoguan University,Campus,75,24.80708386,113.6085614,20.82083313,1561,167.4,1958
+204,Northeastern,Liaoning,Shenyang,Shenyang Agricultural University,Campus,75,41.82430691,123.5637111,8.166666701,670,683.067,1952
+205,Northeastern,Liaoning,Shenyang,"Shenyang University, North Campus",Campus,50,41.82342147,123.451259,8.499999856,633,11,1980
+206,Southern,Guangdong,Shenzhen,Shenzhen University,Campus,22,22.53559625,113.9320387,22.77916674,1848,114,1983
+207,Southwestern,Sichuan,Ya'an,"Sichuan Agricultural University, Ya'an Campus",Campus,590,29.983877,103.001316,16.59166668,1643,120,1956
+208,Southwestern,Sichuan,Chengdu,Sichuan Normal University,Campus,499,30.615519,104.129339,16.67500018,971,200,1946
+209,Southwestern,Sichuan,Chengdu,"Sichuan University, Huaxi Campus",Campus,497,30.64268679,104.0662196,16.75833332,972,12,2000
+210,Southwestern,Sichuan,Chengdu,"Sichuan University, Jiangan Campus",Campus,480,30.55762972,103.9981338,16.78749988,1015,242.73,2002
+211,Southwestern,Sichuan,Chengdu,"Sichuan University, Wangjiang Campus",Campus,493,30.63358525,104.0799612,16.59583336,976,200,1896
+212,Eastern,Jiangsu,Taipei,Soochow University,Campus,4,31.27559174,120.7261507,15.78750001,1013,59.33,2004
+213,Southern,Guangdong,Guangzhou,South China Agricultural University,Campus,36,23.16012347,113.3459041,21.98333331,1674,551.3,1909
+214,Southern,Guangdong,Guangzhou,"South China Normal University, Shipai Campus",Campus,17,23.14059106,113.3450756,22.03333354,1658,81.3453,1933
+215,Southern,Guangdong,Guangzhou,"Southern Medical University, Guangzhou Campus",Campus,39,23.18955764,113.3287501,22.05416656,1635,41,1951
+216,Southern,Guangdong,Foshan,"Southern Medical University, Shunde Campus",Campus,0,22.78853034,113.2237193,22.35833335,1802,120,2008
+217,Southwestern,Chongqing,Chongqing,Southwest University,Campus,263,29.82665026,106.4230002,18.15833341,1146,533.33,1906
+218,Southwestern,Yunnan,Kunming,Southwest Forestry University,Campus,1949,25.06368871,102.7571292,15.21250001,934,80.273,1939
+219,Southwestern,Sichuan,Emeishan,"Southwest Jiaotong University, Emei Campus",Campus,497,29.57557266,103.4476627,16.88750013,1566,66.67,1989
+220,Southwestern,Sichuan,Chengdu,"Southwest Jiaotong University, Jiuliti Campus",Campus,506,30.69795768,104.0493923,16.55416662,901,66.67,1986
+221,Southwestern,Sichuan,Chengdu,Southwest Minzu University,Campus,498,30.6363269,104.048582,16.74166659,975,26.67,1951
+222,Southwestern,Sichuan,Mianyang,Southwest University of Science and Technology,Campus,484,31.53716793,104.6924518,16.51250011,949,266.67,1952
+223,Southwestern,Sichuan,Chengdu,"Southwestern University of Finance and Economics, Guanghua Campus",Campus,504,30.66947897,104.0130695,16.52916669,909,59,1925
+224,Southern,Guangdong,Guangzhou,"Sun Yat-sen University, South Campus",Campus,19,23.10074621,113.2927737,22.11666663,1680,120.8,1952
+225,Southern,Guangdong,Zhuhai,"Sun Yat-sen University, Zhuhai Campus",Campus,21,22.34877458,113.5838061,22.70416653,1921,357.1,2000
+226,Eastern,Jiangsu,Suqian,Suqian College,Campus,28,33.93098606,118.2909397,14.67916674,775,88,2002
+227,Northern,Shanxi,Taiyuan,"Taiyuan Normal University, South Campus",Campus,787,37.78000765,112.600229,10.16666649,398,5.87,1999
+228,Northern,Shanxi,Taiyuan,Taiyuan University Foreign Language Teachers college,Campus,784,37.83553369,112.539279,10.34166665,413,10.005,2004
+229,Northern,Shanxi,Taiyuan,"Taiyuan University, New Campus",Campus,768,37.69425114,112.6020488,10.12499998,418,91.92,2006
+230,Northern,Hebei,Tangshan,Tangshan Normal University,Campus,27,39.67221712,118.1683171,12.00416651,638,43.33,1956
+231,Northwestern,Xinjiang,Alar,Tarim University,Campus,1013,40.5441762,81.29474813,11.3375,60,171,1958
+232,Southern,Xianggang,Shatian,The Chinese University of Hong Kong,Campus,120,22.4205642,114.2069114,22.20833333,2157,137.3,1963
+233,Northern,Tianjin,Tianjin,Tianjin Normal University,Campus,3,39.06099861,117.1206791,13.07916658,542,233.33,2005
+234,Northwestern,Gansu,Tianshui,Tianshui Normal University,Campus,1140,34.57542218,105.770928,11.61250014,609,44.67,1959
+235,Southwestern,Tibet,Lhasa,Tibet University,Campus,3657,29.64558611,91.14654167,7.666666761,420,93.3,1985
+236,Northeastern,Jilin,Tonghua,Tonghua Normal University,Campus,431,41.74482338,125.9812875,5.63333338,886,30,1958
+237,Eastern,Shanghai,Shanghai,Tongji University,Campus,6,31.28580449,121.4967258,16.51666654,1087,74,1907
+238,Northern,Beijing,Beijing,Tsinghua University,Campus,52,40.00151062,116.3208425,12.34166662,548,450.38,1911
+239,Eastern,Taiwan,Taizhong,Tunghai University,Campus,157,24.1798677,120.604492,21.7166667,1813,135.65,1955
+240,Northwestern,Inner Mongolia,Ulanqab,Ulanqab Medical College,Campus,1332,40.98,113.17,4.874999826,346,45.33333333,1959
+241,Northwestern,Inner Mongolia,Ulanqab,Ulanqab Vocational College,Campus,1332,40.98,113.18,4.86666658,342,58.8,2004
+242,Eastern,Anhui,Hefei,University of Science and Technology of China,Campus,33,31.83822861,117.2640295,16.20833332,1118,145,1971
+243,Eastern,Anhui,Wuhu,Wannan Medical College,Campus,14,31.3447979,118.3682714,16.31666657,1216,46.67,1958
+244,Northern,Shandong,Qingzhou,Weifang Engineering Vocational College,Campus,209,36.63032433,118.4772121,12.88333326,704,24,1978
+245,Southwestern,Yunnan,Wenshan,Wenshan University,Campus,1273,23.36031406,104.2463567,17.81250002,1397,37.2,1984
+246,Eastern,Zhejiang,Wenzhou,"Wenzhou University, South Campus",Campus,7,27.92167057,120.6930554,17.77499996,1496,69,2000
+247,Eastern,Anhui,Liu'an,West Anhui University,Campus,37,31.767883,116.488095,16.20833333,1109,73.3333,2000
+248,Central,Hubei,Wuhan,Wuhan University,Campus,43,30.5401526,114.3572954,17.04999991,1242,345.8,1932
+249,Central,Hubei,Wuhan,"Wuhan University of Science and Technology, Huangjiahu Campus",Campus,25,30.44252667,114.260395,17.1041665,1256,66.67,2005
+250,Eastern,Fujian,Nanping,WuYi University,Campus,223,27.73033743,117.9993831,18.58749984,1749,200,2007
+251,Northwestern,Shaanxi,Xi'an,"Xi'an University of Posts & Telecommunications, New Campus",Campus,437,34.15524108,108.8965089,13.57916664,615,73.33,2003
+252,Eastern,Fujian,Xiamen,Xiamen University,Campus,10,24.44097164,118.0895473,21.20416677,1066,600,1921
+253,Northwestern,Xinjiang,Urumqi,Xinjiang Agricultural University,Campus,847,43.81132136,87.56355684,7.470833242,231,99.7,1952
+254,Northwestern,Xinjiang,Urumqi,Xinjiang Normal University,Campus,808,43.83524167,87.59400278,7.679166933,229,44.2,1978
+255,Northwestern,Xinjiang,Urumqi,Xinjiang University,Campus,929,43.76420169,87.6157143,7.274999996,238,72.38,1924
+256,Central,Henan,Xinyang,Xinyang Normal University,Campus,99,32.13648132,114.0354415,15.66249997,1086,100,1975
+257,Northwestern,Shaanxi,Yan'an,Yan'an University,Campus,977,36.62113054,109.4570163,10.23333327,527,133.3,1941
+258,Northeastern,Jilin,Yanji,Yanbian University,Campus,192,42.90794057,129.4856167,5.608333444,552,296,1949
+259,Eastern,Jiangsu,Yancheng,Yancheng Institute of Technology,Campus,2,33.38423372,120.1960701,14.51666671,972,151.33,1958
+260,Southwestern,Chongqing,Chongqing,Yangtze Normal University,Campus,321,29.757048,107.269196,17.85416656,1208,126.667,2005
+261,Central,Hubei,Jingzhou,"Yangtze University, East Campus",Campus,33,30.33394301,112.1780962,16.88749992,1100,71.29,2003
+262,Central,Hubei,Jingzhou,"Yangtze University, West Campus",Campus,33,30.35729026,112.143441,16.85000001,1080,166.67,2003
+263,Northern,Hebei,Qinhuangdao,"Yanshan University, East Campus",Campus,18,39.90383574,119.5325391,10.82499997,612,266.67,1920
+264,Eastern,Jiangxi,Yichun,Yichun University,Campus,102,27.797848,114.364106,17.68750015,1487,46.67,2011
+265,Northwestern,Xinjiang,Yining,Yili Normal University,Campus,649,43.93527469,81.30142848,9.108333246,255,124.687,1948
+266,Central,Hunan,Changsha,Yuelu Academy,Campus,70,28.18392785,112.9356767,17.56666663,1401,3,1986
+267,Central,Hunan,Yueyang,YueYang Vocational Technical College,Campus,64,29.29474175,113.1379525,17.29999982,1322,98.067,2003
+268,Southwestern,Yunnan,Kunming,Yunnan Agricultural University,Campus,1942,25.13245775,102.7475085,15.34166677,918,143.3402,1938
+269,Southwestern,Yunnan,Kunming,Yunnan Normal University,Campus,1902,25.05786131,102.6944734,15.35416668,938,25.53,1938
+270,Southwestern,Yunnan,Kunming,"Yunnan Normal University, Chenggong Campus",Campus,1948,24.86196192,102.8432499,15.09166669,925,37.8,2010
+271,Southwestern,Yunnan,Kunming,"Yunnan University, Dongluyuan Campus",Campus,1905,25.05858996,102.7001627,15.23749995,937,46.2,1922
+272,Southwestern,Yunnan,Yuxi,Yuxi Normal University,Campus,1732,24.34259197,102.5617355,16.29999997,896,72.89145,1978
+273,Northern,Shandong,Zaozhuang,Zaozhuang University,Campus,107,34.90181405,117.5305961,14.01666677,708,76.13,1971
+274,Eastern,Zhejiang,Lin'an,Zhejiang A&F University,Campus,45,30.25919325,119.7239754,16.15833343,1332,133.5,1958
+275,Eastern,Zhejiang,Jinhua,Zhejiang Normal University,Campus,70,29.13852901,119.6417997,17.78333319,1472,220,1956
+276,Eastern,Zhejiang,Hangzhou,"Zhejiang University, Huangjiachi Campus",Campus,14,30.27233779,120.1916914,16.67083317,1278,88.67,1934
+277,Eastern,Zhejiang,Hangzhou,"Zhejiang University, Yuquan Campus",Campus,27,30.26465584,120.1162743,16.58333328,1327,86.67,1897
+278,Eastern,Zhejiang,Hangzhou,"Zhejiang University, Zhijiang Campus",Campus,50,30.19520016,120.1211403,16.39583338,1323,43.33,1911
+279,Eastern,Zhejiang,Hangzhou,"Zhejiang University, Zijingang Campus",Campus,5,30.30691951,120.081721,16.59583328,1327,412.8,2001
+280,Central,Henan,Zhengzhou,Zhengzhou Normal University,Campus,90,34.8643149,113.6416435,14.7375,592,70.67,1949
+281,Central,Henan,Zhengzhou,Zhengzhou University of Aeronautics,Campus,84,34.78998352,113.7808617,14.74999995,601,123.7,1949
+282,Central,Henan,Zhengzhou,Zhengzhou University of Light Industry,Campus,96,34.80057683,113.6485973,14.78749999,620,37,1977
+283,Central,Henan,Zhengzhou,"Zhengzhou University, Old Campus",Campus,110,34.74400841,113.633083,14.76249985,626,57,1956
+284,Central,Henan,Zhengzhou,"Zhengzhou University, New Campus",Campus,106,34.81819433,113.5297141,14.73333328,597,323,2000
+285,Southern,Guangdong,Guangzhou,Zhongkai University of Agriculture and Engineering,Campus,37,23.37327537,113.4399606,21.92499991,1684,147.886,1927
+286,Southern,Guangdong,Zhuhai,Zunyi Medical University,Campus,5,22.07317481,113.3963117,22.79999999,2040,77.484965,2001
+287,Northwestern,Inner Mongolia,Baotou,Baotou Labor Park,Park,1042,40.39,109.52,6.950000032,293,53.8,1958
+288,Northwestern,Inner Mongolia,Baotou,Baotou People's Park,Park,1031,40.35,110,6.583333274,311,11.2,1953
+289,Northwestern,Inner Mongolia,Baotou,BaotouYingbin Park,Park,1048,40.39,109.5,6.958333327,296,25.7,1996
+290,Northwestern,Inner Mongolia,Baotou,Baotou Bayi Park,Park,1049,40.39,109.49,6.98750001,292,21,1958
+291,Northwestern,Inner Mongolia,Baotou,Baotou Bayingole Park,Park,1034,40.36,109.57,6.941666669,313,30,2005
+292,Northern,Beijing,Beijing,Beijing Beihai Park,Park,50,39.91888889,116.3828056,12.4375,569,68,1163
+293,Northern,Beijing,Beijing,Beijing Chaoyang Park,Park,40,39.94265833,116.4746694,12.40416672,553,278,1984
+294,Northern,Beijing,Beijing,Beijing Old Summer Palace,Park,140,40.016,116.2166667,12.01249998,542,350,1860
+295,Northern,Beijing,Beijing,Beijing Summer Palace,Park,56,39.98333333,116.25,12.43750005,546,300.8,1750
+296,Northern,Beijing,Beijing,Beijing Taoranting Park,Park,48,39.87473611,116.3822361,12.45000001,570,59,1952
+297,Northern,Beijing,Beijing,Beijing Temple of Heaven Park,Park,52,39.88194444,116.4066667,12.43749994,561,273,1420
+298,Northern,Beijing,Beijing,Beijing Yuyuantan Park,Park,59,39.9,116.3,12.39583322,572,104.79,1960
+299,Northern,Beijing,Beijing,Beijing Zizhuyuan Park,Park,59,39.93333333,116.3083333,12.36249997,566,45.81,1953
+300,Northwestern,Inner Mongolia,Ordos,Ordos Bulata Park,Park,1281,39.48,110.3,6.424999888,375,20.71,NA
+301,Central,Hunan,Changsha,Changsha Martyrs Cemetery,Park,33,28.21333333,112.9930556,17.67916664,1365,118,1957
+302,Central,Hunan,Changsha,Changsha Orange Island Park,Park,29,28.19361111,112.9558333,17.72499983,1393,91.6,1961
+303,Central,Hunan,Changsha,Changsha Yanghu Wetland Park,Park,36,28.12361111,112.9336111,17.81666661,1395,485,2008
+304,Central,Hunan,Changsha,Changsha Yuelu Mountain Park,Park,40,28.20944444,112.9236111,17.68750008,1402,3600,NA
+305,Southwestern,Sichuan,Chengdu,Chengdu Botanical Garden,Park,533,30.76527778,104.1227778,16.61250003,931,42,1991
+306,Southwestern,Sichuan,Chengdu,Chengdu Dufu Thatched Cottage Park,Park,501,30.66361111,104.0261111,16.70416669,948,24,1500
+307,Southwestern,Sichuan,Chengdu,Chengdu Funan River Greenbelt,Park,496,30.66833333,104.0916667,16.63750011,964,25,2005
+308,Southwestern,Sichuan,Chengdu,Chengdu Panda Breeding Base,Park,540,30.74,104.1402778,16.49999984,925,66.67,1995
+309,Southwestern,Sichuan,Chengdu,Chengdu People's Park,Park,486,30.65694444,104.2238889,16.69583329,957,11.26,1920
+310,Southwestern,Sichuan,Chengdu,Chengdu Tazishan Park,Park,504,30.63694444,104.1219444,16.62083335,949,26.8,1995
+311,Southwestern,Sichuan,Chengdu,Chengdu Wangjianglou Park,Park,489,30.63416667,104.0891667,16.60416673,977,11.77,Qing Dynasty
+312,Southwestern,Sichuan,Chengdu,Chengdu Zoo,Park,476,30.71305556,104.2702778,16.72916672,945,17.73,1984
+313,Northwestern,Inner Mongolia,Ordos,Delta Park in Ordos City,Park,1397,39.48,109.56,6.300000031,354,15.8,2009
+314,Southern,Guangdong,Dongguan,Dongguan Tongsha Ecological Park,Park,37,22.97,113.78,22.15416678,1774,4000,1999
+315,Southwestern,Yunnan,Dali,Erhai Park,Park,1971,25.6,100.25,15.30833341,839,57.6,1976
+316,Northwestern,Inner Mongolia,Baotou,Baotou Fairview Park ,Park,1047,40.38,109.51,6.958333292,291,13.78,2008
+317,Eastern,Anhui,Fuyang,Fuyang Wenfeng Park,Park,34,32.89,115.82,15.56250001,891,14,1989
+318,Southern,Guangdong,Guangzhou,Guangzhou Bay Tsui Wetland Park,Park,0,23.04083333,113.3530556,22.18333336,1660,66.67,2007
+319,Southern,Guangdong,Guangzhou,Guangzhou Dongshan Lake Park,Park,16,23.1,113.2833333,22.10833339,1711,33.1,1969
+320,Southern,Guangdong,Guangzhou,Guangzhou Haizhuhu Park,Park,0,23.07805556,113.3180556,22.13333317,1724,149.89,2007
+321,Southern,Guangdong,Guangzhou,Guangzhou Liuhua Lake Park,Park,12,23.13333333,113.2333333,22.19166676,1734,54.4,1954
+322,Southern,Guangdong,Guangzhou,Guangzhou Liwan Lake Park,Park,0,23.11666667,113.2166667,22.24583324,1727,27.5,1954
+323,Southern,Guangdong,Guangzhou,Guangzhou Luhu Park,Park,35,23.15333333,113.2725,21.99166667,1648,250,1944
+324,Southern,Guangdong,Guangzhou,Guangzhou Pearl River Park,Park,3,23.12222222,113.3341667,22.09166678,1631,28,1997
+325,Southern,Guangdong,Guangzhou,Guangzhou Tianhe Park,Park,16,23.13111111,113.3611111,22.04583355,1653,70.7,2008
+326,Southern,Guangdong,Guangzhou,Guangzhou Xiaogang Park,Park,8,23.09888889,113.2758333,22.10833339,1711,19.7,1986
+327,Southern,Guangdong,Guangzhou,Guangzhou Yuexiu Park,Park,20,23.13333333,113.2666667,22.11666667,1727,82.2,1968
+328,Southern,Guangxi,Guilin,Guilin Botanical Garden,Park,243,25.25,110.2712361,19.39583329,1830,47.9,NA
+329,Southern,Guangxi,Guilin,Guilin Chuanshan Park,Park,155,25.31021667,110.2992528,19.37083314,1818,25.25,1980
+330,Southern,Guangxi,Guilin,Guilin Diecaishan Park,Park,156,25.30163472,110.2966125,19.40416658,1810,20,NA
+331,Southern,Guangxi,Guilin,Guilin Nanxi Park,Park,164,25.2859625,110.2826306,19.43333338,1817,18,NA
+332,Southern,Guangxi,Guilin,Guilin Reed Flute Park,Park,151,25.25612778,110.2657861,19.48333355,1822,40.27,1961
+333,Southern,Guangxi,Guilin,Guilin Seven Star Park,Park,152,25.25214167,110.3082778,19.49166654,1814,137.4,1980
+334,Southern,Guangxi,Guilin,Guilin Xishan Park,Park,164,25.29405694,110.27,19.3999999,1797,87.89,Tang Dynasty
+335,Southern,Guangxi,Guilin,Guilin Yushan Park,Park,154,25.25486667,110.2971347,19.56249994,1818,20,NA
+336,Eastern,Zhejiang,Hangzhou,Hangzhou Bauhinia Park,Park,11,30.31,120.14,16.79583339,1299,0.9,NA
+337,Eastern,Zhejiang,Hangzhou,Hangzhou Botanical Garden,Park,18,30.25,120.12,16.71249997,1309,36,1969
+338,Eastern,Zhejiang,Hangzhou,Hangzhou Henghe Park,Park,16,30.25,120.19,16.69166667,1329,1.5,NA
+339,Eastern,Zhejiang,Hangzhou,Hangzhou Huagang Fish Watching,Park,17,30.23,120.14,16.64166674,1320,21,1977
+340,Eastern,Zhejiang,Hangzhou,Hangzhou Hupao Park,Park,40,30.21,120.13,16.49166674,1327,4.9,NA
+341,Eastern,Zhejiang,Hangzhou,Hangzhou Huxin Pavilion,Park,10,30.25,120.14,16.78333308,1312,0.5,1966
+342,Eastern,Zhejiang,Hangzhou,Hangzhou Liulang Wenying,Park,48,30.24,120.16,16.65833346,1379,17,Southern Song Dynasty
+343,Eastern,Zhejiang,Hangzhou,Hangzhou Quyuan Wind Lotus,Park,13,30.25,120.13,16.74999981,1308,11,1993
+344,Eastern,Zhejiang,Hangzhou,Hangzhou Santan Yingyue,Park,13,30.24,120.15,16.70833332,1369,7.1,1998
+345,Eastern,Zhejiang,Hangzhou,Hangzhou Senior Park,Park,19,30.25,120.16,16.76250015,1384,2.9,NA
+346,Eastern,Zhejiang,Hangzhou,Hangzhou Shuyuan,Park,14,30.29,120.14,16.80416688,1312,3.2,1998
+347,Eastern,Zhejiang,Hangzhou,Hangzhou Zhaohui Park,Park,16,30.28,120.16,16.79166671,1332,3.8,1997
+348,Eastern,Zhejiang,Hangzhou,Hangzhou Zoo,Park,40,30.21,120.13,16.49166674,1327,25,1988
+349,Northwestern,Inner Mongolia,Hohhot,Hohhot Arboretum,Park,1055,40.80611111,111.7022222,6.350000066,272,26,1957
+350,Northwestern,Inner Mongolia,Hohhot,Hohhot Botanical Garden,Park,1049,40.81194444,111.6352778,6.84999995,299,116.17,1991
+351,Northwestern,Inner Mongolia,Hohhot,Hohhot Manduhai Park,Park,1054,40.81305556,111.6788889,6.683333275,278,18,1974
+352,Northwestern,Inner Mongolia,Hohhot,Hohhot Nanhu Wetland Park,Park,1030,40.749,111.645,6.299999992,276,1165,2003
+353,Northwestern,Inner Mongolia,Hohhot,Hohhot Northern Suburb Park,Park,1065,40.84694444,111.6586111,6.279166621,280,13.46,NA
+354,Northwestern,Inner Mongolia,Hohhot,Hohhot Princess Palace Park,Park,1060,40.83361111,111.6497222,6.408333331,285,13.4,1991
+355,Northwestern,Inner Mongolia,Hohhot,Hohhot Qingcheng Park,Park,1049,40.805,111.6605556,6.824999919,299,48,1931
+356,Northwestern,Inner Mongolia,Hohhot,Hohhot Shiqi Park,Park,1003,40.47,111.4,6.212500021,320,20,1998
+357,Southwestern,Guizhou,Kaili,Kaili Apple Mountain Park,Park,738,26.58416667,107.9788889,16.45416662,1179,20,2001
+358,Southwestern,Yunnan,Kunming,Kunming Baohai Park,Park,1896,25.0171,102.725,15.60416674,941,11.28,1995
+359,Southwestern,Yunnan,Kunming,Kunming Biji Cultural Square,Park,1889,25.0411,102.6646,15.22083327,944,6.51,1989
+360,Southwestern,Yunnan,Kunming,Kunming Black Dragon Pool,Park,1950,25.14,102.75,15.1791666,916,91.4,1733
+361,Southwestern,Yunnan,Kunming,Kunming Botanical Garden,Park,1973,25.143,102.7419,15.17499999,922,43.1,1934
+362,Southwestern,Yunnan,Kunming,Kunming Crescent Lake Park,Park,1894,25.0936,102.7248,15.28333339,921,20.68,2003
+363,Southwestern,Yunnan,Kunming,Kunming Cuihu Park,Park,1891,25.0516,102.7024,15.42916661,937,31.85,1830
+364,Southwestern,Yunnan,Kunming,Kunming Daguanlou Park,Park,1888,25.0279,102.673,15.20833322,943,32.91,1692
+365,Southwestern,Yunnan,Kunming,Kunming Guandu Forest Park,Park,1896,25.0113,102.7484,15.59583331,940,15.53,2003
+366,Southwestern,Yunnan,Kunming,Kunming Jinbi Park,Park,1896,25.0369,102.7105,15.77083321,940,1.88,1999
+367,Southwestern,Yunnan,Kunming,Kunming Lotus Pond Park,Park,1900,25.0635,102.6993,15.16249992,938,6.97,Tang Dynasty
+368,Southwestern,Yunnan,Kunming,Kunming Mianshan Forest Ecological Park,Park,1921,25.0507,102.6449,15.33749994,936,5.98,1996
+369,Southwestern,Yunnan,Kunming,Kunming Mile Temple Park,Park,1895,25.034,102.6976,15.69583344,942,5.2,1996
+370,Southwestern,Yunnan,Kunming,Kunming Tanhua Temple,Park,1924,25.0492,102.7484,15.79166672,937,10.56,Ming Dynasty
+371,Southwestern,Yunnan,Kunming,Kunming Wujiatang,Park,1888,24.94,102.71,15.20416679,909,86.67,2003
+372,Southwestern,Yunnan,Kunming,Kunming Xihua Park,Park,1890,25.0261,102.6832,15.31666656,940,10.35,1976
+373,Southwestern,Yunnan,Kunming,Kunming Yuantong Mountain Zoo,Park,1919,25.0572,102.7083,15.42916661,937,27.02,1949
+374,Southwestern,Yunnan,Kunming,Kunming Zhuantang Park,Park,1893,25.0424,102.693,15.59583332,942,2.01,Yuan Dynasty
+375,Central,Hunan,Loudi,Loudi Chunyuan Park,Park,141,27.73194444,112.0055556,17.6874999,1435,4.31,1997
+376,Central,Hunan,Loudi,Loudi Louxing Square,Park,140,27.72694444,111.9988889,17.66249993,1437,11,2003
+377,Central,Hunan,Loudi,Loudi Qingshan Park,Park,125,27.75611111,111.9825,17.73333333,1413,10,NA
+378,Central,Hunan,Loudi,Loudi Stone Horse Park,Park,126,27.74027778,112.0080556,17.69166658,1407,22.3,1999
+379,Central,Hunan,Loudi,Loudi Sunshuihe Park,Park,107,27.69611111,111.9877778,18.00000024,1400,22,NA
+380,Central,Hunan,Loudi,Loudi Yueqin Mountain Park,Park,127,27.75555556,111.9736111,17.80833346,1409,8,NA
+381,Central,Hunan,Loudi,Loudi Zhushan Park,Park,183,27.72083333,112.0144444,17.79166692,1412,110,2009
+382,Northeastern,Heilongjiang,Mudanjiang,Mudanjiang Beishan Park,Park,255,44.61,129.59,4.529166729,560,96.9,1980
+383,Northeastern,Heilongjiang,Mudanjiang,Mudanjiang People's Park,Park,233,44.59,129.63,4.604166706,590,74.4,1931
+384,Northeastern,Heilongjiang,Mudanjiang,Mudanjiang Riverside Park,Park,232,44.57,129.63,4.56250015,589,84.6,1983
+385,Northwestern,Inner Mongolia,Ordos,Ordos Dongsheng Park,Park,1394,39.48,109.57,6.304166714,353,20.45,NA
+386,Northwestern,Inner Mongolia,Ordos,Ordos Wetland Park,Park,1233,39.48,110.1,6.44583332,367,15.5,NA
+387,Northwestern,Inner Mongolia,Ordos,Ordos Meteorological Park,Park,1298,39.48,110.2,6.058333318,373,7.4,2005
+388,Eastern,Shanghai,Shanghai,Shanghai Bay Forest Park,Park,5,30.86,121,15.96666657,1052,1065.57,1999
+389,Eastern,Shanghai,Shanghai,Shanghai Botanical Garden,Park,7,31.14861111,121.4372222,16.35833342,977,60.59,1976
+390,Eastern,Shanghai,Shanghai,Shanghai Century Park,Park,5,31.21777778,121.5436111,16.32916669,1030,145.39,1996
+391,Eastern,Shanghai,Shanghai,Shanghai Chenshan Botanical Garden,Park,4,31.07388889,121.2163889,16.08333333,947,129.85,2007
+392,Eastern,Shanghai,Shanghai,Shanghai Gongqing Forest Park,Park,7,31.32527778,121.5480556,16.38750003,1063,112.79,1982
+393,Eastern,Shanghai,Shanghai,Shanghai Riviera Forest Park,Park,6,31.25,120.5666667,15.77916658,941,125.01,2003
+394,Southern,Guangdong,Shenzhen,Shenzhen Litchi Park,Park,852,25.27564028,114.0974722,15.99166673,1691,29,1975
+395,Eastern,Jiangsu,Suzhou,Suzhou Taihu National Wetland Park,Park,5,31.3,120.413,15.69999997,970,5500,2007
+396,Northern,Shanxi,Taiyuan,Taiyuan Fenhe Wetland Park,Park,786,37.89,112.53,10.1500001,410,115,2014
+397,Central,Hubei,Wuhan,Wuhan Zhongshan Park,Park,27,30.59,114.27,16.97499991,1295,32,1914
+398,Northwestern,Inner Mongolia,Hohhot,Hohhot Wulanfu Park,Park,1002,40.48,111.38,6.191666686,320,25,1992
+399,Eastern,Jiangsu,Wuxi,Wuxi Changguangnxi National Urban Wetland Park,Park,1,31.48944444,120.2552778,15.65000011,999,260,NA
+400,Northwestern,Shaanxi,Xi'an,Xi'an Xingqing Palace Park,Park,420,34.25,108.98,14.12916661,629,50,1958
+401,Northwestern,Inner Mongolia,Hohhot,Hohhot Xilin Park,Park,1004,40.46,111.41,6.212499919,332,29.8,2002
+402,Northwestern,Inner Mongolia,Ordos,Ordos Yikezhao Park,Park,1320,39.49,110,6.466666746,362,10.78,NA
+403,Northwestern,Ningxia,Yinchuan,Yinchuan Mingcuihu National Wetland Park,Park,1807,38.38,102.36,5.950000002,179,667,2001
+404,Northeastern,Inner Mongolia,Zhalantun,Zhalantun Suspension Bridge Park,Park,900,47.84,121.68,0.216666693,468,68,1918

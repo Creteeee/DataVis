@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shanghai Vascular Plant Biodiversity Benchmark</title>
+  <style>
+    :root {
+      --bg: #f4f8f2;
+      --panel: #ffffffd9;
+      --ink: #17322b;
+      --muted: #517368;
+      --accent: #2a7a4f;
+      --accent2: #3a8fb7;
+      --earth: #8a6d4a;
+      --line: #d5e3dc;
+      --warn: #a34f31;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, #d9efe2 0%, transparent 32%),
+        radial-gradient(circle at 90% 6%, #d7e8f1 0%, transparent 28%),
+        linear-gradient(180deg, #f8fbf7 0%, #eef5ef 100%);
+    }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 18px; }
+    .top {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 26px #a9c8b522;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(20px, 3vw, 36px); letter-spacing: .2px; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .kpi { background: #f8fcf7; border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+    .kpi .v { font-size: 22px; font-weight: 700; }
+    .kpi .l { color: var(--muted); font-size: 12px; }
+
+    .main { margin-top: 14px; display: grid; grid-template-columns: 1fr 340px; gap: 12px; }
+    .center { display: grid; grid-template-rows: auto auto auto; gap: 12px; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row3 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .panel h3 { margin: 0 0 8px; font-size: 15px; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; align-items: center; }
+    select, button { border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: #fff; color: var(--ink); }
+    button.active { background: #e5f2ea; border-color: #badac8; }
+
+    .chart { width: 100%; min-height: 280px; }
+    .bar { fill: var(--accent2); opacity: 0.86; }
+    .bar:hover { fill: var(--accent); opacity: 1; }
+    .axis text { fill: var(--muted); font-size: 11px; }
+    .axis line, .axis path { stroke: #cddbd4; }
+
+    .side .meta { font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .issue { border-left: 3px solid #c06a4d; background: #fff7f4; margin: 8px 0; padding: 8px; border-radius: 6px; }
+    .issue strong { color: var(--warn); }
+
+    .foot { margin-top: 12px; padding: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; font-size: 14px; line-height: 1.45; }
+    .foot b { color: #204639; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+
+    .tooltip {
+      position: fixed; pointer-events: none; background: #16362fcc; color: #f4fff9;
+      padding: 6px 8px; border-radius: 6px; font-size: 12px; opacity: 0; transform: translate(8px, 8px);
+      transition: opacity .15s ease;
+      max-width: 280px;
+      z-index: 999;
+    }
+
+    @media (max-width: 1100px) {
+      .main { grid-template-columns: 1fr; }
+      .row2, .row3 { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="top">
+    <h1>Shanghai Vascular Plant Biodiversity Benchmark</h1>
+    <div class="sub">Urban ecology exploratory dashboard for design-led benchmark curation. Source: <code>/Users/qing/Desktop/DATA/2023093-1.xlsx</code></div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="main">
+    <div class="center">
+      <div class="panel">
+        <h3>Family Distribution (Bar) + Species Hover</h3>
+        <div class="controls">
+          <label>Analysis mode:</label>
+          <button data-mode="all" class="modeBtn active">All (Recommended)</button>
+          <button data-mode="wild" class="modeBtn">Wild-focused</button>
+          <button data-mode="cultivated" class="modeBtn">Cultivated-focused</button>
+          <label for="famSel">Family filter:</label>
+          <select id="famSel"></select>
+        </div>
+        <svg id="barChart" class="chart" viewBox="0 0 1000 320" preserveAspectRatio="none"></svg>
+      </div>
+
+      <div class="row2">
+        <div class="panel">
+          <h3>Biodiversity Structure (Pie)</h3>
+          <svg id="pieChart" class="chart" viewBox="0 0 500 280" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="legend" id="pieLegend"></div>
+        </div>
+        <div class="panel">
+          <h3>Classification Hierarchy (Category -> Family Tree)</h3>
+          <div class="controls">
+            <label>Category zoom:</label>
+            <select id="catZoom"></select>
+          </div>
+          <svg id="treeChart" class="chart" viewBox="0 0 500 280" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+
+      <div class="row3">
+        <div class="panel">
+          <h3>Ecological Relationship Network (Family-Genus)</h3>
+          <svg id="networkChart" class="chart" viewBox="0 0 500 280" preserveAspectRatio="none"></svg>
+        </div>
+        <div class="panel">
+          <h3>Missingness + Metadata Diagnostics</h3>
+          <svg id="metaChart" class="chart" viewBox="0 0 500 280" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <h3>Dataset Overview</h3>
+        <div class="meta" id="metaBox"></div>
+      </div>
+      <div class="panel">
+        <h3>Benchmark Issues -> Curator Tasks</h3>
+        <div id="issuesBox"></div>
+      </div>
+      <div class="panel">
+        <h3>Dominant Family Drilldown</h3>
+        <div class="meta" id="drillBox">Select or hover a family in the bar chart.</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="foot">
+    <b>Ecological Interpretation & Benchmark Logic</b><br/>
+    This benchmark emphasizes structure before prediction: quantify diversity patterns, diagnose metadata quality, then define fair tasks.
+    Suggested evaluation slices: (1) family dominance detection, (2) hierarchy-aware classification consistency,
+    (3) robustness under missing ecological fields, and (4) synonym-aware taxonomy matching.
+  </section>
+</div>
+<div class="tooltip" id="tip"></div>
+
+<script>
+const data = {"familyTop": [["Rosaceae", 363], ["Asteraceae", 280], ["Poaceae", 235], ["Lamiaceae", 196], ["Fabaceae", 178], ["Sapindaceae", 104], ["Cyperaceae", 98], ["Theaceae", 93], ["Ranunculaceae", 78], ["Brassicaceae", 73], ["Asparagaceae", 71], ["Oleaceae", 68], ["Malvaceae", 66], ["Solanaceae", 64], ["Magnoliaceae", 61], ["Amaranthaceae", 60], ["Cupressaceae", 59], ["Polygonaceae", 55], ["Caprifoliaceae", 54], ["Aquifoliaceae", 42], ["Euphorbiaceae", 39], ["Apiaceae", 39], ["Crassulaceae", 38], ["Plantaginaceae", 38], ["Ericaceae", 37], ["Paeoniaceae", 37], ["Pinaceae", 36], ["Celastraceae", 35], ["Apocynaceae", 35], ["Cucurbitaceae", 34]], "categories": [["被子植物 Angiosperms", 3902], ["裸子植物 Gymnospermae", 136], ["蕨类植物 Pteridophyte", 88]], "status": [["本土", 2473], ["外来", 1653]], "native": [["上海原生种", 858], ["非上海原生", 380]], "invasive": [["非入侵", 1155], ["入侵", 83]], "hierarchy": {"蕨类植物 Pteridophyte": [["Dryopteridaceae", 22], ["Polypodiaceae", 11], ["Pteridaceae", 7], ["Thelypteridaceae", 7], ["Selaginellaceae", 5], ["Equisetaceae", 5], ["Dennstaedtiaceae", 4], ["Athyriaceae", 4], ["Aspleniaceae", 3], ["Salviniaceae", 3], ["Lycopodiaceae", 2], ["Ophioglossaceae", 2], ["Gleicheniaceae", 2], ["Isoetaceae", 1], ["Osmundaceae", 1], ["Hymenophyllaceae", 1], ["Lygodiaceae", 1], ["Marsileaceae", 1], ["Plagiogyriaceae", 1], ["Lindsaeaceae", 1], ["Blechnaceae", 1], ["Davalliaceae", 1], ["Onocleaceae", 1], ["Nephrolepidaceae", 1]], "被子植物 Angiosperms": [["Rosaceae", 363], ["Asteraceae", 280], ["Poaceae", 235], ["Lamiaceae", 196], ["Fabaceae", 178], ["Sapindaceae", 104], ["Cyperaceae", 98], ["Theaceae", 93], ["Ranunculaceae", 78], ["Brassicaceae", 73], ["Asparagaceae", 71], ["Oleaceae", 68], ["Malvaceae", 66], ["Solanaceae", 64], ["Magnoliaceae", 61], ["Amaranthaceae", 60], ["Polygonaceae", 55], ["Caprifoliaceae", 54], ["Aquifoliaceae", 42], ["Euphorbiaceae", 39], ["Apiaceae", 39], ["Crassulaceae", 38], ["Plantaginaceae", 38], ["Ericaceae", 37], ["Paeoniaceae", 37], ["Celastraceae", 35], ["Apocynaceae", 35], ["Cucurbitaceae", 34], ["Liliaceae", 33], ["Fagaceae", 33], ["Rubiaceae", 33], ["Amaryllidaceae", 32], ["Rutaceae", 32], ["Caryophyllaceae", 30], ["Lythraceae", 29], ["Primulaceae", 28], ["Boraginaceae", 28], ["Adoxaceae", 28], ["Nymphaeaceae", 27], ["Lauraceae", 27], ["Hydrangeaceae", 26], ["Salicaceae", 25], ["Campanulaceae", 24], ["Rhamnaceae", 23], ["Convolvulaceae", 23], ["Iridaceae", 22], ["Papaveraceae", 21], ["Berberidaceae", 21], ["Moraceae", 21], ["Violaceae", 21], ["Araliaceae", 21], ["Betulaceae", 21], ["Hamamelidaceae", 20], ["Anacardiaceae", 20], ["Buxaceae", 19], ["Urticaceae", 18], ["Cornaceae", 18], ["Verbenaceae", 18], ["Asphodelaceae", 18], ["Araceae", 16], ["Vitaceae", 16], ["Hypericaceae", 16], ["Onagraceae", 16], ["Myrtaceae", 16], ["Saxifragaceae", 13], ["Acanthaceae", 13], ["Commelinaceae", 12], ["Scrophulariaceae", 12], ["Pittosporaceae", 12], ["Styracaceae", 12], ["Elaeagnaceae", 11], ["Linderniaceae", 11], ["Cannaceae", 11], ["Bignoniaceae", 11], ["Cannabaceae", 10], ["Phyllanthaceae", 10], ["Hydrocharitaceae", 9], ["Orchidaceae", 9], ["Ebenaceae", 9], ["Alismataceae", 8], ["Potamogetonaceae", 8], ["Juglandaceae", 8], ["Oxalidaceae", 8], ["Geraniaceae", 8], ["Plumbaginaceae", 8], ["Aristolochiaceae", 7], ["Calycanthaceae", 7], ["Smilacaceae", 7], ["Arecaceae", 7], ["Juncaceae", 7], ["Pentaphylacaceae", 7], ["Zingiberaceae", 7], ["Menispermaceae", 6], ["Altingiaceae", 6], ["Ulmaceae", 6], ["Elaeocarpaceae", 6], ["Portulacaceae", 6], ["Balsaminaceae", 6], ["Orobanchaceae", 6], ["Chloranthaceae", 5], ["Dioscoreaceae", 5], ["Pontederiaceae", 5], ["Typhaceae", 5], ["Nelumbonaceae", 5], ["Schisandraceae", 5], ["Begoniaceae", 5], ["Polemoniaceae", 5], ["Actinidiaceae", 5], ["Lardizabalaceae", 4], ["Linaceae", 4], ["Staphyleaceae", 4], ["Meliaceae", 4], ["Tamaricaceae", 4], ["Aizoaceae", 4], ["Symplocaceae", 4], ["Gentianaceae", 4], ["Simaroubaceae", 4], ["Acoraceae", 3], ["Sabiaceae", 3], ["Haloragaceae", 3], ["Cleomaceae", 3], ["Nyctaginaceae", 3], ["Basellaceae", 3], ["Nyssaceae", 3], ["Melanthiaceae", 3], ["Colchicaceae", 3], ["Platanaceae", 3], ["Proteaceae", 3], ["Passifloraceae", 3], ["Thymelaeaceae", 3], ["Cactaceae", 3], ["Garryaceae", 3], ["Cabombaceae", 2], ["Saururaceae", 2], ["Stemonaceae", 2], ["Polygalaceae", 2], ["Phytolaccaceae", 2], ["Molluginaceae", 2], ["Talinaceae", 2], ["Lentibulariaceae", 2], ["Mazaceae", 2], ["Phrymaceae", 2], ["Annonaceae", 2], ["Hypoxidaceae", 2], ["Musaceae", 2], ["Daphniphyllaceae", 2], ["Myricaceae", 2], ["Casuarinaceae", 2], ["Paulowniaceae", 2], ["Piperaceae", 1], ["Eriocaulaceae", 1], ["Ceratophyllaceae", 1], ["Grossulariaceae", 1], ["Penthoraceae", 1], ["Zygophyllaceae", 1], ["Santalaceae", 1], ["Loranthaceae", 1], ["Droseraceae", 1], ["Cyclanthaceae", 1], ["Marantaceae", 1], ["Eupteleaceae", 1], ["Cercidiphyllaceae", 1], ["Iteaceae", 1], ["Coriariaceae", 1], ["Stachyuraceae", 1], ["Tapisciaceae", 1], ["Akaniaceae", 1], ["Tropaeolaceae", 1], ["Limnanthaceae", 1], ["Resedaceae", 1], ["Eucommiaceae", 1], ["Calceolariaceae", 1], ["Gesneriaceae", 1], ["Pedaliaceae", 1], ["Helwingiaceae", 1], ["Menyanthaceae", 1]], "裸子植物 Gymnospermae": [["Cupressaceae", 59], ["Pinaceae", 36], ["Taxaceae", 20], ["Podocarpaceae", 8], ["Cephalotaxaceae", 4], ["Cycadaceae", 3], ["Sciadopityaceae", 2], ["Ginkgoaceae", 1], ["Araucariaceae", 1], ["Ephedraceae", 1], ["Gnetaceae", 1]]}, "familyGenus": {"Lycopodiaceae": [["Huperzia", 1], ["Lycopodium", 1]], "Isoetaceae": [["Isoetes", 1]], "Selaginellaceae": [["Selaginella", 5]], "Equisetaceae": [["Equisetum", 5]], "Ophioglossaceae": [["Ophioglossum", 2]], "Osmundaceae": [["Osmunda", 1]], "Hymenophyllaceae": [["Trichomanes", 1]], "Gleicheniaceae": [["Dicranopteris", 1], ["Diplopterygium", 1]], "Lygodiaceae": [["Lygodium", 1]], "Marsileaceae": [["Marsilea", 1]], "Plagiogyriaceae": [["Plagiogyria", 1]], "Lindsaeaceae": [["Odontosoria", 1]], "Pteridaceae": [["Pteris", 4], ["Ceratopteris", 1], ["Coniogramme", 1], ["Onychium", 1]], "Dennstaedtiaceae": [["Dennstaedtia", 1], ["Hypolepis", 1], ["Microlepia", 1], ["Pteridium", 1]], "Aspleniaceae": [["Asplenium", 3]], "Blechnaceae": [["Woodwardia", 1]], "Athyriaceae": [["Diplazium", 2], ["Anisocampium", 1], ["Deparia", 1]], "Thelypteridaceae": [["Parathelypteris", 2], ["Thelypteris", 2], ["Cyclosorus", 1], ["Metathelypteris", 1], ["Phegopteris", 1]], "Dryopteridaceae": [["Dryopteris", 14], ["Arachniodes", 4], ["Cyrtomium", 2], ["Polystichum", 2]], "Davalliaceae": [["Davallia", 1]], "Polypodiaceae": [["Lepisorus", 5], ["Pyrrosia", 3], ["Selliguea", 1], ["Drynaria", 1], ["Leptochilus", 1]], "Salviniaceae": [["Azolla", 2], ["Salvinia", 1]], "Cabombaceae": [["Cabomba", 1], ["Brasenia", 1]], "Nymphaeaceae": [["Nymphaea", 23], ["Victoria", 2], ["Euryale", 1], ["Nuphar", 1]], "Saururaceae": [["Houttuynia", 1], ["Saururus", 1]], "Piperaceae": [["Peperomia", 1]], "Aristolochiaceae": [["Asarum", 5], ["Aristolochia", 2]], "Calycanthaceae": [["Chimonanthus", 5], ["Calycanthus", 2]], "Lauraceae": [["Lindera", 8], ["Cinnamomum", 5], ["Litsea", 4], ["Machilus", 3], ["Phoebe", 3], ["Camphora", 1], ["Neolitsea", 1], ["Laurus", 1], ["Sassafras", 1]], "Chloranthaceae": [["Chloranthus", 5]], "Acoraceae": [["Acorus", 3]], "Araceae": [["Lemna", 3], ["Amorphophallus", 2], ["Arisaema", 2], ["Pinellia", 2], ["Pistia", 1], ["Spirodela", 1], ["Typhonium", 1], ["Wolffia", 1], ["Colocasia", 1], ["Sauromatum", 1], ["Zantedeschia", 1]], "Alismataceae": [["Sagittaria", 4], ["Alisma", 2], ["Caldesia", 1], ["Hydrocleys", 1]], "Hydrocharitaceae": [["Najas", 4], ["Vallisneria", 2], ["Hydrilla", 1], ["Hydrocharis", 1], ["Ottelia", 1]], "Potamogetonaceae": [["Potamogeton", 6], ["Stuckenia", 1], ["Zannichellia", 1]], "Dioscoreaceae": [["Dioscorea", 5]], "Stemonaceae": [["Stemona", 2]], "Smilacaceae": [["Smilax", 7]], "Liliaceae": [["Lilium", 15], ["Tulipa", 12], ["Cardiocrinum", 2], ["Fritillaria", 2], ["Amana", 1], ["Tricyrtis", 1]], "Orchidaceae": [["Cymbidium", 6], ["Platanthera", 1], ["Spiranthes", 1], ["Bletilla", 1]], "Iridaceae": [["Iris", 16], ["Crocosmia", 1], ["Crocus", 1], ["Freesia", 1], ["Gladiolus", 1], ["Sisyrinchium", 1], ["Trimezia", 1]], "Amaryllidaceae": [["Allium", 13], ["Lycoris", 8], ["Narcissus", 3], ["Hymenocallis", 2], ["Tulbaghia", 2], ["Zephyranthes", 2], ["Agapanthus", 1], ["Leucojum", 1]], "Asparagaceae": [["Hosta", 16], ["Ophiopogon", 9], ["Yucca", 8], ["Liriope", 7], ["Cordyline", 6], ["Asparagus", 4], ["Aspidistra", 4], ["Polygonatum", 3], ["Rohdea", 2], ["Agave", 2], ["Barnardia", 1], ["Reineckea", 1]], "Arecaceae": [["Phoenix", 3], ["Trachycarpus", 1], ["Butia", 1], ["Livistona", 1], ["Washingtonia", 1]], "Commelinaceae": [["Tradescantia", 7], ["Murdannia", 3], ["Commelina", 2]], "Pontederiaceae": [["Pontederia", 5]], "Typhaceae": [["Typha", 4], ["Sparganium", 1]], "Eriocaulaceae": [["Eriocaulon", 1]], "Lamiaceae": [["Salvia", 39], ["Lavandula", 13], ["Callicarpa", 10], ["Coleus", 9], ["Ajuga", 8], ["Caryopteris", 7], ["Clerodendrum", 7], ["Mentha", 7], ["Clinopodium", 6], ["Leonurus", 6], ["Teucrium", 6], ["Elsholtzia", 5]], "Juncaceae": [["Juncus", 6], ["Luzula", 1]], "Cyperaceae": [["Carex", 47], ["Cyperus", 24], ["Fimbristylis", 10], ["Eleocharis", 5], ["Schoenoplectus", 3], ["Bolboschoenus", 2], ["Bulbostylis", 2], ["Rhynchospora", 2], ["× Bolboschoenoplectus", 1], ["Schoenoplectiella", 1], ["Scleria", 1]], "Poaceae": [["Phyllostachys", 18], ["Miscanthus", 11], ["Cenchrus", 10], ["Panicum", 10], ["Eragrostis", 8], ["Elymus", 7], ["Setaria", 7], ["Lolium", 6], ["Pleioblastus", 6], ["Poa", 6], ["Cortaderia", 5], ["Festuca", 5]], "Ceratophyllaceae": [["Ceratophyllum", 1]], "Papaveraceae": [["Corydalis", 9], ["Papaver", 4], ["Macleaya", 1], ["Argemone", 1], ["Chelidonium", 1], ["Eomecon", 1], ["Eschscholzia", 1], ["Hylomecon", 1], ["Lamprocapnos", 1], ["Stylophorum", 1]], "Lardizabalaceae": [["Akebia", 2], ["Stauntonia", 2]], "Menispermaceae": [["Stephania", 3], ["Cocculus", 1], ["Menispermum", 1], ["Sinomenium", 1]], "Berberidaceae": [["Berberis", 9], ["Mahonia", 4], ["Nandina", 4], ["Epimedium", 2], ["Podophyllum", 2]], "Ranunculaceae": [["Clematis", 25], ["Ranunculus", 12], ["Aquilegia", 9], ["Helleborus", 7], ["Delphinium", 6], ["Aconitum", 4], ["Anemone", 4], ["Thalictrum", 4], ["Coptis", 2], ["Actaea", 1], ["Semiaquilegia", 1], ["Caltha", 1]], "Sabiaceae": [["Meliosma", 3]], "Nelumbonaceae": [["Nelumbo", 5]], "Altingiaceae": [["Liquidambar", 6]], "Hamamelidaceae": [["Distylium", 4], ["Loropetalum", 4], ["Hamamelis", 4], ["Corylopsis", 2], ["Parrotia", 2], ["Fortunearia", 1], ["Parrotiopsis", 1], ["Sinowilsonia", 1], ["Sycopsis", 1]], "Grossulariaceae": [["Ribes", 1]], "Saxifragaceae": [["Heuchera", 5], ["Astilbe", 4], ["× Heucherella", 2], ["Saxifraga", 1], ["Bergenia", 1]], "Crassulaceae": [["Sedum", 17], ["Hylotelephium", 6], ["Kalanchoe", 4], ["Orostachys", 3], ["Phedimus", 3], ["Echeveria", 2], ["Crassula", 1], ["Dudleya", 1], ["Petrosedum", 1]], "Penthoraceae": [["Penthorum", 1]], "Haloragaceae": [["Myriophyllum", 3]], "Vitaceae": [["Ampelopsis", 6], ["Vitis", 6], ["Parthenocissus", 3], ["Causonis", 1]], "Zygophyllaceae": [["Tribulus", 1]], "Fabaceae": [["Lespedeza", 11], ["Vicia", 9], ["Cercis", 8], ["Robinia", 7], ["Vigna", 7], ["Senna", 6], ["Styphnolobium", 6], ["Gleditsia", 5], ["Crotalaria", 4], ["Medicago", 4], ["Acacia", 4], ["Cytisus", 4]], "Polygalaceae": [["Polygala", 2]], "Rosaceae": [["Prunus", 152], ["Rosa", 50], ["Malus", 39], ["Chaenomeles", 23], ["Spiraea", 21], ["Potentilla", 10], ["Rubus", 8], ["Pyracantha", 7], ["Cotoneaster", 7], ["Pyrus", 5], ["Amelanchier", 4], ["Kerria", 4]], "Elaeagnaceae": [["Elaeagnus", 10], ["Hippophae", 1]], "Rhamnaceae": [["Rhamnus", 5], ["Ziziphus", 5], ["Hovenia", 3], ["Berchemia", 3], ["Paliurus", 3], ["Sageretia", 2], ["Rhamnella", 1], ["Frangula", 1]], "Ulmaceae": [["Ulmus", 3], ["Zelkova", 2], ["Hemiptelea", 1]], "Cannabaceae": [["Celtis", 5], ["Humulus", 2], ["Aphananthe", 1], ["Cannabis", 1], ["Pteroceltis", 1]], "Moraceae": [["Ficus", 10], ["Morus", 4], ["Maclura", 3], ["Broussonetia", 2], ["Fatoua", 1], ["Artocarpus", 1]], "Urticaceae": [["Pilea", 7], ["Boehmeria", 4], ["Achudemia", 1], ["Gonostegia", 1], ["Nanocnide", 1], ["Pouzolzia", 1], ["Debregeasia", 1], ["Elatostema", 1], ["Girardinia", 1]], "Fagaceae": [["Quercus", 23], ["Lithocarpus", 4], ["Castanea", 2], ["Castanopsis", 2], ["Fagus", 2]], "Juglandaceae": [["Juglans", 3], ["Carya", 2], ["Platycarya", 1], ["Pterocarya", 1], ["Cyclocarya", 1]], "Cucurbitaceae": [["Cucumis", 8], ["Trichosanthes", 4], ["Cucurbita", 4], ["Lagenaria", 3], ["Momordica", 3], ["Thladiantha", 2], ["Benincasa", 2], ["Citrullus", 2], ["Luffa", 2], ["Actinostemma", 1], ["Gynostemma", 1], ["Zehneria", 1]], "Celastraceae": [["Euonymus", 32], ["Celastrus", 2], ["Tripterygium", 1]], "Oxalidaceae": [["Oxalis", 8]], "Elaeocarpaceae": [["Elaeocarpus", 6]], "Hypericaceae": [["Hypericum", 16]], "Violaceae": [["Viola", 21]], "Salicaceae": [["Salix", 14], ["Populus", 8], ["Idesia", 2], ["Xylosma", 1]], "Euphorbiaceae": [["Euphorbia", 19], ["Mallotus", 7], ["Triadica", 2], ["Vernicia", 2], ["Excoecaria", 2], ["Acalypha", 1], ["Alchornea", 1], ["Ricinus", 1], ["Speranskia", 1], ["Discocleidion", 1], ["Jatropha", 1], ["Neoshirakia", 1]], "Linaceae": [["Linum", 3], ["Reinwardtia", 1]], "Phyllanthaceae": [["Phyllanthus", 4], ["Glochidion", 2], ["Bischofia", 2], ["Flueggea", 1], ["Leptopus", 1]], "Geraniaceae": [["Pelargonium", 4], ["Erodium", 2], ["Geranium", 2]], "Lythraceae": [["Lagerstroemia", 8], ["Punica", 7], ["Trapa", 4], ["Ammannia", 3], ["Cuphea", 3], ["Lythrum", 2], ["Rotala", 1], ["Heimia", 1]], "Onagraceae": [["Oenothera", 11], ["Ludwigia", 5]], "Staphyleaceae": [["Staphylea", 3], ["Dalrympelea", 1]], "Anacardiaceae": [["Cotinus", 9], ["Rhus", 6], ["Toxicodendron", 3], ["Pistacia", 1], ["Choerospondias", 1]], "Sapindaceae": [["Acer", 93], ["Aesculus", 5], ["Koelreuteria", 3], ["Sapindus", 1], ["Cardiospermum", 1], ["Xanthoceras", 1]], "Rutaceae": [["Citrus", 10], ["Zanthoxylum", 10], ["Tetradium", 3], ["Boenninghausenia", 1], ["Clausena", 1], ["Glycosmis", 1], ["Murraya", 1], ["Orixa", 1], ["Phellodendron", 1], ["Ptelea", 1], ["Ruta", 1], ["Toddalia", 1]], "Meliaceae": [["Toona", 3], ["Melia", 1]], "Malvaceae": [["Hibiscus", 20], ["Malva", 8], ["Tilia", 7], ["Abelmoschus", 4], ["Corchorus", 3], ["Alcea", 3], ["Corchoropsis", 2], ["Grewia", 2], ["Triumfetta", 2], ["Urena", 2], ["Gossypium", 2], ["Abutilon", 1]], "Cleomaceae": [["Cleome", 2], ["Arivela", 1]], "Brassicaceae": [["Brassica", 29], ["Cardamine", 6], ["Lepidium", 5], ["Rorippa", 5], ["Erysimum", 3], ["Sisymbrium", 3], ["Raphanus", 2], ["Arabidopsis", 1], ["Aubrieta", 1], ["Camelina", 1], ["Capsella", 1], ["Chorispora", 1]], "Santalaceae": [["Thesium", 1]], "Loranthaceae": [["Taxillus", 1]], "Tamaricaceae": [["Tamarix", 3], ["Myricaria", 1]], "Plumbaginaceae": [["Armeria", 3], ["Limonium", 3], ["Ceratostigma", 1], ["Plumbago", 1]], "Polygonaceae": [["Persicaria", 30], ["Rumex", 10], ["Fagopyrum", 4], ["Polygonum", 3], ["Fallopia", 2], ["Muehlenbeckia", 2], ["Pleuropterus", 1], ["Reynoutria", 1], ["Bistorta", 1], ["Oxyria", 1]], "Droseraceae": [["Drosera", 1]], "Caryophyllaceae": [["Silene", 6], ["Stellaria", 6], ["Dianthus", 5], ["Gypsophila", 3], ["Cerastium", 2], ["Agrostemma", 1], ["Arenaria", 1], ["Lepyrodiclis", 1], ["Sagina", 1], ["Spergularia", 1], ["Atocion", 1], ["Pseudostellaria", 1]], "Amaranthaceae": [["Amaranthus", 13], ["Alternanthera", 7], ["Chenopodium", 6], ["Beta", 4], ["Achyranthes", 3], ["Atriplex", 3], ["Suaeda", 3], ["Spinacia", 3], ["Bassia", 2], ["Celosia", 2], ["Chenopodiastrum", 2], ["Corispermum", 2]], "Aizoaceae": [["Tetragonia", 1], ["Glottiphyllum", 1], ["Lampranthus", 1], ["Mesembryanthemum", 1]], "Phytolaccaceae": [["Phytolacca", 2]], "Nyctaginaceae": [["Bougainvillea", 2], ["Mirabilis", 1]], "Molluginaceae": [["Mollugo", 1], ["Trigastrotheca", 1]], "Basellaceae": [["Basella", 2], ["Anredera", 1]], "Talinaceae": [["Talinum", 2]], "Portulacaceae": [["Portulaca", 6]], "Nyssaceae": [["Camptotheca", 1], ["Davidia", 1], ["Nyssa", 1]], "Cornaceae": [["Cornus", 15], ["Alangium", 3]], "Balsaminaceae": [["Impatiens", 6]], "Pentaphylacaceae": [["Eurya", 2], ["Cleyera", 2], ["Ternstroemia", 2], ["Adinandra", 1]], "Ebenaceae": [["Diospyros", 9]], "Primulaceae": [["Lysimachia", 17], ["Primula", 5], ["Ardisia", 3], ["Androsace", 2], ["Myrsine", 1]], "Symplocaceae": [["Symplocos", 4]], "Ericaceae": [["Rhododendron", 24], ["Vaccinium", 7], ["Pieris", 6]], "Rubiaceae": [["Gardenia", 8], ["Galium", 6], ["Serissa", 6], ["Rubia", 2], ["Adina", 2], ["Cephalanthus", 2], ["Exallage", 1], ["Oldenlandia", 1], ["Paederia", 1], ["Scleromitrion", 1], ["Emmenopterys", 1], ["Leptodermis", 1]], "Gentianaceae": [["Tripterospermum", 2], ["Centaurium", 1], ["Gentiana", 1]], "Apocynaceae": [["Vincetoxicum", 7], ["Trachelospermum", 6], ["Cynanchum", 4], ["Asclepias", 4], ["Vinca", 4], ["Apocynum", 1], ["Catharanthus", 1], ["Nerium", 1], ["Alstonia", 1], ["Periploca", 1], ["Stapelia", 1], ["Strophanthus", 1]], "Boraginaceae": [["Cynoglossum", 3], ["Ehretia", 3], ["Heliotropium", 3], ["Bothriospermum", 2], ["Thyrocarpus", 2], ["Tournefortia", 2], ["Anchusa", 2], ["Myosotis", 2], ["Aegonychon", 1], ["Asperugo", 1], ["Buglossoides", 1], ["Lappula", 1]], "Convolvulaceae": [["Ipomoea", 10], ["Calystegia", 5], ["Cuscuta", 3], ["Merremia", 2], ["Convolvulus", 1], ["Dichondra", 1], ["Jacquemontia", 1]], "Solanaceae": [["Solanum", 18], ["Petunia", 10], ["Nicotiana", 9], ["Capsicum", 7], ["Physalis", 4], ["Datura", 3], ["Lycium", 3], ["Alkekengi", 2], ["Nierembergia", 2], ["Nicandra", 1], ["Atropa", 1], ["Calibrachoa", 1]], "Oleaceae": [["Ligustrum", 18], ["Forsythia", 13], ["Jasminum", 9], ["Osmanthus", 8], ["Syringa", 7], ["Fraxinus", 6], ["Chrysojasminum", 3], ["Abeliophyllum", 1], ["Chionanthus", 1], ["Fontanesia", 1], ["Olea", 1]], "Plantaginaceae": [["Veronica", 9], ["Plantago", 6], ["Digitalis", 5], ["Antirrhinum", 4], ["Penstemon", 3], ["Angelonia", 2], ["Adenosma", 1], ["Callitriche", 1], ["Dopatrium", 1], ["Kickxia", 1], ["Limnophila", 1], ["Scoparia", 1]], "Scrophulariaceae": [["Buddleja", 9], ["Verbascum", 2], ["Scrophularia", 1]], "Linderniaceae": [["Torenia", 7], ["Bonnaya", 1], ["Lindernia", 1], ["Vandellia", 1], ["Yamazakia", 1]], "Acanthaceae": [["Strobilanthes", 4], ["Dicliptera", 2], ["Hygrophila", 1], ["Rostellularia", 1], ["Andrographis", 1], ["Asystasia", 1], ["Barleria", 1], ["Pachystachys", 1], ["Ruellia", 1]], "Lentibulariaceae": [["Utricularia", 2]], "Verbenaceae": [["Verbena", 9], ["Duranta", 6], ["Lantana", 2], ["Aloysia", 1]], "Mazaceae": [["Mazus", 2]], "Phrymaceae": [["Phryma", 1], ["Erythranthe", 1]], "Orobanchaceae": [["Rehmannia", 2], ["Aeginetia", 1], ["Monochasma", 1], ["Phtheirospermum", 1], ["Siphonostegia", 1]], "Aquifoliaceae": [["Ilex", 42]], "Campanulaceae": [["Campanula", 8], ["Lobelia", 7], ["Adenophora", 3], ["Codonopsis", 2], ["Platycodon", 2], ["Triodanis", 1], ["Wahlenbergia", 1]], "Asteraceae": [["Artemisia", 29], ["Aster", 9], ["Achillea", 9], ["Lactuca", 8], ["Tagetes", 8], ["Chrysanthemum", 7], ["Coreopsis", 7], ["Helianthus", 7], ["Gaillardia", 7], ["Gazania", 7], ["Bidens", 6], ["Erigeron", 6]], "Adoxaceae": [["Viburnum", 20], ["Sambucus", 8]], "Caprifoliaceae": [["Lonicera", 20], ["Abelia", 8], ["Weigela", 8], ["Leycesteria", 3], ["Symphoricarpos", 3], ["Patrinia", 2], ["Dipsacus", 2], ["Scabiosa", 2], ["Zabelia", 2], ["Valerianella", 1], ["Heptacodium", 1], ["Kolkwitzia", 1]], "Pittosporaceae": [["Pittosporum", 12]], "Araliaceae": [["Hedera", 5], ["Hydrocotyle", 4], ["Aralia", 3], ["Eleutherococcus", 2], ["× Fatshedera", 2], ["Fatsia", 1], ["Kalopanax", 1], ["Gamblea", 1], ["Metapanax", 1], ["Tetrapanax", 1]], "Apiaceae": [["Angelica", 4], ["Cnidium", 2], ["Daucus", 2], ["Oenanthe", 2], ["Peucedanum", 2], ["Torilis", 2], ["Bupleurum", 2], ["Foeniculum", 2], ["Pimpinella", 2], ["Anthriscus", 1], ["Centella", 1], ["Changium", 1]], "Onocleaceae": [["Matteuccia", 1]], "Nephrolepidaceae": [["Nephrolepis", 1]], "Cycadaceae": [["Cycas", 3]], "Ginkgoaceae": [["Ginkgo", 1]], "Araucariaceae": [["Araucaria", 1]], "Podocarpaceae": [["Podocarpus", 4], ["Nageia", 2], ["Dacrycarpus", 1], ["Dacrydium", 1]], "Sciadopityaceae": [["Sciadopitys", 2]], "Cupressaceae": [["Juniperus", 19], ["Chamaecyparis", 12], ["Hesperocyparis", 5], ["Platycladus", 4], ["Taxodium", 4], ["Cryptomeria", 3], ["Cupressus", 2], ["Thuja", 2], ["× Hesperotropsis", 1], ["× Taxodiomera", 1], ["Cunninghamia", 1], ["Fokienia", 1]], "Cephalotaxaceae": [["Cephalotaxus", 4]], "Taxaceae": [["Taxus", 17], ["Torreya", 3]], "Pinaceae": [["Pinus", 17], ["Picea", 8], ["Abies", 3], ["Keteleeria", 3], ["Cathaya", 1], ["Cedrus", 1], ["Pseudotsuga", 1], ["Pseudolarix", 1], ["Tsuga", 1]], "Ephedraceae": [["Ephedra", 1]], "Gnetaceae": [["Gnetum", 1]], "Schisandraceae": [["Illicium", 2], ["Schisandra", 2], ["Kadsura", 1]], "Magnoliaceae": [["Yulania", 36], ["Michelia", 11], ["Houpoea", 3], ["Liriodendron", 3], ["Lirianthe", 2], ["Manglietia", 2], ["Parakmeria", 2], ["Magnolia", 1], ["Oyama", 1]], "Annonaceae": [["Annona", 1], ["Artabotrys", 1]], "Cyclanthaceae": [["Carludovica", 1]], "Melanthiaceae": [["Paris", 2], ["Veratrum", 1]], "Colchicaceae": [["Disporum", 3]], "Hypoxidaceae": [["Curculigo", 2]], "Asphodelaceae": [["Hemerocallis", 9], ["Dianella", 4], ["Kniphofia", 3], ["Aloe", 1], ["Phormium", 1]], "Musaceae": [["Musa", 1], ["Musella", 1]], "Cannaceae": [["Canna", 11]], "Marantaceae": [["Thalia", 1]], "Zingiberaceae": [["Alpinia", 2], ["Curcuma", 2], ["Hedychium", 1], ["Wurfbainia", 1], ["Zingiber", 1]], "Eupteleaceae": [["Euptelea", 1]], "Platanaceae": [["Platanus", 3]], "Proteaceae": [["Grevillea", 3]], "Buxaceae": [["Buxus", 15], ["Pachysandra", 2], ["Sarcococca", 2]], "Paeoniaceae": [["Paeonia", 37]], "Cercidiphyllaceae": [["Cercidiphyllum", 1]], "Daphniphyllaceae": [["Daphniphyllum", 2]], "Iteaceae": [["Itea", 1]], "Myricaceae": [["Myrica", 2]], "Casuarinaceae": [["Casuarina", 2]], "Betulaceae": [["Carpinus", 10], ["Corylus", 5], ["Alnus", 4], ["Betula", 1], ["Ostrya", 1]], "Coriariaceae": [["Coriaria", 1]], "Begoniaceae": [["Begonia", 5]], "Passifloraceae": [["Passiflora", 2], ["Turnera", 1]], "Myrtaceae": [["Callistemon", 4], ["Eucalyptus", 4], ["Leptospermum", 2], ["Myrtus", 2], ["Acca", 1], ["Melaleuca", 1], ["Rhodomyrtus", 1], ["Syzygium", 1]], "Stachyuraceae": [["Stachyurus", 1]], "Tapisciaceae": [["Tapiscia", 1]], "Simaroubaceae": [["Ailanthus", 2], ["Brucea", 1], ["Picrasma", 1]], "Thymelaeaceae": [["Daphne", 1], ["Edgeworthia", 1], ["Wikstroemia", 1]], "Akaniaceae": [["Bretschneidera", 1]], "Tropaeolaceae": [["Tropaeolum", 1]], "Limnanthaceae": [["Limnanthes", 1]], "Resedaceae": [["Reseda", 1]], "Cactaceae": [["Opuntia", 3]], "Hydrangeaceae": [["Deutzia", 13], ["Hydrangea", 7], ["Philadelphus", 6]], "Polemoniaceae": [["Phlox", 4], ["Polemonium", 1]], "Theaceae": [["Camellia", 91], ["Schima", 1], ["Stewartia", 1]], "Styracaceae": [["Styrax", 5], ["Halesia", 2], ["Pterostyrax", 2], ["Perkinsiodendron", 1], ["Rehderodendron", 1], ["Sinojackia", 1]], "Actinidiaceae": [["Actinidia", 5]], "Eucommiaceae": [["Eucommia", 1]], "Garryaceae": [["Aucuba", 3]], "Calceolariaceae": [["Calceolaria", 1]], "Gesneriaceae": [["Lysionotus", 1]], "Pedaliaceae": [["Sesamum", 1]], "Bignoniaceae": [["Catalpa", 6], ["Campsis", 2], ["× Chitalpa", 1], ["Pandorea", 1], ["Tecomaria", 1]], "Paulowniaceae": [["Paulownia", 2]], "Helwingiaceae": [["Helwingia", 1]], "Menyanthaceae": [["Nymphoides", 1]]}, "samples": {"Lycopodiaceae": ["Huperzia javanica", "Lycopodium japonicum"], "Isoetaceae": ["Isoetes sinensis"], "Selaginellaceae": ["Selaginella braunii", "Selaginella moellendorffii", "Selaginella nipponica", "Selaginella pulvinata", "Selaginella tamariscina"], "Equisetaceae": ["Equisetum arvense", "Equisetum diffusum", "Equisetum ramosissimum", "Equisetum ramosissimum var. huegelii", "Equisetum hyemale"], "Ophioglossaceae": ["Ophioglossum thermale", "Ophioglossum vulgatum"], "Osmundaceae": ["Osmunda japonica"], "Hymenophyllaceae": ["Trichomanes minutum"], "Gleicheniaceae": ["Dicranopteris pedata", "Diplopterygium glaucum"], "Lygodiaceae": ["Lygodium japonicum"], "Marsileaceae": ["Marsilea minuta"], "Plagiogyriaceae": ["Plagiogyria japonica"], "Lindsaeaceae": ["Odontosoria chinensis"], "Pteridaceae": ["Ceratopteris pteridoides", "Coniogramme japonica", "Onychium japonicum", "Pteris multifida", "Pteris semipinnata", "Pteris cretica", "Pteris dispar"], "Dennstaedtiaceae": ["Dennstaedtia hirsuta", "Hypolepis punctata", "Microlepia marginata", "Pteridium latiusculum"], "Aspleniaceae": ["Asplenium incisum", "Asplenium pekinense", "Asplenium sarelii"], "Blechnaceae": ["Woodwardia japonica"], "Athyriaceae": ["Anisocampium niponicum", "Deparia japonica", "Diplazium chinense", "Diplazium esculentum"], "Thelypteridaceae": ["Cyclosorus acuminatus", "Metathelypteris laxa", "Parathelypteris glanduligera", "Parathelypteris nipponica", "Phegopteris decursive-pinnata", "Thelypteris palustris", "Thelypteris palustris var. pubescens"], "Dryopteridaceae": ["Arachniodes amabilis", "Arachniodes aristata", "Arachniodes simplicior", "Arachniodes speciosa", "Cyrtomium falcatum", "Cyrtomium fortunei", "Dryopteris bissetiana", "Dryopteris championii"], "Davalliaceae": ["Davallia griffithiana"], "Polypodiaceae": ["Lepisorus carnosus", "Lepisorus thunbergianus", "Lepisorus tosaensis", "Pyrrosia lingua", "Pyrrosia petiolosa", "Selliguea hastata", "Drynaria roosii", "Lepisorus fortunei"], "Salviniaceae": ["Azolla filiculoides", "Azolla pinnata subsp. asiatica", "Salvinia natans"], "Cabombaceae": ["Cabomba caroliniana", "Brasenia schreberi"], "Nymphaeaceae": ["Euryale ferox", "Nuphar pumila", "Nymphaea ‘American Star’", "Nymphaea ‘Attraction’", "Nymphaea ‘August Koch’", "Nymphaea ‘Carolina Nivea’", "Nymphaea ‘Charles de Meurville’", "Nymphaea ‘Choolarp’"], "Saururaceae": ["Houttuynia cordata", "Saururus chinensis"], "Piperaceae": ["Peperomia pellucida"], "Aristolochiaceae": ["Aristolochia debilis", "Aristolochia mollissima", "Asarum forbesii", "Asarum sieboldii", "Asarum caudigerum", "Asarum maximum", "Asarum splendens"], "Calycanthaceae": ["Chimonanthus praecox", "Calycanthus chinensis", "Calycanthus floridus", "Chimonanthus nitens", "Chimonanthus praecox ‘Grandiflorus’", "Chimonanthus praecox ‘Intermedius’", "Chimonanthus praecox ‘Luteus’"], "Lauraceae": ["Camphora officinarum", "Cinnamomum pedunculatum", "Lindera angustifolia", "Lindera glauca", "Machilus thunbergii", "Neolitsea sericea", "Cinnamomum burmanni", "Cinnamomum cassia"], "Chloranthaceae": ["Chloranthus fortunei", "Chloranthus henryi", "Chloranthus serratus", "Chloranthus spicatus", "Sarcandra glabra"], "Acoraceae": ["Acorus calamus", "Acorus gramineus", "Acorus gramineus ‘Ogon’"], "Araceae": ["Amorphophallus kiusianus", "Arisaema heterophyllum", "Lemna aequinoctialis", "Lemna minor", "Lemna trisulca", "Pinellia pedatisecta", "Pinellia ternata", "Pistia stratiotes"], "Alismataceae": ["Sagittaria pygmaea", "Sagittaria trifolia", "Sagittaria trifolia subsp. leucopetala", "Alisma plantago-aquatica", "Alisma plantago-aquatica subsp. orientale", "Caldesia parnassifolia", "Hydrocleys nymphoides", "Sagittaria sagittifolia"], "Hydrocharitaceae": ["Hydrilla verticillata", "Hydrocharis dubia", "Najas chinensis", "Najas gracillima", "Najas marina", "Najas minor", "Ottelia alismoides", "Vallisneria natans"], "Potamogetonaceae": ["Potamogeton crispus", "Potamogeton distinctus", "Potamogeton lucens", "Potamogeton maackianus", "Potamogeton pusillus", "Potamogeton wrightii", "Stuckenia pectinata", "Zannichellia palustris"], "Dioscoreaceae": ["Dioscorea bulbifera", "Dioscorea polystachya", "Dioscorea polystachya Rakuda Group", "Dioscorea polystachya Tsukune Group", "Dioscorea polystachya Typica Group"], "Stemonaceae": ["Stemona japonica", "Stemona sessilifolia"], "Smilacaceae": ["Smilax china", "Smilax davidiana", "Smilax glaucochina", "Smilax hypoglauca", "Smilax riparia", "Smilax sieboldii", "Smilax glabra"], "Liliaceae": ["Amana edulis", "Lilium lancifolium", "Cardiocrinum cathayanum", "Cardiocrinum giganteum", "Fritillaria monantha", "Fritillaria thunbergii", "Lilium ‘After Eight’", "Lilium ‘Charming Pink’"], "Orchidaceae": ["Platanthera minor", "Spiranthes sinensis", "Bletilla striata", "Cymbidium crassifolium", "Cymbidium ensifolium", "Cymbidium faberi", "Cymbidium goeringii", "Cymbidium kanran"], "Iridaceae": ["Iris japonica", "Crocosmia × crocosmiiflora", "Crocus sativus", "Freesia refracta", "Gladiolus × gandavensis", "Iris × germanica", "Iris domestica", "Iris ensata"], "Amaryllidaceae": ["Allium macrostemon", "Allium tuberosum", "Lycoris × rosea", "Lycoris radiata", "Lycoris sprengeri", "Lycoris squamigera", "Agapanthus africanus", "Allium ampeloprasum"], "Asparagaceae": ["Asparagus cochinchinensis", "Barnardia japonica", "Liriope spicata", "Ophiopogon japonicus", "Reineckea carnea", "Rohdea japonica", "Agave americana", "Agave amica"], "Arecaceae": ["Trachycarpus fortunei", "Butia capitata", "Livistona chinensis", "Phoenix canariensis", "Phoenix dactylifera", "Phoenix sylvestris", "Washingtonia filifera"], "Commelinaceae": ["Commelina benghalensis", "Commelina communis", "Murdannia loriformis", "Murdannia nudiflora", "Murdannia triquetra", "Tradescantia fluminensis", "Tradescantia ‘Karminglut’", "Tradescantia ohiensis"], "Pontederiaceae": ["Pontederia crassipes", "Pontederia korsakowii", "Pontederia vaginalis", "Pontederia cordata", "Pontederia cordata ‘Alba’"], "Typhaceae": ["Typha angustifolia", "Typha orientalis", "Sparganium stoloniferum", "Typha domingensis", "Typha latifolia"], "Eriocaulaceae": ["Eriocaulon cinereum"], "Lamiaceae": ["Agastache rugosa", "Ajuga decumbens", "Ajuga multiflora", "Ajuga nipponensis", "Ajuga pygmaea", "Amethystea caerulea", "Caryopteris incana", "Clerodendrum cyrtophyllum"], "Juncaceae": ["Juncus alatus", "Juncus prismatocarpus", "Juncus setchuensis", "Juncus tenuis", "Luzula multiflora", "Juncus effusus", "Juncus luzuliformis"], "Cyperaceae": ["× Bolboschoenoplectus mariqueter", "Bolboschoenus planiculmis", "Bolboschoenus yagara", "Bulbostylis barbata", "Bulbostylis densa", "Carex argyi", "Carex ascotreta", "Carex blinii"], "Poaceae": ["Aeluropus sinensis", "Agrostis clavata", "Agrostis sozanensis", "Alopecurus aequalis", "Alopecurus japonicus", "Aristida adscensionis", "Arthraxon hispidus", "Arthraxon prionodes"], "Ceratophyllaceae": ["Ceratophyllum demersum"], "Papaveraceae": ["Corydalis balansae", "Corydalis decumbens", "Corydalis edulis", "Corydalis incisa", "Corydalis pallida", "Corydalis racemosa", "Corydalis sheareri", "Macleaya cordata"], "Lardizabalaceae": ["Akebia quinata", "Stauntonia coriacea", "Akebia trifoliata", "Stauntonia grandiflora"], "Menispermaceae": ["Cocculus orbiculatus", "Menispermum dauricum", "Stephania cephalantha", "Stephania japonica", "Sinomenium acutum", "Stephania tetrandra"], "Berberidaceae": ["Mahonia bealei", "Mahonia fortunei", "Nandina domestica", "Berberis amurensis", "Berberis aristata", "Berberis henryana", "Berberis julianae", "Berberis pruinosa"], "Ranunculaceae": ["Aconitum hemsleyanum", "Aconitum sczukinii", "Actaea japonica", "Clematis apiifolia", "Clematis chinensis", "Clematis chinensis var. vestita", "Clematis terniflora", "Delphinium anthriscifolium"], "Sabiaceae": ["Meliosma oldhamii", "Meliosma cuneifolia", "Meliosma parviflora"], "Nelumbonaceae": ["Nelumbo nucifera", "Nelumbo lutea", "Nelumbo nucifera ‘Baiyangdian Bai’", "Nelumbo nucifera ‘Taikong Hongqi’", "Nelumbo nucifera ‘Weishan Hong’"], "Altingiaceae": ["Liquidambar formosana", "Liquidambar acalycina", "Liquidambar chinensis", "Liquidambar chingii", "Liquidambar gracilipes", "Liquidambar styraciflua"], "Hamamelidaceae": ["Distylium racemosum", "Loropetalum chinense", "Corylopsis sinensis", "Corylopsis spicata", "Distylium buxifolium", "Distylium chinense", "Distylium myricoides", "Fortunearia sinensis"], "Grossulariaceae": ["Ribes fasciculatum var. chinense"], "Saxifragaceae": ["Saxifraga stolonifera", "× Heucherella ‘Kimono’", "× Heucherella ‘Tapestry’", "Astilbe chinensis", "Astilbe chinensis ‘Astary Red’", "Astilbe chinensis ‘Astary White’", "Astilbe grandis", "Bergenia purpurascens"], "Crassulaceae": ["Orostachys fimbriata", "Orostachys japonica", "Sedum bulbiferum", "Sedum emarginatum", "Sedum lineare", "Sedum onychopetalum", "Sedum sarmentosum", "Crassula muscosa"], "Penthoraceae": ["Penthorum chinense"], "Haloragaceae": ["Myriophyllum aquaticum", "Myriophyllum spicatum", "Myriophyllum ussuriense"], "Vitaceae": ["Ampelopsis glandulosa", "Ampelopsis glandulosa var. heterophylla", "Ampelopsis japonica", "Causonis japonica", "Parthenocissus tricuspidata", "Vitis bryoniifolia", "Vitis flexuosa", "Vitis pseudoreticulata"], "Zygophyllaceae": ["Tribulus terrestris"], "Fabaceae": ["Aeschynomene indica", "Albizia julibrissin", "Albizia kalkora", "Alhagi maurorum", "Amorpha fruticosa", "Amphicarpaea edgeworthii", "Apios fortunei", "Astragalus laxmannii"], "Polygalaceae": ["Polygala hongkongensis var. stenophylla", "Polygala japonica"], "Rosaceae": ["Agrimonia pilosa", "Crataegus cuneata", "Geum japonicum var. chinense", "Malus toringo", "Photinia serratifolia", "Potentilla chinensis", "Potentilla discolor", "Potentilla flagellaris"], "Elaeagnaceae": ["Elaeagnus argyi", "Elaeagnus multiflora", "Elaeagnus ovata", "Elaeagnus pungens", "Elaeagnus umbellata", "Elaeagnus × submacrophylla", "Elaeagnus × submacrophylla ‘Gilt Edge’", "Elaeagnus × submacrophylla ‘Limelight’"], "Rhamnaceae": ["Hovenia acerba", "Rhamnella franguloides", "Rhamnus globosa", "Sageretia thea", "Ziziphus jujuba", "Berchemia floribunda", "Berchemia kulingensis", "Berchemia sinica"], "Ulmaceae": ["Ulmus parvifolia", "Ulmus pumila", "Zelkova schneideriana", "Zelkova serrata", "Hemiptelea davidii", "Ulmus laciniata"], "Cannabaceae": ["Aphananthe aspera", "Cannabis sativa", "Celtis bungeana", "Celtis sinensis", "Humulus scandens", "Celtis biondii", "Celtis julianae", "Celtis koraiensis"], "Moraceae": ["Broussonetia × kazinoki", "Broussonetia papyrifera", "Fatoua villosa", "Ficus erecta", "Ficus pumila", "Maclura tricuspidata", "Morus alba", "Morus australis"], "Urticaceae": ["Achudemia japonica", "Boehmeria japonica", "Boehmeria nivea", "Boehmeria nivea var. tenacissima", "Boehmeria platanifolia", "Gonostegia triandra", "Nanocnide lobata", "Pilea microphylla"], "Fagaceae": ["Castanea seguinii", "Castanopsis sclerophylla", "Lithocarpus harlandii", "Quercus acutissima", "Quercus fabri", "Quercus glauca", "Castanea mollissima", "Castanopsis fargesii"], "Juglandaceae": ["Platycarya strobilacea", "Pterocarya stenoptera", "Carya cathayensis", "Carya illinoinensis", "Cyclocarya paliurus", "Juglans mandshurica", "Juglans nigra", "Juglans regia"], "Cucurbitaceae": ["Actinostemma tenerum", "Cucumis bisexualis", "Gynostemma pentaphyllum", "Thladiantha nudiflora", "Trichosanthes cucumeroides", "Trichosanthes kirilowii", "Trichosanthes laceribractea", "Zehneria japonica"], "Celastraceae": ["Celastrus orbiculatus", "Euonymus alatus", "Euonymus carnosus", "Euonymus fortunei", "Euonymus maackii", "Celastrus flagellaris", "Euonymus alatus ‘Compactus’", "Euonymus alatus ‘Fire Ball’"], "Oxalidaceae": ["Oxalis articulata", "Oxalis bowiei", "Oxalis corniculata", "Oxalis debilis", "Oxalis pes-caprae", "Oxalis texana", "Oxalis griffithii", "Oxalis triangularis ‘Purpurea’"], "Elaeocarpaceae": ["Elaeocarpus decipiens", "Elaeocarpus chinensis", "Elaeocarpus glabripetalus", "Elaeocarpus hainanensis", "Elaeocarpus japonicus", "Elaeocarpus sylvestris"], "Hypericaceae": ["Hypericum ascyron", "Hypericum erectum", "Hypericum japonicum", "Hypericum sampsonii", "Hypericum ‘Gemo’", "Hypericum × inodorum ‘Annebel’", "Hypericum × inodorum Golden Beacon‘Wilhyp’", "Hypericum × inodorum Magical Red Flame‘Kolmaref’"], "Violaceae": ["Viola betonicifolia", "Viola diffusa", "Viola grypoceras", "Viola inconspicua", "Viola lactiflora", "Viola philippica", "Viola selkirkii", "Viola yunnanfuensis"], "Salicaceae": ["Salix babylonica", "Salix matsudana", "Xylosma congesta", "Idesia polycarpa", "Idesia polycarpa var. vestita", "Populus × canadensis", "Populus × tomentosa", "Populus adenopoda"], "Euphorbiaceae": ["Acalypha australis", "Alchornea davidii", "Euphorbia bifida", "Euphorbia esula", "Euphorbia helioscopia", "Euphorbia humifusa", "Euphorbia hypericifolia", "Euphorbia maculata"], "Linaceae": ["Linum usitatissimum", "Linum perenne", "Linum perenne ‘Alba’", "Reinwardtia indica"], "Phyllanthaceae": ["Flueggea suffruticosa", "Glochidion puberum", "Phyllanthus amarus", "Phyllanthus glaucus", "Phyllanthus urinaria", "Phyllanthus ussuriensis", "Bischofia javanica", "Bischofia polycarpa"], "Geraniaceae": ["Erodium cicutarium", "Erodium stephanianum", "Geranium carolinianum", "Geranium nepalense", "Pelargonium × hortorum", "Pelargonium graveolens", "Pelargonium peltatum", "Pelargonium zonale"], "Lythraceae": ["Ammannia auriculata", "Ammannia baccifera", "Ammannia multiflora", "Punica granatum", "Rotala indica", "Trapa incisa", "Cuphea hookeriana", "Cuphea hyssopifolia"], "Onagraceae": ["Ludwigia epilobioides", "Ludwigia leptocarpa", "Ludwigia peploides subsp. stipulacea", "Oenothera curtiflora", "Oenothera laciniata", "Oenothera rosea", "Oenothera speciosa", "Ludwigia decurrens"], "Staphyleaceae": ["Staphylea japonica", "Dalrympelea pomifera", "Staphylea bumalda", "Staphylea holocarpa"], "Anacardiaceae": ["Pistacia chinensis", "Rhus chinensis", "Choerospondias axillaris", "Cotinus coggygria", "Cotinus coggygria ‘Ancot’", "Cotinus coggygria ‘Kolcot’", "Cotinus coggygria ‘Londus’", "Cotinus coggygria ‘Royal Purple’"], "Sapindaceae": ["Acer buergerianum", "Koelreuteria bipinnata", "Sapindus saponaria", "Acer campestre", "Acer cordatum", "Acer coriaceifolium", "Acer davidii", "Acer davidii subsp. grosseri"], "Rutaceae": ["Citrus × reticulata", "Zanthoxylum ailanthoides", "Zanthoxylum armatum", "Zanthoxylum simulans", "Boenninghausenia albiflora", "Citrus × aurantium", "Citrus × junos", "Citrus × limon"], "Meliaceae": ["Melia azedarach", "Toona ciliata", "Toona sinensis", "Toona sureni"], "Malvaceae": ["Abutilon theophrasti", "Corchoropsis crenata", "Corchoropsis crenata var. hupehensis", "Corchorus aestuans", "Firmiana simplex", "Grewia biloba var. parviflora", "Hibiscus trionum", "Malva pusilla"], "Cleomaceae": ["Arivela viscosa", "Cleome gynandra", "Cleome houtteana"], "Brassicaceae": ["Arabidopsis thaliana", "Aubrieta deltoidea", "Brassica napus", "Brassica rapa var. chinensis", "Camelina microcarpa", "Capsella bursa-pastoris", "Cardamine flexuosa", "Cardamine hirsuta"], "Santalaceae": ["Thesium chinense"], "Loranthaceae": ["Taxillus levinei"], "Tamaricaceae": ["Tamarix chinensis", "Myricaria laxiflora", "Tamarix ramosissima", "Tamarix tetrandra"], "Plumbaginaceae": ["Ceratostigma plumbaginoides", "Armeria maritima", "Armeria maritima ‘Morning Star Deep Rose’", "Armeria maritima ‘Morning Star White’", "Limonium bicolor", "Limonium platyphyllum", "Limonium sinense", "Plumbago auriculata"], "Polygonaceae": ["Fagopyrum dibotrys", "Fagopyrum esculentum", "Fagopyrum gracilipes", "Fagopyrum tataricum", "Fallopia convolvulus", "Fallopia dentatoalata", "Persicaria amphibia", "Persicaria bungeana"], "Droseraceae": ["Drosera peltata"], "Caryophyllaceae": ["Agrostemma githago", "Arenaria serpyllifolia", "Cerastium glomeratum", "Dianthus chinensis", "Dianthus superbus", "Gypsophila vaccaria", "Lepyrodiclis holosteoides", "Sagina japonica"], "Amaranthaceae": ["Achyranthes bidentata", "Achyranthes bidentata var. japonica", "Alternanthera philoxeroides", "Alternanthera sessilis", "Amaranthus albus", "Amaranthus blitoides", "Amaranthus blitum", "Amaranthus graecizans subsp. thellungianus"], "Aizoaceae": ["Tetragonia tetragonoides", "Glottiphyllum linguiforme", "Lampranthus spectabilis", "Mesembryanthemum cordifolium"], "Phytolaccaceae": ["Phytolacca acinosa", "Phytolacca americana"], "Nyctaginaceae": ["Mirabilis jalapa", "Bougainvillea glabra", "Bougainvillea spectabilis"], "Molluginaceae": ["Mollugo verticillata", "Trigastrotheca stricta"], "Basellaceae": ["Basella alba", "Anredera cordifolia", "Basella alba ‘Rubra’"], "Talinaceae": ["Talinum paniculatum", "Talinum fruticosum"], "Portulacaceae": ["Portulaca grandiflora", "Portulaca oleracea", "Portulaca umbraticola", "Portulaca umbraticola ‘Pleniflora Mix’", "Portulaca umbraticola ‘Variegata’", "Portulaca umbraticola ‘Wildfire Mix’"], "Nyssaceae": ["Camptotheca acuminata", "Davidia involucrata", "Nyssa sinensis"], "Cornaceae": ["Alangium chinense", "Alangium kurzii", "Alangium platanifolium", "Cornus alba", "Cornus alba ‘Aurea’", "Cornus capitata", "Cornus controversa", "Cornus controversa ‘Variegata’"], "Balsaminaceae": ["Impatiens balsamina", "Impatiens balsamina ‘Pleniflora’", "Impatiens hawkeri", "Impatiens walleriana", "Impatiens walleriana ‘Appleblossom’", "Impatiens walleriana ‘Red Flash’"], "Pentaphylacaceae": ["Eurya emarginata", "Eurya japonica", "Adinandra millettii", "Cleyera japonica", "Cleyera pachyphylla", "Ternstroemia gymnanthera", "Ternstroemia japonica"], "Ebenaceae": ["Diospyros kaki var. silvestris", "Diospyros rhombifolia", "Diospyros armata", "Diospyros cathayensis", "Diospyros japonica", "Diospyros kaki", "Diospyros lotus", "Diospyros morrisiana"], "Primulaceae": ["Androsace filiformis", "Androsace umbellata", "Ardisia japonica", "Lysimachia arvensis", "Lysimachia barystachys", "Lysimachia candida", "Lysimachia christinae", "Lysimachia clethroides"], "Symplocaceae": ["Symplocos paniculata", "Symplocos anomala", "Symplocos lucida", "Symplocos sumuntia"], "Ericaceae": ["Rhododendron simsii", "Vaccinium bracteatum", "Pieris japonica", "Pieris japonica ‘Carnaval’", "Pieris japonica ‘Debutante’", "Pieris japonica ‘Forest Flame’", "Pieris japonica ‘Katsura’", "Pieris japonica ‘Sarabande’"], "Rubiaceae": ["Exallage chrysotricha", "Galium bungei", "Galium elegans", "Galium innocuum", "Galium spurium", "Galium tricornutum", "Galium verum", "Oldenlandia corymbosa"], "Gentianaceae": ["Centaurium pulchellum var. altaicum", "Gentiana yokusai", "Tripterospermum chinense", "Tripterospermum discoideum"], "Apocynaceae": ["Apocynum venetum", "Catharanthus roseus", "Cynanchum auriculatum", "Cynanchum chinense", "Cynanchum rostellatum", "Cynanchum thesioides", "Nerium oleander", "Trachelospermum jasminoides"], "Boraginaceae": ["Aegonychon zollingeri", "Asperugo procumbens", "Bothriospermum secundum", "Bothriospermum zeylanicum", "Buglossoides arvensis", "Cynoglossum lanceolatum", "Ehretia acuminata", "Heliotropium europaeum"], "Convolvulaceae": ["Calystegia hederacea", "Calystegia pellita", "Calystegia pubescens", "Calystegia silvatica subsp. orientalis", "Calystegia soldanella", "Convolvulus arvensis", "Cuscuta australis", "Cuscuta chinensis"], "Solanaceae": ["Alkekengi officinarum var. franchetii", "Datura innoxia", "Datura stramonium", "Lycium chinense", "Nicandra physalodes", "Physalis angulata", "Physalis divaricata", "Physalis pubescens"], "Oleaceae": ["Forsythia suspensa", "Ligustrum lucidum", "Ligustrum quihoui", "Ligustrum sinense", "Osmanthus fragrans", "Abeliophyllum distichum", "Chionanthus retusus", "Chrysojasminum floridum"], "Plantaginaceae": ["Adenosma indianum", "Callitriche palustris", "Dopatrium junceum", "Kickxia elatine", "Limnophila sessiliflora", "Plantago asiatica", "Plantago depressa", "Plantago lanceolata"], "Scrophulariaceae": ["Verbascum thapsus", "Buddleja × weyeriana", "Buddleja × weyeriana ‘Sungold’", "Buddleja alternifolia", "Buddleja asiatica", "Buddleja colvilei", "Buddleja davidii", "Buddleja globosa"], "Linderniaceae": ["Bonnaya antipoda", "Lindernia procumbens", "Torenia anagallis", "Torenia crustacea", "Torenia violacea", "Vandellia brevipedunculata", "Yamazakia viscosa", "Torenia fournieri"], "Acanthaceae": ["Dicliptera japonica", "Dicliptera tinctoria", "Hygrophila ringens", "Rostellularia procumbens", "Andrographis paniculata", "Asystasia neesiana", "Barleria cristata", "Pachystachys lutea"], "Lentibulariaceae": ["Utricularia aurea", "Utricularia australis"], "Verbenaceae": ["Verbena bonariensis", "Verbena officinalis", "Aloysia citrodora", "Duranta erecta", "Duranta erecta ‘Alba’", "Duranta erecta ‘Aurea’", "Duranta erecta ‘Gold Mound’", "Duranta erecta ‘Golden Edge’"], "Mazaceae": ["Mazus gracilis", "Mazus pumilus"], "Phrymaceae": ["Phryma nana", "Erythranthe lutea"], "Orobanchaceae": ["Aeginetia indica", "Monochasma sheareri", "Phtheirospermum japonicum", "Rehmannia glutinosa", "Siphonostegia chinensis", "Rehmannia chingii"], "Aquifoliaceae": ["Ilex chinensis", "Ilex cornuta", "Ilex integra", "Ilex × altaclerensis", "Ilex × altaclerensis ‘Belgica Aurea’", "Ilex × altaclerensis ‘Golden King’", "Ilex × altaclerensis ‘Lawsoniana’", "Ilex × attenuata"], "Campanulaceae": ["Codonopsis lanceolata", "Lobelia chinensis", "Platycodon grandiflorus", "Triodanis perfoliata subsp. biflora", "Wahlenbergia marginata", "Adenophora stricta", "Adenophora trachelioides", "Adenophora triphylla"], "Asteraceae": ["Adenostemma lavenia", "Ageratum conyzoides", "Ambrosia artemisiifolia", "Ambrosia trifida", "Artemisia anethifolia", "Artemisia anethoides", "Artemisia angustissima", "Artemisia annua"], "Adoxaceae": ["Sambucus javanica", "Sambucus williamsii", "Viburnum awabuki", "Viburnum erosum", "Sambucus canadensis", "Sambucus ebulus", "Sambucus nigra", "Sambucus nigra ‘Eva’"], "Caprifoliaceae": ["Lonicera japonica", "Patrinia villosa", "Valerianella locusta", "Abelia × grandiflora", "Abelia × grandiflora ‘Conti’", "Abelia × grandiflora ‘Gold Spot’", "Abelia × grandiflora ‘Sherwoodii’", "Abelia × grandiflora ‘Sunrise’"], "Pittosporaceae": ["Pittosporum tobira", "Pittosporum heterophyllum", "Pittosporum illicioides", "Pittosporum tenuifolium", "Pittosporum tenuifolium ‘Elizabeth’", "Pittosporum tenuifolium ‘Garnettii’", "Pittosporum tenuifolium ‘Gold Star’", "Pittosporum tenuifolium ‘Tom Thumb’"], "Araliaceae": ["Aralia chinensis", "Eleutherococcus nodiflorus", "Fatsia japonica", "Hedera nepalensis var. sinensis", "Hydrocotyle sibthorpioides", "Hydrocotyle verticillata", "Kalopanax septemlobus", "× Fatshedera lizei"], "Apiaceae": ["Anthriscus sylvestris", "Centella asiatica", "Changium smyrnioides", "Cnidium japonicum", "Cnidium monnieri", "Cryptotaenia japonica", "Cyclospermum leptophyllum", "Daucus carota"], "Onocleaceae": ["Matteuccia struthiopteris"], "Nephrolepidaceae": ["Nephrolepis cordifolia"], "Cycadaceae": ["Cycas pectinata", "Cycas revoluta", "Cycas rumphii"], "Ginkgoaceae": ["Ginkgo biloba"], "Araucariaceae": ["Araucaria cunninghamii"], "Podocarpaceae": ["Dacrycarpus imbricatus", "Dacrydium elatum", "Nageia fleuryi", "Nageia nagi", "Podocarpus macrophyllus", "Podocarpus macrophyllus var. maki", "Podocarpus neriifolius", "Podocarpus pilgeri"], "Sciadopityaceae": ["Sciadopitys verticillata", "Sciadopitys verticillata ‘Sternschnuppe’"], "Cupressaceae": ["× Hesperotropsis leylandii", "× Taxodiomeria peizhongii", "Chamaecyparis lawsoniana", "Chamaecyparis obtusa", "Chamaecyparis obtusa ‘Breviramea’", "Chamaecyparis obtusa ‘Lycopodioides’", "Chamaecyparis obtusa ‘Tetragone Aurea’", "Chamaecyparis obtusa var. formosana ‘Filicoides’"], "Cephalotaxaceae": ["Cephalotaxus fortunei", "Cephalotaxus harringtonia", "Cephalotaxus harringtonia ‘Fastigiata’", "Cephalotaxus sinensis"], "Taxaceae": ["Taxus × media", "Taxus × media ‘Hicksii’", "Taxus × media ‘Strait Hedge’", "Taxus baccata", "Taxus baccata ‘Amersfoort’", "Taxus baccata ‘Fastigiata Robusta’", "Taxus baccata ‘Green Column’", "Taxus baccata ‘Pyramidalis’"], "Pinaceae": ["Abies delavayi var. fabri", "Abies fargesii", "Abies firma", "Cathaya argyrophylla", "Cedrus deodara", "Keteleeria davidiana", "Keteleeria davidiana var. calcarea", "Keteleeria fortunei"], "Ephedraceae": ["Ephedra sinica"], "Gnetaceae": ["Gnetum montanum"], "Schisandraceae": ["Illicium henryi", "Illicium lanceolatum", "Kadsura longipedunculata", "Schisandra chinensis", "Schisandra sphenanthera"], "Magnoliaceae": ["Houpoea obovata", "Houpoea officinalis", "Houpoea officinalis ‘Biloba’", "Lirianthe coco", "Lirianthe delavayi", "Liriodendron × sinoamericanum", "Liriodendron chinense", "Liriodendron tulipifera"], "Annonaceae": ["Annona glabra", "Artabotrys hexapetalus"], "Cyclanthaceae": ["Carludovica palmata"], "Melanthiaceae": ["Paris polyphylla", "Paris verticillata", "Veratrum nigrum"], "Colchicaceae": ["Disporum bodinieri", "Disporum cantoniense", "Disporum sessile"], "Hypoxidaceae": ["Curculigo capitulata", "Curculigo orchioides"], "Asphodelaceae": ["Aloe vera", "Dianella ensifolia", "Dianella ensifolia ‘Golden Streak’", "Dianella ensifolia ‘Silver Streak’", "Dianella ensifolia ‘Variegata’", "Hemerocallis ‘Little Bumble Bee’", "Hemerocallis ‘Woodbury’", "Hemerocallis ‘Baltimore Oriole’"], "Musaceae": ["Musa basjoo", "Musella lasiocarpa"], "Cannaceae": ["Canna ‘Cleopatra’", "Canna ‘Tropical Bronze Scarlet’", "Canna ‘Tropical Rose’", "Canna × hybrida", "Canna × hybrida ‘Richard Wallace’", "Canna ‘America’", "Canna flaccida", "Canna glauca"], "Marantaceae": ["Thalia dealbata"], "Zingiberaceae": ["Alpinia japonica", "Alpinia oblongifolia", "Curcuma aromatica", "Curcuma longa", "Hedychium coronarium", "Wurfbainia villosa", "Zingiber officinale"], "Eupteleaceae": ["Euptelea pleiosperma"], "Platanaceae": ["Platanus × hispanica", "Platanus occidentalis", "Platanus orientalis"], "Proteaceae": ["Grevillea banksii", "Grevillea juniperina", "Grevillea robusta"], "Buxaceae": ["Buxus bodinieri", "Buxus harlandii", "Buxus henryi", "Buxus megistophylla", "Buxus microphylla ‘Winter Gem’", "Buxus sempervirens", "Buxus sempervirens ‘Bentley Blue’", "Buxus sempervirens ‘Elegans’"], "Paeoniaceae": ["Paeonia × suffruticosa", "Paeonia × suffruticosa ‘Asahi-minato’", "Paeonia × suffruticosa ‘Baiyuan Cangjiao’", "Paeonia × suffruticosa ‘Baiyuan Hongxia’", "Paeonia × suffruticosa ‘Chaoyi’", "Paeonia × suffruticosa ‘Da Zong Zi’", "Paeonia × suffruticosa ‘Erqiao’", "Paeonia × suffruticosa ‘Fen Zhong Guan’"], "Cercidiphyllaceae": ["Cercidiphyllum japonicum"], "Daphniphyllaceae": ["Daphniphyllum macropodum", "Daphniphyllum pentandrum"], "Iteaceae": ["Itea chinensis"], "Myricaceae": ["Myrica pensylvanica", "Myrica rubra"], "Casuarinaceae": ["Casuarina cunninghamiana", "Casuarina equisetifolia"], "Betulaceae": ["Alnus cremastogyne", "Alnus glutinosa ‘Laciniata’", "Alnus japonica", "Alnus trabeculosa", "Betula pendula subsp. mandshurica", "Carpinus betulus", "Carpinus betulus ‘Fastigiata’", "Carpinus cordata"], "Coriariaceae": ["Coriaria napalensis"], "Begoniaceae": ["Begonia cucullata", "Begonia cucullata ‘Ambassador Rose’", "Begonia cucullata ‘Senator Pink’", "Begonia cucullata ‘Senator White’", "Begonia cucullata ‘Super Olympia Rose’"], "Passifloraceae": ["Passiflora × alatocaerulea", "Passiflora caerulea", "Turnera ulmifolia"], "Myrtaceae": ["Acca sellowiana", "Callistemon citrinus", "Callistemon rigidus", "Callistemon salignus", "Callistemon viminalis", "Eucalyptus camaldulensis", "Eucalyptus cinerea", "Eucalyptus pulverulenta"], "Stachyuraceae": ["Stachyurus chinensis"], "Tapisciaceae": ["Tapiscia sinensis"], "Simaroubaceae": ["Ailanthus altissima", "Ailanthus altissima ‘Rubra’", "Brucea javanica", "Picrasma quassioides"], "Thymelaeaceae": ["Daphne genkwa", "Edgeworthia chrysantha", "Wikstroemia chamaedaphne"], "Akaniaceae": ["Bretschneidera sinensis"], "Tropaeolaceae": ["Tropaeolum majus"], "Limnanthaceae": ["Limnanthes douglasii"], "Resedaceae": ["Reseda odorata"], "Cactaceae": ["Opuntia dillenii", "Opuntia ficus-indica", "Opuntia monacanthos"], "Hydrangeaceae": ["Deutzia × rosea", "Deutzia × magnifica", "Deutzia crenata", "Deutzia crenata ‘Plena’", "Deutzia faberi", "Deutzia glauca", "Deutzia gracilis", "Deutzia gracilis ‘Nikko’"], "Polemoniaceae": ["Phlox bifida", "Phlox carolina ‘Bill Baker’", "Phlox paniculata", "Phlox subulata", "Polemonium caeruleum"], "Theaceae": ["Camellia cuspidata", "Camellia japonica", "Camellia japonica ‘Allan Walton’", "Camellia japonica ‘Bai Chang’e Cai’", "Camellia japonica ‘Bai Shiba Xueshi’", "Camellia japonica ‘Baixue Ta’", "Camellia japonica ‘Benten-kagura’", "Camellia japonica ‘Black No.2’"], "Styracaceae": ["Halesia carolina", "Halesia tetraptera var. monticola", "Perkinsiodendron macgregorii", "Pterostyrax corymbosus", "Pterostyrax psilophyllus", "Rehderodendron macrocarpum", "Sinojackia xylocarpa", "Styrax americanus"], "Actinidiaceae": ["Actinidia callosa var. discolor", "Actinidia chinensis", "Actinidia eriantha", "Actinidia kolomikta", "Actinidia polygama"], "Eucommiaceae": ["Eucommia ulmoides"], "Garryaceae": ["Aucuba chinensis", "Aucuba japonica", "Aucuba japonica ‘Variegata’"], "Calceolariaceae": ["Calceolaria crenatiflora"], "Gesneriaceae": ["Lysionotus pauciflorus"], "Pedaliaceae": ["Sesamum indicum"], "Bignoniaceae": ["× Chitalpa tashkentensis", "Campsis grandiflora", "Campsis radicans", "Catalpa × erubescens", "Catalpa bignonioides", "Catalpa bignonioides ‘Aurea’", "Catalpa bungei", "Catalpa ovata"], "Paulowniaceae": ["Paulownia fortunei", "Paulownia tomentosa"], "Helwingiaceae": ["Helwingia japonica"], "Menyanthaceae": ["Nymphoides peltata"]}, "issues": [{"id": "I1", "title": "Inconsistent schema across sheets", "evidence": "Wild sheet has 28 columns while cultivated sheet has 21; native/invasive/ecotype/habitat fields missing in cultivated sheet.", "impact": "Cross-sheet comparison can be biased or partially unavailable.", "curator_task": "Add harmonized null-capable columns for cultivated data or annotate unavailable dimensions explicitly."}, {"id": "I2", "title": "High missingness in conservation fields", "evidence": "National protection and threatened-rank fields are mostly empty in wild sheet records.", "impact": "Conservation-priority analyses are weak and likely under-estimate risk patterns.", "curator_task": "Backfill conservation status using national list mapping and version timestamps."}, {"id": "I3", "title": "Header row differs by sheet", "evidence": "Wild sheet header starts at row 2 due title row, cultivated sheet starts at row 1.", "impact": "Automated ingestion may silently shift fields if parser assumes fixed header row.", "curator_task": "Publish machine-readable schema file with explicit header_row and column dictionary."}, {"id": "I4", "title": "Potential taxonomy drift in source names", "evidence": "Field `Change with scientific name in data sources` indicates multiple renamed or corrected entries.", "impact": "Species counts can be inflated/deflated if synonym handling is inconsistent.", "curator_task": "Create synonym-to-accepted-name table and dedup logic for benchmark scoring."}], "core": {"unique_records": 4126, "family_richness": 211, "genus_richness": 1176, "category_richness": 3, "shannon_family_diversity": 4.3185, "simpson_family_diversity": 0.9735, "gini_family_imbalance": 0.7065, "dominant_top10_family_share": 0.4115}, "missingTop": [["国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021)", 0.9961], ["中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China's Higher Plants (2017)", 0.9947], ["上海原生/非原生 Native/non-native in Shanghai", 0.7], ["入侵/非入侵 Invasive/non-invasive", 0.7], ["分布区 Distribution areas", 0.7], ["生境类型 Habitat", 0.7], ["生态类型 Eco-type", 0.7], ["定名人 Author", 0.2896], ["了解程度 Knownledge degree", 0.0002], ["中文名 Chinese name", 0.0], ["中文属名 Chinese genus", 0.0], ["中文科名 Chinese family", 0.0]], "sheets": {"上海野生和逸生植物": {"header_row": 2, "row_count": 1238, "column_count": 28, "columns": ["序号 No.", "维管植物大类 Main categories of vascular plants", "科号 No. of family", "中文科名 Chinese family", "科名 Family", "中文属名 Chinese genus", "属名 Genus", "中文名 Chinese name", "学名 Scientific name", "定名人 Author", "分类处理依据 Reference for taxonomic treatment", "等级 Rank", "分布状态 Distribution status", "上海原生/非原生 Native/non-native in Shanghai", "入侵/非入侵 Invasive/non-invasive", "生长状态 Growth status", "生态类型 Eco-type", "生境类型 Habitat", "分布区 Distribution areas", "了解程度 Knownledge degree", "国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021)", "中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China's Higher Plants (2017)", "数据来源 Data sources", "数据来源类别 Type of data sources", "数据来源名称 Scientific name in data sources", "数据来源名称变动情况 Change with scientific name in data sources", "首次记载时间 Date of first record", "说明 Note"]}, "上海栽培植物": {"header_row": 1, "row_count": 2888, "column_count": 21, "columns": ["序号 No.", "维管植物大类 Main categories of vascular plants", "科号 No. of family", "中文科名 Chinese family", "科名 Family", "中文属名 Chinese genus", "属名 Genus", "中文名 Chinese name", "学名 Scientific name", "定名人 Author", "分类处理依据 Reference for taxonomic treatment", "等级 Rank", "分布状态 Distribution status", "生长状态 Growth status", "了解程度 Knownledge degree", "数据来源 Data sources", "数据来源类别 Type of data sources", "数据来源名称 Scientific name in data sources", "数据来源名称变动情况 Change with scientific name in data sources", "首次记载时间 Date of first record", "说明 Note"]}}, "yearInfo": {"n_with_year": 4012, "min_year": 1906, "max_year": 2019, "median_year": 1999}, "generatedAt": "2026-04-16T11:48:40", "source": "/Users/qing/Desktop/DATA/2023093-1.xlsx"};
+
+const colors = ["#2f7e51", "#3f95bf", "#8bbf7a", "#d4a45c", "#6a6fb0", "#54b08f", "#9a7f52", "#5a96c6"];
+const tip = document.getElementById('tip');
+
+function onTip(el, html) {
+  el.addEventListener('mousemove', (e) => {
+    tip.style.left = e.clientX + 'px';
+    tip.style.top = e.clientY + 'px';
+    tip.style.opacity = 1;
+    tip.innerHTML = html;
+  });
+  el.addEventListener('mouseleave', () => tip.style.opacity = 0);
+}
+
+function fmtPct(v) { return (v * 100).toFixed(1) + '%'; }
+
+function renderKPIs() {
+  const c = data.core;
+  const kpis = [
+    ['Unique records', c.unique_records],
+    ['Family richness', c.family_richness],
+    ['Shannon diversity', c.shannon_family_diversity],
+    ['Top-10 family share', fmtPct(c.dominant_top10_family_share)],
+  ];
+  const root = document.getElementById('kpis');
+  root.innerHTML = kpis.map(([l,v]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+}
+
+function renderMeta() {
+  const s = data.sheets;
+  const y = data.yearInfo;
+  const lines = [];
+  Object.entries(s).forEach(([name, info]) => {
+    lines.push(`<b>${name}</b>: rows=${info.row_count}, cols=${info.column_count}, header_row=${info.header_row}`);
+  });
+  if (y.min_year) {
+    lines.push(`First-record year span: ${y.min_year} - ${y.max_year} (n=${y.n_with_year})`);
+  }
+  lines.push(`Generated: ${data.generatedAt}`);
+  document.getElementById('metaBox').innerHTML = lines.join('<br/>');
+
+  document.getElementById('issuesBox').innerHTML = data.issues.map(i =>
+    `<div class="issue"><strong>${i.id}</strong> ${i.title}<br/><small>${i.curator_task}</small></div>`
+  ).join('');
+}
+
+function currentFamilies() {
+  const selected = document.getElementById('famSel').value;
+  let arr = data.familyTop;
+  if (selected !== 'ALL') arr = arr.filter(([k]) => k === selected);
+  return arr;
+}
+
+function renderFamilySelect() {
+  const sel = document.getElementById('famSel');
+  const opts = [['ALL', 'All families']].concat(data.familyTop.map(([k]) => [k, k]));
+  sel.innerHTML = opts.map(([v, t]) => `<option value="${v}">${t}</option>`).join('');
+  sel.addEventListener('change', () => { renderBar(); renderNetwork(); });
+}
+
+function renderBar() {
+  const svg = document.getElementById('barChart');
+  const W = 1000, H = 320, m = {l: 58, r: 18, t: 10, b: 98};
+  const arr = currentFamilies().slice(0, 20);
+  const maxV = Math.max(...arr.map(d => d[1]), 1);
+  const w = (W - m.l - m.r) / arr.length;
+
+  svg.innerHTML = '';
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  svg.appendChild(g);
+
+  for (let i = 0; i <= 5; i++) {
+    const v = (maxV / 5) * i;
+    const y = H - m.b - (v / maxV) * (H - m.t - m.b);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', m.l); line.setAttribute('x2', W - m.r);
+    line.setAttribute('y1', y); line.setAttribute('y2', y);
+    line.setAttribute('stroke', '#dce8e2');
+    g.appendChild(line);
+
+    const tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    tx.setAttribute('x', 8); tx.setAttribute('y', y + 4);
+    tx.setAttribute('fill', '#5d786d'); tx.setAttribute('font-size', '11');
+    tx.textContent = Math.round(v);
+    g.appendChild(tx);
+  }
+
+  arr.forEach((d, i) => {
+    const [fam, v] = d;
+    const x = m.l + i * w + 6;
+    const bh = (v / maxV) * (H - m.t - m.b);
+    const y = H - m.b - bh;
+
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', x);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', Math.max(8, w - 12));
+    rect.setAttribute('height', bh);
+    rect.setAttribute('rx', 2);
+    rect.setAttribute('class', 'bar');
+    g.appendChild(rect);
+
+    const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    label.setAttribute('x', x + (w - 12) / 2);
+    label.setAttribute('y', H - m.b + 12);
+    label.setAttribute('text-anchor', 'end');
+    label.setAttribute('transform', `rotate(-35 ${x + (w - 12) / 2} ${H - m.b + 12})`);
+    label.setAttribute('fill', '#4a6a60');
+    label.setAttribute('font-size', '11');
+    label.textContent = fam;
+    g.appendChild(label);
+
+    const value = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    value.setAttribute('x', x + (w - 12) / 2);
+    value.setAttribute('y', y - 4);
+    value.setAttribute('text-anchor', 'middle');
+    value.setAttribute('fill', '#2f5748');
+    value.setAttribute('font-size', '10');
+    value.textContent = v;
+    g.appendChild(value);
+
+    const sample = (data.samples[fam] || []).slice(0,5).join('<br/>');
+    onTip(rect, `<b>${fam}</b><br/>Species: ${v}<br/>Sample:<br/>${sample || 'No sample'}`);
+    rect.addEventListener('mouseenter', () => {
+      document.getElementById('drillBox').innerHTML = `<b>${fam}</b><br/>Species count: ${v}<br/>Example species:<br/>${sample || 'No sample'}`;
+    });
+  });
+}
+
+function renderPie() {
+  const svg = document.getElementById('pieChart');
+  const arr = data.categories;
+  const total = arr.reduce((a,b)=>a+b[1],0) || 1;
+  const cx = 175, cy = 140, r = 90;
+  let start = -Math.PI / 2;
+  svg.innerHTML = '';
+
+  arr.forEach((d, i) => {
+    const [name, v] = d;
+    const angle = (v / total) * Math.PI * 2;
+    const end = start + angle;
+    const x1 = cx + r * Math.cos(start), y1 = cy + r * Math.sin(start);
+    const x2 = cx + r * Math.cos(end), y2 = cy + r * Math.sin(end);
+    const large = angle > Math.PI ? 1 : 0;
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} Z`);
+    path.setAttribute('fill', colors[i % colors.length]);
+    path.setAttribute('opacity', '0.9');
+    svg.appendChild(path);
+    onTip(path, `<b>${name}</b><br/>Count: ${v}<br/>Share: ${((v/total)*100).toFixed(1)}%`);
+    start = end;
+  });
+
+  document.getElementById('pieLegend').innerHTML = arr.map((d,i) =>
+    `<span><span class="dot" style="background:${colors[i % colors.length]}"></span>${d[0]} (${d[1]})</span>`
+  ).join('');
+}
+
+function renderTree() {
+  const svg = document.getElementById('treeChart');
+  const zoom = document.getElementById('catZoom').value;
+  let entries = Object.entries(data.hierarchy);
+  if (zoom !== 'ALL') entries = entries.filter(([k]) => k === zoom);
+
+  svg.innerHTML = '';
+  const W = 500, H = 280;
+  const catX = 28, famX = 220;
+  const rows = entries.length || 1;
+  const yGap = (H - 30) / rows;
+
+  entries.forEach(([cat, fams], i) => {
+    const y = 24 + i * yGap;
+    const crect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    crect.setAttribute('x', catX); crect.setAttribute('y', y - 12);
+    crect.setAttribute('width', 160); crect.setAttribute('height', 24);
+    crect.setAttribute('rx', 6); crect.setAttribute('fill', '#dceee4');
+    svg.appendChild(crect);
+
+    const ctext = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    ctext.setAttribute('x', catX + 6); ctext.setAttribute('y', y + 5);
+    ctext.setAttribute('font-size', '11'); ctext.setAttribute('fill', '#285346');
+    ctext.textContent = cat;
+    svg.appendChild(ctext);
+
+    const topFams = fams.slice(0, 8);
+    topFams.forEach((f, j) => {
+      const fy = y - 44 + j * 12;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', catX + 160); line.setAttribute('y1', y);
+      line.setAttribute('x2', famX); line.setAttribute('y2', fy);
+      line.setAttribute('stroke', '#c5d9d0'); line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('x', famX + 2); t.setAttribute('y', fy + 4);
+      t.setAttribute('font-size', '10'); t.setAttribute('fill', '#4d6f64');
+      t.textContent = `${f[0]} (${f[1]})`;
+      svg.appendChild(t);
+    });
+  });
+}
+
+function renderCatZoom() {
+  const sel = document.getElementById('catZoom');
+  const keys = Object.keys(data.hierarchy);
+  sel.innerHTML = ['<option value="ALL">All categories</option>'].concat(keys.map(k => `<option value="${k}">${k}</option>`)).join('');
+  sel.addEventListener('change', renderTree);
+}
+
+function renderNetwork() {
+  const svg = document.getElementById('networkChart');
+  svg.innerHTML = '';
+  const selected = document.getElementById('famSel').value;
+  let fams = Object.entries(data.familyGenus).slice(0, 8);
+  if (selected !== 'ALL' && data.familyGenus[selected]) {
+    fams = [[selected, data.familyGenus[selected]]];
+  }
+
+  const W = 500, H = 280;
+  const leftX = 100, rightX = 370;
+  const fyGap = (H - 40) / Math.max(1, fams.length);
+
+  const genusNodes = [];
+  fams.forEach(([fam, arr], i) => {
+    const fy = 24 + i * fyGap;
+    const fCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    fCircle.setAttribute('cx', leftX); fCircle.setAttribute('cy', fy);
+    fCircle.setAttribute('r', 8);
+    fCircle.setAttribute('fill', '#2f7e51');
+    svg.appendChild(fCircle);
+    onTip(fCircle, `<b>Family</b><br/>${fam}`);
+
+    const fText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    fText.setAttribute('x', leftX - 12); fText.setAttribute('y', fy + 4);
+    fText.setAttribute('text-anchor', 'end');
+    fText.setAttribute('font-size', '10');
+    fText.setAttribute('fill', '#32584b');
+    fText.textContent = fam;
+    svg.appendChild(fText);
+
+    arr.slice(0, 5).forEach((g, j) => {
+      genusNodes.push({ fam, genus: g[0], value: g[1], fy, idx: j });
+    });
+  });
+
+  genusNodes.forEach((n, i) => {
+    const gy = 18 + (i * 22) % (H - 30);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', leftX + 8); line.setAttribute('y1', n.fy);
+    line.setAttribute('x2', rightX - 6); line.setAttribute('y2', gy);
+    line.setAttribute('stroke', '#9fc7b5');
+    line.setAttribute('stroke-width', String(Math.max(1, Math.min(4, n.value / 4))));
+    line.setAttribute('opacity', '0.68');
+    svg.appendChild(line);
+
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('cx', rightX); c.setAttribute('cy', gy);
+    c.setAttribute('r', String(Math.max(3, Math.min(8, 2 + n.value / 3))));
+    c.setAttribute('fill', '#3f95bf');
+    svg.appendChild(c);
+    onTip(c, `<b>${n.genus}</b><br/>Family: ${n.fam}<br/>Species records: ${n.value}`);
+
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', rightX + 10); t.setAttribute('y', gy + 3);
+    t.setAttribute('font-size', '10'); t.setAttribute('fill', '#476b7d');
+    t.textContent = n.genus;
+    svg.appendChild(t);
+  });
+}
+
+function renderMetaChart() {
+  const svg = document.getElementById('metaChart');
+  svg.innerHTML = '';
+  const arr = data.missingTop.slice(0, 10);
+  const W = 500, H = 280, m = {l: 210, r: 16, t: 10, b: 10};
+  const rowH = (H - m.t - m.b) / arr.length;
+
+  arr.forEach((d, i) => {
+    const [name, ratio] = d;
+    const y = m.t + i * rowH;
+    const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    label.setAttribute('x', 6); label.setAttribute('y', y + rowH * 0.72);
+    label.setAttribute('font-size', '10'); label.setAttribute('fill', '#56756a');
+    label.textContent = name.slice(0, 38);
+    svg.appendChild(label);
+
+    const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bg.setAttribute('x', m.l); bg.setAttribute('y', y + 3);
+    bg.setAttribute('width', W - m.l - m.r); bg.setAttribute('height', rowH - 6);
+    bg.setAttribute('rx', 3); bg.setAttribute('fill', '#e5efea');
+    svg.appendChild(bg);
+
+    const fg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    fg.setAttribute('x', m.l); fg.setAttribute('y', y + 3);
+    fg.setAttribute('width', (W - m.l - m.r) * ratio); fg.setAttribute('height', rowH - 6);
+    fg.setAttribute('rx', 3); fg.setAttribute('fill', '#c9775f');
+    svg.appendChild(fg);
+
+    const tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    tx.setAttribute('x', W - 8); tx.setAttribute('y', y + rowH * 0.72);
+    tx.setAttribute('text-anchor', 'end'); tx.setAttribute('font-size', '10');
+    tx.setAttribute('fill', '#8b4e3b');
+    tx.textContent = (ratio * 100).toFixed(1) + '%';
+    svg.appendChild(tx);
+  });
+}
+
+function setupModeButtons() {
+  document.querySelectorAll('.modeBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.modeBtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Current data package contains aggregated full-dataset metrics;
+      // modes are benchmark placeholders to keep protocol consistent.
+      renderBar();
+    });
+  });
+}
+
+renderKPIs();
+renderMeta();
+renderFamilySelect();
+renderCatZoom();
+setupModeButtons();
+renderBar();
+renderPie();
+renderTree();
+renderNetwork();
+renderMetaChart();
+</script>
+</body>
+</html>

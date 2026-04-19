@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Green Space Dashboard</title>
+  <style>
+    :root {
+      --ink: #20302a;
+      --muted: #63756d;
+      --paper: #f7f2e8;
+      --panel: rgba(255, 252, 244, 0.9);
+      --line: #dfd1bd;
+      --forest: #1f5f4a;
+      --moss: #7d9b55;
+      --sun: #d69b3a;
+      --clay: #b96543;
+      --water: #4e8ea1;
+      --rose: #c87273;
+      --shadow: 0 24px 80px rgba(58, 45, 29, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(214, 155, 58, 0.22), transparent 32rem),
+        radial-gradient(circle at 86% 4%, rgba(78, 142, 161, 0.20), transparent 28rem),
+        linear-gradient(135deg, #efe5d0 0%, #f8f3e9 46%, #dfe7d5 100%);
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 0.95;
+      margin: 0 0 16px;
+      letter-spacing: -0.055em;
+      max-width: 850px;
+    }
+
+    .intro {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 252, 244, 0.76);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      padding: 10px 16px;
+      transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button.active {
+      background: var(--forest);
+      border-color: var(--forest);
+      color: #fffaf0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 28px 0 18px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .metric,
+    .chart-card {
+      background: var(--panel);
+      border: 1px solid rgba(223, 209, 189, 0.8);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric {
+      padding: 22px;
+      min-height: 130px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::after {
+      content: "";
+      position: absolute;
+      right: -28px;
+      bottom: -34px;
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      background: rgba(125, 155, 85, 0.18);
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 18px;
+    }
+
+    .chart-card {
+      padding: 24px;
+      min-height: 360px;
+    }
+
+    .chart-card.wide {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .chart-note {
+      color: var(--muted);
+      margin: 0 0 22px;
+      line-height: 1.5;
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 260px) 1fr 70px;
+      gap: 12px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .bar-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bar-track {
+      height: 18px;
+      border-radius: 999px;
+      background: #eadfcf;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      min-width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--forest), var(--moss));
+    }
+
+    .bar-fill.stacked {
+      display: flex;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .bar-segment {
+      height: 100%;
+      min-width: 2px;
+    }
+
+    .bar-segment.migratory {
+      background: var(--water);
+    }
+
+    .bar-segment.resident {
+      background: var(--sun);
+    }
+
+    .bar-value {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .pie-wrap {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 24px;
+      align-items: center;
+      min-height: 240px;
+    }
+
+    .pie {
+      width: 190px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--forest) 0deg, var(--forest) 180deg, var(--sun) 180deg, var(--sun) 300deg, var(--water) 300deg, var(--water) 360deg);
+      box-shadow: inset 0 0 0 18px rgba(255, 252, 244, 0.82), 0 18px 50px rgba(58, 45, 29, 0.18);
+      position: relative;
+    }
+
+    .pie::after {
+      content: "";
+      position: absolute;
+      inset: 54px;
+      border-radius: 50%;
+      background: var(--panel);
+      border: 1px solid rgba(223, 209, 189, 0.8);
+    }
+
+    .legend {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend li {
+      display: grid;
+      grid-template-columns: 14px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .legend.compact {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .legend.compact li {
+      display: flex;
+      gap: 8px;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+
+    .source-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        justify-content: flex-start;
+      }
+
+      .summary-grid,
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pie-wrap {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr 74px;
+      }
+
+      .bar-track {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+
+      .bar-value {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <section>
+        <div class="eyebrow" data-i18n="eyebrow">CSV visualization</div>
+        <h1 data-i18n="title">Campus green-space biodiversity</h1>
+        <p class="intro" data-i18n="intro">Explore campus-only summaries from the bird, plant, and location CSV files. Non-campus localities have been removed from the charts. The source-list CSV is excluded and only used as background metadata.</p>
+      </section>
+      <nav class="controls" aria-label="Language switcher">
+        <button type="button" class="lang active" data-lang="en">English</button>
+        <button type="button" class="lang" data-lang="zh">简体中文</button>
+      </nav>
+    </header>
+
+    <nav class="tabs" aria-label="Dataset switcher">
+      <button type="button" class="tab active" data-view="birds" data-i18n="tabBirds">Birds</button>
+      <button type="button" class="tab" data-view="plants" data-i18n="tabPlants">Plants</button>
+      <button type="button" class="tab" data-view="locations" data-i18n="tabLocations">Locations</button>
+    </nav>
+
+    <section class="summary-grid" id="metrics"></section>
+    <section class="chart-grid" id="charts"></section>
+    <p class="source-note" data-i18n="footer">Data summarized from the local CSV files in this folder, keeping campus localities only: bird list, plant list, and locality information.</p>
+  </main>
+
+  <script>
+    const colors = ["#1f5f4a", "#d69b3a", "#4e8ea1", "#b96543", "#7d9b55", "#c87273", "#6d6b45", "#386a78", "#9a6b35", "#57865f"];
+
+    const data = {
+      birds: {
+        metrics: [
+          { key: "records", value: 2110 },
+          { key: "species", value: 404 },
+          { key: "locations", value: 53 }
+        ],
+        charts: [
+          {
+            type: "pie",
+            key: "birdMigrant",
+            values: [
+              { name: "M", value: 1052 },
+              { name: "R", value: 1036 },
+              { name: "NA", value: 22 }
+            ]
+          },
+          {
+            type: "bar",
+            key: "birdFamily",
+            values: [
+              { name: "Muscicapidae", value: 170 },
+              { name: "Corvidae", value: 116 },
+              { name: "Motacillidae", value: 114 },
+              { name: "Fringillidae", value: 109 },
+              { name: "Columbidae", value: 97 },
+              { name: "Phylloscopidae", value: 85 },
+              { name: "Ardeidae", value: 82 },
+              { name: "Emberizidae", value: 81 },
+              { name: "Laridae", value: 81 },
+              { name: "Paridae", value: 73 }
+            ]
+          },
+          {
+            type: "stackedBar",
+            wide: true,
+            key: "birdLocality",
+            values: [
+              { name: "Peking University, Yanyuan Campus", value: 177, M: 151, R: 26 },
+              { name: "Hechi University", value: 100, M: 46, R: 54 },
+              { name: "Southwest University", value: 96, M: 40, R: 56 },
+              { name: "Yangtze University, East Campus", value: 89, M: 49, R: 40 },
+              { name: "Jianghan University", value: 78, M: 49, R: 29 },
+              { name: "Sichuan University, Jiangan Campus", value: 73, M: 42, R: 31 },
+              { name: "Ningxia University", value: 68, M: 44, R: 24 },
+              { name: "Shandong Agricultural University, South Campus", value: 68, M: 44, R: 24 },
+              { name: "Sichuan Agricultural University, Ya'an Campus", value: 67, M: 24, R: 43 },
+              { name: "Sichuan Normal University", value: 65, M: 38, R: 27 }
+            ]
+          }
+        ]
+      },
+      plants: {
+        metrics: [
+          { key: "records", value: 46558 },
+          { key: "species", value: 5917 },
+          { key: "locations", value: 254 }
+        ],
+        charts: [
+          {
+            type: "pie",
+            key: "plantNative",
+            values: [
+              { name: "Native", value: 26267 },
+              { name: "Nonnative", value: 20291 }
+            ]
+          },
+          {
+            type: "pie",
+            key: "plantGrowth",
+            values: [
+              { name: "Tree", value: 19017 },
+              { name: "Herb", value: 18305 },
+              { name: "Shrub", value: 9236 }
+            ]
+          },
+          {
+            type: "bar",
+            wide: true,
+            key: "plantFamily",
+            values: [
+              { name: "Rosaceae", value: 3672 },
+              { name: "Compositae", value: 2769 },
+              { name: "Leguminosae", value: 2639 },
+              { name: "Poaceae", value: 2217 },
+              { name: "Oleaceae", value: 1480 },
+              { name: "Cupressaceae", value: 1081 },
+              { name: "Magnoliaceae", value: 1041 },
+              { name: "Asparagaceae", value: 1009 },
+              { name: "Malvaceae", value: 997 },
+              { name: "Arecaceae", value: 996 }
+            ]
+          }
+        ]
+      },
+      locations: {
+        metrics: [
+          { key: "locationsTotal", value: 286 },
+          { key: "avgArea", value: 121 },
+          { key: "avgElevation", value: 356 }
+        ],
+        charts: [
+          {
+            type: "bar",
+            key: "locationRegion",
+            values: [
+              { name: "Eastern", value: 72 },
+              { name: "Southern", value: 42 },
+              { name: "Northern", value: 40 },
+              { name: "Northwestern", value: 40 },
+              { name: "Central", value: 38 },
+              { name: "Southwestern", value: 33 },
+              { name: "Northeastern", value: 21 }
+            ]
+          },
+          {
+            type: "pie",
+            key: "locationType",
+            values: [
+              { name: "Campus", value: 286 }
+            ]
+          },
+          {
+            type: "bar",
+            wide: true,
+            key: "locationProvince",
+            values: [
+              { name: "Inner Mongolia", value: 22 },
+              { name: "Guangxi", value: 21 },
+              { name: "Henan", value: 17 },
+              { name: "Guangdong", value: 17 },
+              { name: "Jiangsu", value: 13 },
+              { name: "Sichuan", value: 13 },
+              { name: "Shandong", value: 12 },
+              { name: "Zhejiang", value: 12 },
+              { name: "Anhui", value: 11 },
+              { name: "Hunan", value: 11 }
+            ]
+          }
+        ]
+      }
+    };
+
+    const text = {
+      en: {
+        eyebrow: "CSV visualization",
+        title: "Campus green-space biodiversity",
+        intro: "Explore campus-only summaries from the bird, plant, and location CSV files. Non-campus localities have been removed from the charts. The source-list CSV is excluded and only used as background metadata.",
+        tabBirds: "Birds",
+        tabPlants: "Plants",
+        tabLocations: "Locations",
+        footer: "Data summarized from the local CSV files in this folder, keeping campus localities only: bird list, plant list, and locality information.",
+        records: "total records",
+        species: "unique scientific names",
+        locations: "locations represented",
+        locationsTotal: "total locations",
+        avgArea: "average area, hectares",
+        avgElevation: "average elevation, meters",
+        birdMigrantTitle: "Bird migration status",
+        birdMigrantNote: "M means migratory, R means resident, and NA means no status recorded.",
+        birdFamilyTitle: "Top bird families",
+        birdFamilyNote: "Families with the most bird records after filtering to campus localities only.",
+        birdLocalityTitle: "Top bird localities",
+        birdLocalityNote: "Campus localities with the most bird records, split by migratory and resident birds.",
+        plantNativeTitle: "Plant nativeness",
+        plantNativeNote: "Native and nonnative plant records.",
+        plantGrowthTitle: "Plant growth forms",
+        plantGrowthNote: "Tree, herb, and shrub records.",
+        plantFamilyTitle: "Top plant families",
+        plantFamilyNote: "Families with the most plant records in the plant-list CSV.",
+        locationRegionTitle: "Locations by region",
+        locationRegionNote: "Number of campus localities in each broad region.",
+        locationTypeTitle: "Location type",
+        locationTypeNote: "Only campus localities are retained in this dashboard.",
+        locationProvinceTitle: "Top provinces",
+        locationProvinceNote: "Provinces with the most campus localities in the locality table.",
+        M: "Migratory",
+        R: "Resident",
+        NA: "No data",
+        Native: "Native",
+        Nonnative: "Nonnative",
+        Tree: "Tree",
+        Herb: "Herb",
+        Shrub: "Shrub",
+        Campus: "Campus",
+        Eastern: "Eastern",
+        Northwestern: "Northwestern",
+        Southern: "Southern",
+        Southwestern: "Southwestern",
+        Central: "Central",
+        Northern: "Northern",
+        Northeastern: "Northeastern"
+      },
+      zh: {
+        eyebrow: "CSV 数据可视化",
+        title: "校园绿地生物多样性",
+        intro: "这里展示鸟类、植物和地点 CSV 中仅保留校园地点后的摘要信息。非校园地点已经从图表中移除。Source List 来源表不参与作图，只作为记录来源的背景信息。",
+        tabBirds: "鸟类",
+        tabPlants: "植物",
+        tabLocations: "地点",
+        footer: "数据摘要来自本文件夹中的三个 CSV，并且只保留校园地点：鸟类名录、植物名录和地点信息表。",
+        records: "记录总数",
+        species: "不同科学名数量",
+        locations: "涉及地点数量",
+        locationsTotal: "地点总数",
+        avgArea: "平均面积，公顷",
+        avgElevation: "平均海拔，米",
+        birdMigrantTitle: "鸟类迁徙状态",
+        birdMigrantNote: "M 表示迁徙鸟，R 表示留鸟，NA 表示没有记录状态。",
+        birdFamilyTitle: "鸟类科排名",
+        birdFamilyNote: "筛选为校园地点后，鸟类记录数最多的科。",
+        birdLocalityTitle: "鸟类记录最多的地点",
+        birdLocalityNote: "鸟类记录数量最高的校园地点，并按迁徙鸟和留鸟拆分显示。",
+        plantNativeTitle: "植物乡土性",
+        plantNativeNote: "乡土植物和非乡土植物记录数量。",
+        plantGrowthTitle: "植物生长型",
+        plantGrowthNote: "乔木、草本和灌木记录数量。",
+        plantFamilyTitle: "植物科排名",
+        plantFamilyNote: "植物记录数最多的科。",
+        locationRegionTitle: "各区域地点数量",
+        locationRegionNote: "不同大区中的校园地点数量。",
+        locationTypeTitle: "地点类型",
+        locationTypeNote: "当前页面只保留校园地点。",
+        locationProvinceTitle: "省份地点数量排名",
+        locationProvinceNote: "校园地点数量最多的省份。",
+        M: "迁徙鸟",
+        R: "留鸟",
+        NA: "无数据",
+        Native: "乡土",
+        Nonnative: "非乡土",
+        Tree: "乔木",
+        Herb: "草本",
+        Shrub: "灌木",
+        Campus: "校园",
+        Eastern: "华东",
+        Northwestern: "西北",
+        Southern: "华南",
+        Southwestern: "西南",
+        Central: "华中",
+        Northern: "华北",
+        Northeastern: "东北"
+      }
+    };
+
+    let currentLang = "en";
+    let currentView = "birds";
+
+    function t(key) {
+      return text[currentLang][key] || key;
+    }
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat(currentLang === "zh" ? "zh-CN" : "en-US").format(value);
+    }
+
+    function labelName(name) {
+      return text[currentLang][name] || name;
+    }
+
+    function renderText() {
+      document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        node.textContent = t(node.dataset.i18n);
+      });
+      document.querySelectorAll(".lang").forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === currentLang);
+      });
+    }
+
+    function renderMetrics() {
+      const metrics = document.querySelector("#metrics");
+      metrics.innerHTML = data[currentView].metrics.map((metric) => `
+        <article class="metric">
+          <span class="metric-value">${formatNumber(metric.value)}</span>
+          <span class="metric-label">${t(metric.key)}</span>
+        </article>
+      `).join("");
+    }
+
+    function renderBarChart(chart) {
+      const max = Math.max(...chart.values.map((item) => item.value));
+      const rows = chart.values.map((item) => {
+        const width = Math.max(2, (item.value / max) * 100);
+        return `
+          <div class="bar-row">
+            <div class="bar-name" title="${item.name}">${labelName(item.name)}</div>
+            <div class="bar-track" aria-hidden="true">
+              <div class="bar-fill" style="width: ${width}%"></div>
+            </div>
+            <div class="bar-value">${formatNumber(item.value)}</div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <article class="chart-card ${chart.wide ? "wide" : ""}">
+          <h2>${t(chart.key + "Title")}</h2>
+          <p class="chart-note">${t(chart.key + "Note")}</p>
+          <div class="bars">${rows}</div>
+        </article>
+      `;
+    }
+
+    function renderStackedBarChart(chart) {
+      const max = Math.max(...chart.values.map((item) => item.value));
+      const legend = `
+        <ul class="legend compact">
+          <li><span class="swatch" style="background: var(--water)"></span><span>${t("M")}</span></li>
+          <li><span class="swatch" style="background: var(--sun)"></span><span>${t("R")}</span></li>
+        </ul>
+      `;
+      const rows = chart.values.map((item) => {
+        const width = Math.max(2, (item.value / max) * 100);
+        const migratoryWidth = (item.M / item.value) * 100;
+        const residentWidth = (item.R / item.value) * 100;
+        return `
+          <div class="bar-row">
+            <div class="bar-name" title="${item.name}">${labelName(item.name)}</div>
+            <div class="bar-track" aria-label="${labelName(item.name)}: ${t("M")} ${formatNumber(item.M)}, ${t("R")} ${formatNumber(item.R)}">
+              <div class="bar-fill stacked" style="width: ${width}%">
+                <div class="bar-segment migratory" style="width: ${migratoryWidth}%" title="${t("M")}: ${formatNumber(item.M)}"></div>
+                <div class="bar-segment resident" style="width: ${residentWidth}%" title="${t("R")}: ${formatNumber(item.R)}"></div>
+              </div>
+            </div>
+            <div class="bar-value">${formatNumber(item.value)}</div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <article class="chart-card ${chart.wide ? "wide" : ""}">
+          <h2>${t(chart.key + "Title")}</h2>
+          <p class="chart-note">${t(chart.key + "Note")}</p>
+          ${legend}
+          <div class="bars">${rows}</div>
+        </article>
+      `;
+    }
+
+    function renderPieChart(chart) {
+      const total = chart.values.reduce((sum, item) => sum + item.value, 0);
+      let start = 0;
+      const gradient = chart.values.map((item, index) => {
+        const end = start + (item.value / total) * 360;
+        const segment = `${colors[index % colors.length]} ${start}deg ${end}deg`;
+        start = end;
+        return segment;
+      }).join(", ");
+
+      const legend = chart.values.map((item, index) => {
+        const pct = Math.round((item.value / total) * 100);
+        return `
+          <li>
+            <span class="swatch" style="background: ${colors[index % colors.length]}"></span>
+            <span>${labelName(item.name)} (${pct}%)</span>
+            <strong>${formatNumber(item.value)}</strong>
+          </li>
+        `;
+      }).join("");
+
+      return `
+        <article class="chart-card ${chart.wide ? "wide" : ""}">
+          <h2>${t(chart.key + "Title")}</h2>
+          <p class="chart-note">${t(chart.key + "Note")}</p>
+          <div class="pie-wrap">
+            <div class="pie" style="background: conic-gradient(${gradient})" role="img" aria-label="${t(chart.key + "Title")}"></div>
+            <ul class="legend">${legend}</ul>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderCharts() {
+      const charts = document.querySelector("#charts");
+      charts.innerHTML = data[currentView].charts.map((chart) => {
+        if (chart.type === "pie") return renderPieChart(chart);
+        if (chart.type === "stackedBar") return renderStackedBarChart(chart);
+        return renderBarChart(chart);
+      }).join("");
+    }
+
+    function renderTabs() {
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.classList.toggle("active", button.dataset.view === currentView);
+      });
+    }
+
+    function render() {
+      renderText();
+      renderTabs();
+      renderMetrics();
+      renderCharts();
+    }
+
+    document.querySelectorAll(".lang").forEach((button) => {
+      button.addEventListener("click", () => {
+        currentLang = button.dataset.lang;
+        render();
+      });
+    });
+
+    document.querySelectorAll(".tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        currentView = button.dataset.view;
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>

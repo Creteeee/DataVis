@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2023093-1 植物名录可视化</title>
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --panel: rgba(255, 251, 244, 0.9);
+      --ink: #1f2a1f;
+      --muted: #576255;
+      --line: rgba(31, 42, 31, 0.12);
+      --accent: #376f4d;
+      --accent-2: #a65b2e;
+      --accent-3: #697b35;
+      --shadow: 0 20px 60px rgba(37, 49, 39, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Noto Sans SC", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(55, 111, 77, 0.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(166, 91, 46, 0.16), transparent 28%),
+        linear-gradient(180deg, #f7f2e8 0%, #efe8db 100%);
+    }
+
+    .wrap {
+      width: min(1200px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.86), rgba(249, 242, 229, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(55, 111, 77, 0.1);
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.05;
+    }
+
+    .sub {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .stat .k {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .stat .v {
+      margin-top: 8px;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .section .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .highlight {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+
+    .highlight .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .highlight .value {
+      margin-top: 6px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .highlight .pct {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .bar-meta .label {
+      color: var(--ink);
+    }
+
+    .bar-meta .value {
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .bar-track {
+      height: 10px;
+      background: rgba(31, 42, 31, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100vw - 20px, 1200px); padding-top: 20px; }
+      .hero, .section { padding: 18px; border-radius: 22px; }
+      h1 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app"></div>
+
+  <script>
+    const data = {"sheets":[{"charts":[{"items":[{"label":"被子植物 Angiosperms","value":1161},{"label":"蕨类植物 Pteridophyte","value":77}],"title":"维管植物大类"},{"items":[{"label":"本土","value":1069},{"label":"外来","value":169}],"title":"分布状态"},{"items":[{"label":"上海原生种","value":858},{"label":"非上海原生","value":380}],"title":"上海原生/非原生"},{"items":[{"label":"非入侵","value":1155},{"label":"入侵","value":83}],"title":"入侵状态"},{"items":[{"label":"野生","value":1016},{"label":"栽培、逸生","value":98},{"label":"野生、栽培、逸生","value":92},{"label":"野生、栽培","value":32}],"title":"生长状态"},{"items":[{"label":"1999","value":321},{"label":"1875","value":108},{"label":"1984","value":72},{"label":"1933","value":56},{"label":"1931","value":45},{"label":"1959","value":45},{"label":"1970","value":37},{"label":"2006","value":37},{"label":"1919","value":25},{"label":"1930","value":24}],"title":"首次记载时间 Top 10"}],"highlights":[{"count":1069,"label":"本土","percent":86.3},{"count":858,"label":"上海原生种","percent":69.3},{"count":1155,"label":"非入侵","percent":93.3}],"name":"上海野生和逸生植物","total":1238},{"charts":[{"items":[{"label":"被子植物 Angiosperms","value":2741},{"label":"裸子植物 Gymnospermae","value":136},{"label":"蕨类植物 Pteridophyte","value":11}],"title":"维管植物大类"},{"items":[{"label":"外来","value":1484},{"label":"本土","value":1404}],"title":"分布状态"},{"items":[{"label":"上海维管植物名录已收录","value":1847},{"label":"上海维管植物名录未收录","value":1041}],"title":"数据来源类别"},{"items":[{"label":"未变动","value":1617},{"label":"新增","value":1043},{"label":"属变动","value":129},{"label":"异名处理","value":44},{"label":"拼写变化","value":20},{"label":"等级变动","value":20},{"label":"确定为杂交种","value":12},{"label":"命名法处理","value":2}],"title":"名称变动情况"},{"items":[{"label":"2010","value":917},{"label":"2017","value":884},{"label":"1999","value":348},{"label":"1984","value":270},{"label":"1979","value":198},{"label":"1947","value":167},{"label":"1970","value":53},{"label":"1959","value":39},{"label":"1949","value":5},{"label":"1875","value":2}],"title":"首次记载时间 Top 10"}],"highlights":[{"count":1484,"label":"外来","percent":51.4},{"count":1041,"label":"上海维管植物名录未收录","percent":36},{"count":1043,"label":"新增","percent":36.1}],"name":"上海栽培植物","total":2888}],"source_file":"/Users/qing/Desktop/DATA/2023093-1.xlsx","workbook":"上海维管植物名录（2022版）"};
+
+    const totalRecords = data.sheets.reduce((sum, sheet) => sum + sheet.total, 0);
+
+    const app = document.getElementById('app');
+    app.innerHTML = `
+      <section class="hero">
+        <span class="eyebrow">Excel 可视化摘要</span>
+        <h1>${data.workbook}</h1>
+        <p class="sub">源文件是 <strong>2023093-1.xlsx</strong>。这份仪表板把“上海野生和逸生植物”和“上海栽培植物”两张表的关键分布压缩成可读的图形摘要，适合快速看结构、比例和年份分布。</p>
+        <div class="topline">
+          <div class="stat"><div class="k">总记录数</div><div class="v">${formatNumber(totalRecords)}</div></div>
+          <div class="stat"><div class="k">工作表</div><div class="v">${data.sheets.length}</div></div>
+          <div class="stat"><div class="k">野生/逸生</div><div class="v">${formatNumber(data.sheets[0].total)}</div></div>
+          <div class="stat"><div class="k">栽培</div><div class="v">${formatNumber(data.sheets[1].total)}</div></div>
+        </div>
+      </section>
+      ${data.sheets.map(renderSection).join('')}
+      <div class="footer">生成方式：直接解析 Excel 内部结构并输出单文件 HTML，无需额外软件即可打开查看。</div>
+    `;
+
+    function renderSection(sheet) {
+      return `
+        <section class="section">
+          <div class="section-head">
+            <h2>${sheet.name}</h2>
+            <div class="meta">记录数 ${formatNumber(sheet.total)}</div>
+          </div>
+          <div class="highlights">
+            ${sheet.highlights.map(item => `
+              <div class="highlight">
+                <div class="label">${item.label}</div>
+                <div class="value">${formatNumber(item.count)}</div>
+                <div class="pct">${item.percent}%</div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="chart-grid">
+            ${sheet.charts.map(renderChart).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderChart(chart) {
+      const max = Math.max(...chart.items.map(item => item.value), 1);
+      return `
+        <div class="card">
+          <h3>${chart.title}</h3>
+          <div class="bar-list">
+            ${chart.items.map(item => `
+              <div class="bar-row">
+                <div class="bar-meta">
+                  <div class="label">${escapeHtml(item.label)}</div>
+                  <div class="value">${formatNumber(item.value)}</div>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:${(item.value / max) * 100}%"></div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat('zh-CN').format(value);
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>

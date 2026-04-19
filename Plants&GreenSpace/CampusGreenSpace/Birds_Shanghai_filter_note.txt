@@ -1,0 +1,19 @@
+Birds_Shanghai.csv — filter criteria
+
+Source: ERDP-2021-02.2.1-Bird_List.csv
+Rows in source: 6423
+Rows kept (Shanghai): 250
+
+Same rules as Plants_Shanghai:
+  - Locality contains 'Shanghai' (case-insensitive), or
+  - starts with 'Fudan University', or
+  - starts with 'Tongji University', or
+  - starts with 'East China Normal University'
+
+Unique Locality values included:
+  - Shanghai Bay Forest Park
+  - Shanghai Botanical Garden
+  - Shanghai Century Park
+  - Shanghai Chenshan Botanical Garden
+  - Shanghai Gongqing Forest Park
+  - Shanghai Riviera Forest Park

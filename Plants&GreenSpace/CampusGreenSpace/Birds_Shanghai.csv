@@ -1,0 +1,251 @@
+﻿LocationID,Locality,ScientificName,Family,Genus,SpecificEpithet,TaxonRank,Bird_MigrantStatus,Bird_SurveyTime,SourceID
+388,Shanghai Bay Forest Park,"Tachybaptus ruficollis (Pallas, 1764)",Podicipedidae,Tachybaptus,ruficollis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Ardea cinerea (Linnaeus, 1758)",Ardeidae,Ardea,cinerea,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Mesophoyx intermedia (Wagler, 1829)",Ardeidae,Mesophoyx,intermedia,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Bubulcus ibis (Linnaeus, 1758)",Ardeidae,Bubulcus,ibis,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Ardeola bacchus (Bonaparte, 1855)",Ardeidae,Ardeola,bacchus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Ixobrychus sinensis (Gmelin, 1789)",Ardeidae,Ixobrychus,sinensis,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Falco tinnunculus (Linnaeus, 1758)",Falconidae,Falco,tinnunculus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Phasianus colchicus (Linnaeus, 1758)",Jacanidae,Phasianus,colchicus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Gallinula chloropus (Linnaeus, 1758)",Rallidae,Gallinula,chloropus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Amaurornis phoenicurus (Pennant, 1769)",Rallidae,Amaurornis,phoenicurus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Gallinago gallinago (Linnaeus, 1758)",Scolopacidae,Gallinago,gallinago,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Tringa ochropus (Linnaeus, 1758)",Scolopacidae,Tringa,ochropus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Actitis hypoleucos (Linnaeus, 1758)",Scolopacidae,Actitis,hypoleucos,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Calidris alpina (Linnaeus, 1758)",Scolopacidae,Calidris,alpina,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Tringa nebularia (Gunnerus, 1767)",Scolopacidae,Tringa,nebularia,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Streptopelia orientalis (Latham, 1790)",Columbidae,Streptopelia,orientalis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Streptopelia tranquebarica (Hermann, 1804)",Columbidae,Streptopelia,tranquebarica,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Cuculus canorus (Linnaeus, 1758)",scolopacea,Cuculus,canorus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Cuculus micropterus (Gould, 1838)",scolopacea,Cuculus,micropterus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Alcedo atthis (Linnaeus, 1758)",Alcedinidae,Alcedo,atthis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Upupa epops (Linnaeus, 1758)",Upupidae,Upupa,epops,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Hirundo daurica (Laxmann, 1769)",Laridae,Hirundo,daurica,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Motacilla cinerea (Tunstall, 1771)",Motacillidae,Motacilla,cinerea,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Lanius cristatus (Linnaeus, 1758)",Laniidae,Lanius,cristatus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Alauda arvensis (Linnaeus, 1758)",Alaudidae,Alauda,arvensis,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Tarsiger cyanurus (Pallas, 1773)",Muscicapidae,Tarsiger,cyanurus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Zoothera dauma (Latham, 1790)",Turdidae,Zoothera,dauma,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Turdus hortulorum (P.L.Sclater, 1863)",Turdidae,Turdus,hortulorum,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Turdus pallidus (Gmelin, 1789)",Turdidae,Turdus,pallidus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Turdus naumanni (Temminck, 1820)",Turdidae,Turdus,naumanni,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Garrulax canorus (Linnaeus, 1758)",Leiothrichidae,Garrulax,canorus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Cisticola juncidis (Rafinesque, 1810)",Cisticolidae,Cisticola,juncidis,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Prinia inornata (Sykes, 1832)",Cisticolidae,Prinia,inornata,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Cettia canturians (Swinhoe, 1860)",Cettiidae,Cettia,canturians,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Cettia fortipes (Hodgson, 1845)",Cettiidae,Cettia,fortipes,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Acrocephalus arundinaceus (Linnaeus, 1758)",Acrocephalidae,Acrocephalus,arundinaceus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Phylloscopus proregulus (Pallas, 1811)",Phylloscopidae,Phylloscopus,proregulus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Regulus regulus (Linnaeus, 1758)",Regulidae,Regulus,regulus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Aegithalos concinnus (Gould, 1855)",Aegithalidae,Aegithalos,concinnus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Aegithalos caudatus (Linnaeus, 1758)",Aegithalidae,Aegithalos,caudatus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Lonchura punctulata (Linnaeus, 1758)",Estrildidae,Lonchura,punctulata,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Fringilla montifringilla (Linnaeus, 1758)",Fringillidae,Fringilla,montifringilla,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Carduelis sinica (Linnaeus, 1766)",Fringillidae,Carduelis,sinica,Species,R,Whole year,240
+388,Shanghai Bay Forest Park,"Carduelis spinus (Linnaeus, 1758)",Fringillidae,Carduelis,spinus,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Emberiza tristrami (Swinhoe, 1870)",Emberizidae,Emberiza,tristrami,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Emberiza rustica (Pallas, 1776)",Emberizidae,Emberiza,rustica,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Emberiza elegans (Temminck, 1836)",Emberizidae,Emberiza,elegans,Species,M,Whole year,240
+388,Shanghai Bay Forest Park,"Emberiza spodocephala (Pallas, 1776)",Emberizidae,Emberiza,spodocephala,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Nycticorax nycticorax (Linnaeus, 1758)",Ardeidae,Nycticorax,nycticorax,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Gallinula chloropus (Linnaeus, 1758)",Rallidae,Gallinula,chloropus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Amaurornis phoenicurus (Pennant, 1769)",Rallidae,Amaurornis,phoenicurus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Charadrius dubius (Scopoli, 1786)",Charadriidae,Charadrius,dubius,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Tringa ochropus (Linnaeus, 1758)",Scolopacidae,Tringa,ochropus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Actitis hypoleucos (Linnaeus, 1758)",Scolopacidae,Actitis,hypoleucos,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Alcedo atthis (Linnaeus, 1758)",Alcedinidae,Alcedo,atthis,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Pica pica (Linnaeus, 1758)",Corvidae,Pica,pica,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Cyanopica cyanus (Pallas, 1776)",Corvidae,Cyanopica,cyanus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Tarsiger cyanurus (Pallas, 1773)",Muscicapidae,Tarsiger,cyanurus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Turdus hortulorum (P.L.Sclater, 1863)",Turdidae,Turdus,hortulorum,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Turdus pallidus (Gmelin, 1789)",Turdidae,Turdus,pallidus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Turdus naumanni (Temminck, 1820)",Turdidae,Turdus,naumanni,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Garrulax canorus (Linnaeus, 1758)",Leiothrichidae,Garrulax,canorus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Zosterops japonicus (Temminck & Schlegel, 1845)",Zosteropidae,Zosterops,japonicus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Phylloscopus proregulus (Pallas, 1811)",Phylloscopidae,Phylloscopus,proregulus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+389,Shanghai Botanical Garden,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Carduelis sinica (Linnaeus, 1766)",Fringillidae,Carduelis,sinica,Species,R,Whole year,240
+389,Shanghai Botanical Garden,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+390,Shanghai Century Park,"Tachybaptus ruficollis (Pallas, 1764)",Podicipedidae,Tachybaptus,ruficollis,Species,R,Whole year,240
+390,Shanghai Century Park,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+390,Shanghai Century Park,"Ardeola bacchus (Bonaparte, 1855)",Ardeidae,Ardeola,bacchus,Species,M,Whole year,240
+390,Shanghai Century Park,"Nycticorax nycticorax (Linnaeus, 1758)",Ardeidae,Nycticorax,nycticorax,Species,R,Whole year,240
+390,Shanghai Century Park,"Gallinula chloropus (Linnaeus, 1758)",Rallidae,Gallinula,chloropus,Species,R,Whole year,240
+390,Shanghai Century Park,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+390,Shanghai Century Park,"Alcedo atthis (Linnaeus, 1758)",Alcedinidae,Alcedo,atthis,Species,R,Whole year,240
+390,Shanghai Century Park,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+390,Shanghai Century Park,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+390,Shanghai Century Park,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+390,Shanghai Century Park,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+390,Shanghai Century Park,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+390,Shanghai Century Park,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+390,Shanghai Century Park,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+390,Shanghai Century Park,"Sturnus sericeus (Gmelin, 1789)",Sturnidae,Sturnus,sericeus,Species,R,Whole year,240
+390,Shanghai Century Park,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+390,Shanghai Century Park,"Pica pica (Linnaeus, 1758)",Corvidae,Pica,pica,Species,R,Whole year,240
+390,Shanghai Century Park,"Cyanopica cyanus (Pallas, 1776)",Corvidae,Cyanopica,cyanus,Species,R,Whole year,240
+390,Shanghai Century Park,"Tarsiger cyanurus (Pallas, 1773)",Muscicapidae,Tarsiger,cyanurus,Species,M,Whole year,240
+390,Shanghai Century Park,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+390,Shanghai Century Park,"Turdus hortulorum (P.L.Sclater, 1863)",Turdidae,Turdus,hortulorum,Species,M,Whole year,240
+390,Shanghai Century Park,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+390,Shanghai Century Park,"Turdus pallidus (Gmelin, 1789)",Turdidae,Turdus,pallidus,Species,M,Whole year,240
+390,Shanghai Century Park,"Turdus naumanni (Temminck, 1820)",Turdidae,Turdus,naumanni,Species,M,Whole year,240
+390,Shanghai Century Park,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+390,Shanghai Century Park,"Phylloscopus proregulus (Pallas, 1811)",Phylloscopidae,Phylloscopus,proregulus,Species,M,Whole year,240
+390,Shanghai Century Park,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+390,Shanghai Century Park,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+390,Shanghai Century Park,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+390,Shanghai Century Park,"Emberiza spodocephala (Pallas, 1776)",Emberizidae,Emberiza,spodocephala,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Tachybaptus ruficollis (Pallas, 1764)",Podicipedidae,Tachybaptus,ruficollis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Mesophoyx intermedia (Wagler, 1829)",Ardeidae,Mesophoyx,intermedia,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Bubulcus ibis (Linnaeus, 1758)",Ardeidae,Bubulcus,ibis,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Ardeola bacchus (Bonaparte, 1855)",Ardeidae,Ardeola,bacchus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Nycticorax nycticorax (Linnaeus, 1758)",Ardeidae,Nycticorax,nycticorax,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Falco subbuteo (Linnaeus, 1758)",Falconidae,Falco,subbuteo,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Phasianus colchicus (Linnaeus, 1758)",Jacanidae,Phasianus,colchicus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Gallinula chloropus (Linnaeus, 1758)",Rallidae,Gallinula,chloropus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Actitis hypoleucos (Linnaeus, 1758)",Scolopacidae,Actitis,hypoleucos,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Streptopelia orientalis (Latham, 1790)",Columbidae,Streptopelia,orientalis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Alcedo atthis (Linnaeus, 1758)",Alcedinidae,Alcedo,atthis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Upupa epops (Linnaeus, 1758)",Upupidae,Upupa,epops,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Hirundo daurica (Laxmann, 1769)",Laridae,Hirundo,daurica,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Lanius cristatus (Linnaeus, 1758)",Laniidae,Lanius,cristatus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Oriolus chinensis (Linnaeus, 1766)",Oriolidae,Oriolus,chinensis,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Muscicapa dauurica (Pallas, 1811)",Muscicapidae,Muscicapa,dauurica,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Muscicapa sibirica (Gmelin, 1789)",Muscicapidae,Muscicapa,sibirica,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Cisticola juncidis (Rafinesque, 1810)",Cisticolidae,Cisticola,juncidis,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Prinia inornata (Sykes, 1832)",Cisticolidae,Prinia,inornata,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Zosterops japonicus (Temminck & Schlegel, 1845)",Zosteropidae,Zosterops,japonicus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Aegithalos caudatus (Linnaeus, 1758)",Aegithalidae,Aegithalos,caudatus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Fringilla montifringilla (Linnaeus, 1758)",Fringillidae,Fringilla,montifringilla,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Carduelis sinica (Linnaeus, 1766)",Fringillidae,Carduelis,sinica,Species,R,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Emberiza rustica (Pallas, 1776)",Emberizidae,Emberiza,rustica,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Emberiza elegans (Temminck, 1836)",Emberizidae,Emberiza,elegans,Species,M,Whole year,240
+391,Shanghai Chenshan Botanical Garden,"Emberiza spodocephala (Pallas, 1776)",Emberizidae,Emberiza,spodocephala,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Tachybaptus ruficollis (Pallas, 1764)",Podicipedidae,Tachybaptus,ruficollis,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Nycticorax nycticorax (Linnaeus, 1758)",Ardeidae,Nycticorax,nycticorax,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Motacilla cinerea (Tunstall, 1771)",Motacillidae,Motacilla,cinerea,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Sturnus sericeus (Gmelin, 1789)",Sturnidae,Sturnus,sericeus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Cyanopica cyanus (Pallas, 1776)",Corvidae,Cyanopica,cyanus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Urocissa erythrorhyncha (Boddaert, 1783)",Corvidae,Urocissa,erythrorhyncha,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Tarsiger cyanurus (Pallas, 1773)",Muscicapidae,Tarsiger,cyanurus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Zoothera dauma (Latham, 1790)",Turdidae,Zoothera,dauma,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Turdus pallidus (Gmelin, 1789)",Turdidae,Turdus,pallidus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Turdus naumanni (Temminck, 1820)",Turdidae,Turdus,naumanni,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Ficedula mugimaki (Temminck, 1836)",Muscicapidae,Ficedula,mugimaki,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Phylloscopus proregulus (Pallas, 1811)",Phylloscopidae,Phylloscopus,proregulus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Regulus regulus (Linnaeus, 1758)",Regulidae,Regulus,regulus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Lonchura striata (Linnaeus, 1766)",Estrildidae,Lonchura,striata,Species,R,Whole year,240
+392,Shanghai Gongqing Forest Park,"Carduelis spinus (Linnaeus, 1758)",Fringillidae,Carduelis,spinus,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+392,Shanghai Gongqing Forest Park,"Emberiza spodocephala (Pallas, 1776)",Emberizidae,Emberiza,spodocephala,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Tachybaptus ruficollis (Pallas, 1764)",Podicipedidae,Tachybaptus,ruficollis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Mesophoyx intermedia (Wagler, 1829)",Ardeidae,Mesophoyx,intermedia,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Egretta garzetta (Linnaeus, 1766)",Ardeidae,Egretta,garzetta,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Ardeola bacchus (Bonaparte, 1855)",Ardeidae,Ardeola,bacchus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Nycticorax nycticorax (Linnaeus, 1758)",Ardeidae,Nycticorax,nycticorax,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Buteo buteo (Linnaeus, 1758)",Accipitridae,Buteo,buteo,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Gallinula chloropus (Linnaeus, 1758)",Rallidae,Gallinula,chloropus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Amaurornis phoenicurus (Pennant, 1769)",Rallidae,Amaurornis,phoenicurus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Larus cachinnans (Pallas, 1811)",Laridae,Larus,cachinnans,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Streptopelia orientalis (Latham, 1790)",Columbidae,Streptopelia,orientalis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Stigmatopelia chinensis (Scopoli, 1768)",Columbidae,Stigmatopelia,chinensis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Alcedo atthis (Linnaeus, 1758)",Alcedinidae,Alcedo,atthis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Upupa epops (Linnaeus, 1758)",Upupidae,Upupa,epops,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Dendrocopos major (Linnaeus, 1758)",Picidae,Dendrocopos,major,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Parus major (Linnaeus, 1758)",Paridae,Parus,major,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Hirundo rustica (Linnaeus, 1758)",Laridae,Hirundo,rustica,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Motacilla alba (Linnaeus, 1758)",Motacillidae,Motacilla,alba,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Motacilla cinerea (Tunstall, 1771)",Motacillidae,Motacilla,cinerea,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Dendronanthus indicus (Gmelin, 1789)",Motacillidae,Dendronanthus,indicus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Anthus hodgsoni (Richmond, 1907)",Motacillidae,Anthus,hodgsoni,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Motacilla flava (Linnaeus, 1758)",Motacillidae,Motacilla,flava,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Pycnonotus sinensis (Gmelin, 1789)",Pycnonotidae,Pycnonotus,sinensis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Lanius schach (Linnaeus, 1758)",Laniidae,Lanius,schach,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Lanius cristatus (Linnaeus, 1758)",Laniidae,Lanius,cristatus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Acridotheres cristatellus (Linnaeus, 1758)",Sturnidae,Acridotheres,cristatellus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Sturnus nigricollis (Paykull, 1807)",Sturnidae,Sturnus,nigricollis,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Sturnus sericeus (Gmelin, 1789)",Sturnidae,Sturnus,sericeus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Sturnus cineraceus (Temminck, 1835)",Sturnidae,Sturnus,cineraceus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Pica pica (Linnaeus, 1758)",Corvidae,Pica,pica,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Cyanopica cyanus (Pallas, 1776)",Corvidae,Cyanopica,cyanus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Tarsiger cyanurus (Pallas, 1773)",Muscicapidae,Tarsiger,cyanurus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Phoenicurus auroreus (Pallas, 1776)",Muscicapidae,Phoenicurus,auroreus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Turdus hortulorum (P.L.Sclater, 1863)",Turdidae,Turdus,hortulorum,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Turdus merula (Linnaeus, 1758)",Turdidae,Turdus,merula,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Turdus pallidus (Gmelin, 1789)",Turdidae,Turdus,pallidus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Turdus naumanni (Temminck, 1820)",Turdidae,Turdus,naumanni,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Muscicapa dauurica (Pallas, 1811)",Muscicapidae,Muscicapa,dauurica,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Cyanoptila cyanomelana (Temminck, 1829)",Muscicapidae,Cyanoptila,cyanomelana,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Garrulax canorus (Linnaeus, 1758)",Leiothrichidae,Garrulax,canorus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Paradoxornis webbianus (Gould, 1852)",Paradoxornithidae,Paradoxornis,webbianus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Phylloscopus proregulus (Pallas, 1811)",Phylloscopidae,Phylloscopus,proregulus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Phylloscopus inornatus (Blyth, 1842)",Phylloscopidae,Phylloscopus,inornatus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Passer montanus (Linnaeus, 1758)",Passeridae,Passer,montanus,Species,R,Whole year,240
+393,Shanghai Riviera Forest Park,"Fringilla montifringilla (Linnaeus, 1758)",Fringillidae,Fringilla,montifringilla,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Carduelis spinus (Linnaeus, 1758)",Fringillidae,Carduelis,spinus,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Eophona personata (Temminck & Schlegel, 1848)",Fringillidae,Eophona,personata,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Emberiza rustica (Pallas, 1776)",Emberizidae,Emberiza,rustica,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Emberiza elegans (Temminck, 1836)",Emberizidae,Emberiza,elegans,Species,M,Whole year,240
+393,Shanghai Riviera Forest Park,"Emberiza spodocephala (Pallas, 1776)",Emberizidae,Emberiza,spodocephala,Species,M,Whole year,240

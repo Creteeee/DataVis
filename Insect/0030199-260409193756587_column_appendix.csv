@@ -1,0 +1,23 @@
+original_header,concise_english,brief_note
+taxonKey,taxon_id,GBIF taxon identifier for this row
+scientificName,listed_name,Scientific name as originally recorded
+acceptedTaxonKey,accepted_taxon_id,GBIF identifier for the accepted taxon
+acceptedScientificName,accepted_name,Currently accepted scientific name
+numberOfOccurrences,occurrence_count,Number of occurrence records aggregated
+taxonRank,rank,Taxonomic rank (e.g. SPECIES)
+taxonomicStatus,taxon_status,Accepted synonym provisional etc.
+kingdom,kingdom,Higher rank name
+kingdomKey,kingdom_id,GBIF key for kingdom
+phylum,phylum,Higher rank name
+phylumKey,phylum_id,GBIF key for phylum
+class,class_name,Class name (Insecta)
+classKey,class_id,GBIF key for class
+order,order_name,Order name (e.g. Diptera)
+orderKey,order_id,GBIF key for order
+family,family_name,Family name
+familyKey,family_id,GBIF key for family
+genus,genus_name,Genus name
+genusKey,genus_id,GBIF key for genus
+species,species_name,Species epithet string or full species label
+speciesKey,species_id,GBIF key for species
+iucnRedListCategory,iucn_status,IUCN Red List category if present

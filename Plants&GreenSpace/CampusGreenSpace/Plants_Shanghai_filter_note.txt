@@ -1,0 +1,24 @@
+Plants_Shanghai.csv — filter criteria
+
+Source: ERDP-2021-02.4.1-Plant_List.csv
+Rows in source: 46558
+Rows kept (Shanghai): 1257
+
+Included when Locality satisfies any of:
+  - contains 'Shanghai' (case-insensitive), or
+  - starts with 'Fudan University', or
+  - starts with 'Tongji University', or
+  - starts with 'East China Normal University'
+
+The last three cover campuses (e.g. Handan / Jiangwan, Minhang) that do not
+spell out 'Shanghai'. 'East China Normal University' is used instead of a
+loose 'East China' match to avoid catching universities in other provinces.
+
+Unique Locality values included:
+  - East China Normal University, Minhang Campus
+  - Fudan University, Handan Campus
+  - Fudan University, Jiangwan Campus
+  - Shanghai Institute of Technology
+  - Shanghai Jiao Tong University
+  - Shanghai University, Baoshan Campus
+  - Tongji University
