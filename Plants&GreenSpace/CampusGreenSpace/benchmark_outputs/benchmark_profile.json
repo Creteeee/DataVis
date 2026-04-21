@@ -1,0 +1,1907 @@
+﻿{
+    "generated_at":  "2026-04-20T16:17:23",
+    "local_only":  true,
+    "files":  [
+                  {
+                      "Name":  "_localities_unique.txt",
+                      "Extension":  ".txt",
+                      "Length":  0,
+                      "LastWriteTime":  "\/Date(1776581190460)\/"
+                  },
+                  {
+                      "Name":  "_plants_zh_name_cache.json",
+                      "Extension":  ".json",
+                      "Length":  25056,
+                      "LastWriteTime":  "\/Date(1776596173332)\/"
+                  },
+                  {
+                      "Name":  "Birds_Shanghai.csv",
+                      "Extension":  ".csv",
+                      "Length":  31276,
+                      "LastWriteTime":  "\/Date(1776581642345)\/"
+                  },
+                  {
+                      "Name":  "Birds_Shanghai_enriched.csv",
+                      "Extension":  ".csv",
+                      "Length":  40775,
+                      "LastWriteTime":  "\/Date(1776582238223)\/"
+                  },
+                  {
+                      "Name":  "Birds_Shanghai_enriched_District.xlsx",
+                      "Extension":  ".xlsx",
+                      "Length":  28680,
+                      "LastWriteTime":  "\/Date(1776584639579)\/"
+                  },
+                  {
+                      "Name":  "Birds_Shanghai_filter_note.txt",
+                      "Extension":  ".txt",
+                      "Length":  582,
+                      "LastWriteTime":  "\/Date(1776581642346)\/"
+                  },
+                  {
+                      "Name":  "build_plants_shanghai_translated.py",
+                      "Extension":  ".py",
+                      "Length":  17227,
+                      "LastWriteTime":  "\/Date(1776589658840)\/"
+                  },
+                  {
+                      "Name":  "CampusGreenSpace.html",
+                      "Extension":  ".html",
+                      "Length":  24229,
+                      "LastWriteTime":  "\/Date(1776325485860)\/"
+                  },
+                  {
+                      "Name":  "datavis11_codex_prompt.txt",
+                      "Extension":  ".txt",
+                      "Length":  3645,
+                      "LastWriteTime":  "\/Date(1776670998717)\/"
+                  },
+                  {
+                      "Name":  "ERDP-2021-02.2.1-Bird_List.csv",
+                      "Extension":  ".csv",
+                      "Length":  799744,
+                      "LastWriteTime":  "\/Date(1776218111141)\/"
+                  },
+                  {
+                      "Name":  "ERDP-2021-02.3.1-Locality_Infor.csv",
+                      "Extension":  ".csv",
+                      "Length":  49162,
+                      "LastWriteTime":  "\/Date(1776218102148)\/"
+                  },
+                  {
+                      "Name":  "ERDP-2021-02.4.1-Plant_List.csv",
+                      "Extension":  ".csv",
+                      "Length":  5678712,
+                      "LastWriteTime":  "\/Date(1776218107376)\/"
+                  },
+                  {
+                      "Name":  "ERDP-2021-02.5.1-Source_List.csv",
+                      "Extension":  ".csv",
+                      "Length":  74198,
+                      "LastWriteTime":  "\/Date(1776218109305)\/"
+                  },
+                  {
+                      "Name":  "generate_benchmark_materials.ps1",
+                      "Extension":  ".ps1",
+                      "Length":  36624,
+                      "LastWriteTime":  "\/Date(1776672959248)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai.csv",
+                      "Extension":  ".csv",
+                      "Length":  155222,
+                      "LastWriteTime":  "\/Date(1776581254775)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai_Campus_Translated.xlsx",
+                      "Extension":  ".xlsx",
+                      "Length":  146508,
+                      "LastWriteTime":  "\/Date(1776589664399)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai_enriched.csv",
+                      "Extension":  ".csv",
+                      "Length":  202529,
+                      "LastWriteTime":  "\/Date(1776582215957)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai_enriched_District.xlsx",
+                      "Extension":  ".xlsx",
+                      "Length":  95034,
+                      "LastWriteTime":  "\/Date(1776584404827)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai_filter_note.txt",
+                      "Extension":  ".txt",
+                      "Length":  884,
+                      "LastWriteTime":  "\/Date(1776581254776)\/"
+                  },
+                  {
+                      "Name":  "Plants_Shanghai_Translated.xlsx",
+                      "Extension":  ".xlsx",
+                      "Length":  157426,
+                      "LastWriteTime":  "\/Date(1776596174734)\/"
+                  },
+                  {
+                      "Name":  "README.md",
+                      "Extension":  ".md",
+                      "Length":  11199,
+                      "LastWriteTime":  "\/Date(1776341766699)\/"
+                  },
+                  {
+                      "Name":  "上海野生和逸生植物_按地区拆分.xlsx",
+                      "Extension":  ".xlsx",
+                      "Length":  963062,
+                      "LastWriteTime":  "\/Date(1776589891624)\/"
+                  },
+                  {
+                      "Name":  "校园绿地研究框架_中英双语版.md",
+                      "Extension":  ".md",
+                      "Length":  18919,
+                      "LastWriteTime":  "\/Date(1776600954146)\/"
+                  }
+              ],
+    "missing_xml_files_named_in_prompt":  true,
+    "archive_files":  [
+
+                      ],
+    "xlsx_sheets":  [
+                        {
+                            "File":  "Birds_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Fengxian District",
+                            "Rows":  65,
+                            "HeaderPreview":  "LocationID | Locality | District | Longitude | Latitude | ScientificName | Family | Genus | SpecificEpithet | TaxonRank | Bird_MigrantStatus | Bird_SurveyTime | SourceID / 388 | Shanghai Bay Forest Park | Fengxian District | 121.7265 | 30.8812 | Tachybaptus ruficollis (Pallas, 1764) | Podicipedidae | Tachybaptus | ruficollis | Species | R | Whole year | 240"
+                        },
+                        {
+                            "File":  "Birds_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Xuhui District",
+                            "Rows":  34,
+                            "HeaderPreview":  "LocationID | Locality | District | Longitude | Latitude | ScientificName | Family | Genus | SpecificEpithet | TaxonRank | Bird_MigrantStatus | Bird_SurveyTime | SourceID / 389 | Shanghai Botanical Garden | Xuhui District | 121.4714 | 31.1489 | Egretta garzetta (Linnaeus, 1766) | Ardeidae | Egretta | garzetta | Species | M | Whole year | 240"
+                        },
+                        {
+                            "File":  "Birds_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Pudong New Area",
+                            "Rows":  80,
+                            "HeaderPreview":  "LocationID | Locality | District | Longitude | Latitude | ScientificName | Family | Genus | SpecificEpithet | TaxonRank | Bird_MigrantStatus | Bird_SurveyTime | SourceID / 390 | Shanghai Century Park | Pudong New Area | 121.5547 | 31.2165 | Tachybaptus ruficollis (Pallas, 1764) | Podicipedidae | Tachybaptus | ruficollis | Species | R | Whole year | 240"
+                        },
+                        {
+                            "File":  "Birds_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Songjiang District",
+                            "Rows":  43,
+                            "HeaderPreview":  "LocationID | Locality | District | Longitude | Latitude | ScientificName | Family | Genus | SpecificEpithet | TaxonRank | Bird_MigrantStatus | Bird_SurveyTime | SourceID / 391 | Shanghai Chenshan Botanical Garden | Songjiang District | 121.1789 | 31.0715 | Tachybaptus ruficollis (Pallas, 1764) | Podicipedidae | Tachybaptus | ruficollis | Species | R | Whole year | 240"
+                        },
+                        {
+                            "File":  "Birds_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Yangpu District",
+                            "Rows":  33,
+                            "HeaderPreview":  "LocationID | Locality | District | Longitude | Latitude | ScientificName | Family | Genus | SpecificEpithet | TaxonRank | Bird_MigrantStatus | Bird_SurveyTime | SourceID / 392 | Shanghai Gongqing Forest Park | Yangpu District | 121.5572 | 31.3135 | Tachybaptus ruficollis (Pallas, 1764) | Podicipedidae | Tachybaptus | ruficollis | Species | R | Whole year | 240"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Campus_Translated.xlsx",
+                            "Sheet":  "Minhang District",
+                            "Rows":  276,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 39 |  |  |  |  | 121.4531 | 31.0318 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 48"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Campus_Translated.xlsx",
+                            "Sheet":  "Yangpu District",
+                            "Rows":  555,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 42 |  |  |  |  | 121.5038 | 31.2985 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 115"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Campus_Translated.xlsx",
+                            "Sheet":  "Fengxian District",
+                            "Rows":  68,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 195 |  |  |  |  | 121.4996 | 30.8877 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 30"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Campus_Translated.xlsx",
+                            "Sheet":  "Baoshan District",
+                            "Rows":  362,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 197 |  |  |  |  | 121.3912 | 31.3198 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 59"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Minhang District",
+                            "Rows":  276,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  / 39 |  |  | 121.4531 | 31.0318 |  |  |  |  |  |  |  | 48"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Yangpu District",
+                            "Rows":  555,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  / 42 |  |  | 121.5038 | 31.2985 |  |  |  |  |  |  |  | 115"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Fengxian District",
+                            "Rows":  68,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  / 195 |  |  | 121.4996 | 30.8877 |  |  |  |  |  |  |  | 30"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_enriched_District.xlsx",
+                            "Sheet":  "Baoshan District",
+                            "Rows":  362,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  / 197 |  |  | 121.3912 | 31.3198 |  |  |  |  |  |  |  | 59"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Translated.xlsx",
+                            "Sheet":  "Minhang District",
+                            "Rows":  276,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 39 |  |  |  |  | 121.4531 | 31.0318 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 48"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Translated.xlsx",
+                            "Sheet":  "Yangpu District",
+                            "Rows":  555,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 42 |  |  |  |  | 121.5038 | 31.2985 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 115"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Translated.xlsx",
+                            "Sheet":  "Fengxian District",
+                            "Rows":  68,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 195 |  |  |  |  | 121.4996 | 30.8877 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 30"
+                        },
+                        {
+                            "File":  "Plants_Shanghai_Translated.xlsx",
+                            "Sheet":  "Baoshan District",
+                            "Rows":  362,
+                            "HeaderPreview":  " |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  / 197 |  |  |  |  | 121.3912 | 31.3198 |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 59"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "不详",
+                            "Rows":  39,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "松江",
+                            "Rows":  773,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "金山",
+                            "Rows":  571,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "静安",
+                            "Rows":  485,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "浦东",
+                            "Rows":  476,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "奉贤",
+                            "Rows":  466,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "徐汇",
+                            "Rows":  453,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "嘉定",
+                            "Rows":  451,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "杨浦",
+                            "Rows":  448,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "崇明",
+                            "Rows":  436,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "闵行",
+                            "Rows":  404,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "宝山",
+                            "Rows":  400,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "青浦",
+                            "Rows":  373,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "普陀",
+                            "Rows":  363,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "虹口",
+                            "Rows":  299,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "长宁",
+                            "Rows":  312,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        },
+                        {
+                            "File":  "上海野生和逸生植物_按地区拆分.xlsx",
+                            "Sheet":  "黄浦",
+                            "Rows":  293,
+                            "HeaderPreview":  "附录1  上海维管植物名录(2022版) Appendix 1  Checklist of vascular plants in Shanghai (2022) / 序号 No. | 维管植物大类 Main categories of vascular plants | 科号 No. of family | 中文科名 Chinese family | 科名 Family | 中文属名 Chinese genus | 属名 Genus | 中文名 Chinese name | 学名 Scientific name | 定名人 Author | 分类处理依据 Reference for taxonomic treatment | 等级 Rank | 分布状态 Distribution status | 上海原生/非原生 Native/non-native in Shanghai | 入侵/非入侵 Invasive/non-invasive | 生长状态 Growth status | 生态类型 Eco-type | 生境类型 Habitat | 分布区 Distribution areas | 了解程度 Knownledge degree | 国家重点保护野生植物名录(2021)等级 Rank in List of National Key Protected Wild Plants  (2021) | 中国高等植物受威胁物种名录(2017)受威胁等级 Rank in Threatened Species List of China\u0027s Higher Plants (2017) | 数据来源 Data sources | 数据来源类别 Type of data sources | 数据来源名称 Scientific name in data sources | 数据来源名称变动情况 Change with scientific name in data sources | 首次记载时间 Date of first record | 说明 Note"
+                        }
+                    ],
+    "tables":  {
+                   "campus_plant":  {
+                                        "File":  "ERDP-2021-02.4.1-Plant_List.csv",
+                                        "Rows":  46558,
+                                        "Columns":  [
+                                                        "LocationID",
+                                                        "Locality",
+                                                        "ScientificName",
+                                                        "Family",
+                                                        "Genus",
+                                                        "SpecificEpithet",
+                                                        "TaxonRank",
+                                                        "GrowthForm",
+                                                        "Plant_NativenessStatus",
+                                                        "SourceID"
+                                                    ],
+                                        "Missing":  [
+                                                        {
+                                                            "Column":  "LocationID",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "Locality",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "ScientificName",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "Family",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "Genus",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "SpecificEpithet",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "TaxonRank",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "GrowthForm",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "Plant_NativenessStatus",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        },
+                                                        {
+                                                            "Column":  "SourceID",
+                                                            "Missing":  0,
+                                                            "Percent":  0
+                                                        }
+                                                    ],
+                                        "Labels":  {
+                                                       "GrowthForm":  [
+                                                                          {
+                                                                              "Label":  "Tree",
+                                                                              "Count":  19017,
+                                                                              "Percent":  40.8
+                                                                          },
+                                                                          {
+                                                                              "Label":  "Herb",
+                                                                              "Count":  18305,
+                                                                              "Percent":  39.3
+                                                                          },
+                                                                          {
+                                                                              "Label":  "Shrub",
+                                                                              "Count":  9236,
+                                                                              "Percent":  19.8
+                                                                          }
+                                                                      ],
+                                                       "Plant_NativenessStatus":  [
+                                                                                      {
+                                                                                          "Label":  "Native",
+                                                                                          "Count":  26267,
+                                                                                          "Percent":  56.4
+                                                                                      },
+                                                                                      {
+                                                                                          "Label":  "Nonnative",
+                                                                                          "Count":  20291,
+                                                                                          "Percent":  43.6
+                                                                                      }
+                                                                                  ],
+                                                       "TaxonRank":  [
+                                                                         {
+                                                                             "Label":  "Species",
+                                                                             "Count":  43630,
+                                                                             "Percent":  93.7
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Cultivar",
+                                                                             "Count":  1071,
+                                                                             "Percent":  2.3
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Varietas",
+                                                                             "Count":  907,
+                                                                             "Percent":  1.9
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Forma",
+                                                                             "Count":  518,
+                                                                             "Percent":  1.1
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Subspecies",
+                                                                             "Count":  430,
+                                                                             "Percent":  0.9
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Hybridized",
+                                                                             "Count":  2,
+                                                                             "Percent":  0
+                                                                         }
+                                                                     ]
+                                                   },
+                                        "UniqueScientificName":  5917,
+                                        "UniqueLocationID":  254,
+                                        "UniqueLocality":  254,
+                                        "UniqueSourceID":  212,
+                                        "DuplicateFullRows":  129,
+                                        "DuplicateLocationSpeciesRows":  129
+                                    },
+                   "locality":  {
+                                    "File":  "ERDP-2021-02.3.1-Locality_Infor.csv",
+                                    "Rows":  404,
+                                    "Columns":  [
+                                                    "LocationID",
+                                                    "Region",
+                                                    "Province",
+                                                    "City",
+                                                    "Locality",
+                                                    "Locality_Type",
+                                                    "Elevation (m)",
+                                                    "decimalLatitude",
+                                                    "decimalLongitude",
+                                                    "MAT (℃)",
+                                                    "MAP (mm)",
+                                                    "Area (ha)",
+                                                    "EstablishedYear"
+                                                ],
+                                    "Missing":  [
+                                                    {
+                                                        "Column":  "LocationID",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "Region",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "Province",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "City",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "Locality",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "Locality_Type",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "Elevation (m)",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "decimalLatitude",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "decimalLongitude",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "MAT (℃)",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "MAP (mm)",
+                                                        "Missing":  1,
+                                                        "Percent":  0.25
+                                                    },
+                                                    {
+                                                        "Column":  "Area (ha)",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    },
+                                                    {
+                                                        "Column":  "EstablishedYear",
+                                                        "Missing":  0,
+                                                        "Percent":  0
+                                                    }
+                                                ],
+                                    "Labels":  {
+                                                   "Region":  [
+                                                                  {
+                                                                      "Label":  "Eastern",
+                                                                      "Count":  94,
+                                                                      "Percent":  23.3
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Northwestern",
+                                                                      "Count":  64,
+                                                                      "Percent":  15.8
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Southern",
+                                                                      "Count":  62,
+                                                                      "Percent":  15.3
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Southwestern",
+                                                                      "Count":  60,
+                                                                      "Percent":  14.9
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Central",
+                                                                      "Count":  50,
+                                                                      "Percent":  12.4
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Northern",
+                                                                      "Count":  49,
+                                                                      "Percent":  12.1
+                                                                  },
+                                                                  {
+                                                                      "Label":  "Northeastern",
+                                                                      "Count":  25,
+                                                                      "Percent":  6.2
+                                                                  }
+                                                              ],
+                                                   "Province":  [
+                                                                    {
+                                                                        "Label":  "Inner Mongolia",
+                                                                        "Count":  45,
+                                                                        "Percent":  11.1
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Guangxi",
+                                                                        "Count":  29,
+                                                                        "Percent":  7.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Guangdong",
+                                                                        "Count":  29,
+                                                                        "Percent":  7.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Yunnan",
+                                                                        "Count":  28,
+                                                                        "Percent":  6.9
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Zhejiang",
+                                                                        "Count":  25,
+                                                                        "Percent":  6.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Hunan",
+                                                                        "Count":  22,
+                                                                        "Percent":  5.4
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Sichuan",
+                                                                        "Count":  21,
+                                                                        "Percent":  5.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Beijing",
+                                                                        "Count":  17,
+                                                                        "Percent":  4.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Henan",
+                                                                        "Count":  17,
+                                                                        "Percent":  4.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Jiangsu",
+                                                                        "Count":  15,
+                                                                        "Percent":  3.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Shanghai",
+                                                                        "Count":  13,
+                                                                        "Percent":  3.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Shandong",
+                                                                        "Count":  12,
+                                                                        "Percent":  3
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Anhui",
+                                                                        "Count":  12,
+                                                                        "Percent":  3
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Hubei",
+                                                                        "Count":  11,
+                                                                        "Percent":  2.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Taiwan",
+                                                                        "Count":  10,
+                                                                        "Percent":  2.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Gansu",
+                                                                        "Count":  10,
+                                                                        "Percent":  2.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Fujian",
+                                                                        "Count":  10,
+                                                                        "Percent":  2.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Hebei",
+                                                                        "Count":  10,
+                                                                        "Percent":  2.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Jilin",
+                                                                        "Count":  9,
+                                                                        "Percent":  2.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Jiangxi",
+                                                                        "Count":  9,
+                                                                        "Percent":  2.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Shanxi",
+                                                                        "Count":  8,
+                                                                        "Percent":  2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Shaanxi",
+                                                                        "Count":  7,
+                                                                        "Percent":  1.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Chongqing",
+                                                                        "Count":  6,
+                                                                        "Percent":  1.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Heilongjiang",
+                                                                        "Count":  6,
+                                                                        "Percent":  1.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Xinjiang",
+                                                                        "Count":  5,
+                                                                        "Percent":  1.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Guizhou",
+                                                                        "Count":  4,
+                                                                        "Percent":  1
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Liaoning",
+                                                                        "Count":  3,
+                                                                        "Percent":  0.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Ningxia",
+                                                                        "Count":  3,
+                                                                        "Percent":  0.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Hainan",
+                                                                        "Count":  3,
+                                                                        "Percent":  0.7
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Tianjin",
+                                                                        "Count":  2,
+                                                                        "Percent":  0.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Tibet",
+                                                                        "Count":  1,
+                                                                        "Percent":  0.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Xianggang",
+                                                                        "Count":  1,
+                                                                        "Percent":  0.2
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Qinghai",
+                                                                        "Count":  1,
+                                                                        "Percent":  0.2
+                                                                    }
+                                                                ],
+                                                   "Locality_Type":  [
+                                                                         {
+                                                                             "Label":  "Campus",
+                                                                             "Count":  286,
+                                                                             "Percent":  70.8
+                                                                         },
+                                                                         {
+                                                                             "Label":  "Park",
+                                                                             "Count":  118,
+                                                                             "Percent":  29.2
+                                                                         }
+                                                                     ],
+                                                   "City":  [
+                                                                {
+                                                                    "Label":  "Kunming",
+                                                                    "Count":  22,
+                                                                    "Percent":  5.4
+                                                                },
+                                                                {
+                                                                    "Label":  "Hangzhou",
+                                                                    "Count":  19,
+                                                                    "Percent":  4.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Chengdu",
+                                                                    "Count":  17,
+                                                                    "Percent":  4.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Guangzhou",
+                                                                    "Count":  17,
+                                                                    "Percent":  4.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Hohhot",
+                                                                    "Count":  17,
+                                                                    "Percent":  4.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Beijing",
+                                                                    "Count":  17,
+                                                                    "Percent":  4.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanning",
+                                                                    "Count":  15,
+                                                                    "Percent":  3.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Shanghai",
+                                                                    "Count":  13,
+                                                                    "Percent":  3.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Zhengzhou",
+                                                                    "Count":  11,
+                                                                    "Percent":  2.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Guilin",
+                                                                    "Count":  11,
+                                                                    "Percent":  2.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Changsha",
+                                                                    "Count":  10,
+                                                                    "Percent":  2.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Baotou",
+                                                                    "Count":  9,
+                                                                    "Percent":  2.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Lanzhou",
+                                                                    "Count":  8,
+                                                                    "Percent":  2
+                                                                },
+                                                                {
+                                                                    "Label":  "Ordos",
+                                                                    "Count":  8,
+                                                                    "Percent":  2
+                                                                },
+                                                                {
+                                                                    "Label":  "Wuhan",
+                                                                    "Count":  7,
+                                                                    "Percent":  1.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Loudi",
+                                                                    "Count":  7,
+                                                                    "Percent":  1.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanjing",
+                                                                    "Count":  7,
+                                                                    "Percent":  1.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Chongqing",
+                                                                    "Count":  6,
+                                                                    "Percent":  1.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Changchun",
+                                                                    "Count":  6,
+                                                                    "Percent":  1.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Taiyuan",
+                                                                    "Count":  5,
+                                                                    "Percent":  1.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanchang",
+                                                                    "Count":  5,
+                                                                    "Percent":  1.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Fuzhou",
+                                                                    "Count":  4,
+                                                                    "Percent":  1
+                                                                },
+                                                                {
+                                                                    "Label":  "Xi\u0027an",
+                                                                    "Count":  4,
+                                                                    "Percent":  1
+                                                                },
+                                                                {
+                                                                    "Label":  "Zhuhai",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Haikou",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Urumqi",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Hefei",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Mudanjiang",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Qinhuangdao",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Xiamen",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Yinchuan",
+                                                                    "Count":  3,
+                                                                    "Percent":  0.7
+                                                                },
+                                                                {
+                                                                    "Label":  "Zhalantun",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Yilan",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Shenyang",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Qingdao",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Kaili",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Jinhua",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Foshan",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Hulunbuir",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Taipei",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Fuyang",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Dali",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Tai\u0027an",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Wuhu",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Tianjin",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Gaoxiong",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Shenzhen",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Shangqiu",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Wuxi",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Baoding",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Ulanqab",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Jingzhou",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Chifeng",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Chuzhou",
+                                                                    "Count":  2,
+                                                                    "Percent":  0.5
+                                                                },
+                                                                {
+                                                                    "Label":  "Shatian",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Dingxi",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xinyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Hechi",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Liaocheng",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Dongguan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Suqian",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Ya\u0027an",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Jiaxing",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Sanming",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Shijiazhuang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Huaihua",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Jingdezhen",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Kaifeng",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yanji",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Shangluo",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yueyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Jinan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xuzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Wulanchabu",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Huizhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Beihai",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Weihai",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Siping",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Tonghua",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Huainan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yining",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Qufu",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yichun",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yuxi",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Daqing",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Simao",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yichang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Pingtung",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Hengshui",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Huangshan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yan\u0027an",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Taizhong",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Zaozhuang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Chongzuo",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Chengde",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Dalian",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Qujing",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Quanzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Ningbo",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Jieyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Qingzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Huaian",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Binzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Datong",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xiangtan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Wenzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Ganzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Shaoguan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Lin\u0027an",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yancheng",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Bayannaoer",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Tongliao",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Alar",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Guiyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Ji\u0027an",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Bijie",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xinxiang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Yiyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Lhasa",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Liu\u0027an",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xining",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanchong",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Taoyuan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Tianshui",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Qiqihar",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Changde",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Hsinchu",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Tangshan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Harbin",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Meizhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Shiyan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Laiwu",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Xianyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Tainan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Langfang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Suzhou",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Mianyang",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Nanping",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Jinzhong",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Emeishan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Changzhi",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                },
+                                                                {
+                                                                    "Label":  "Wenshan",
+                                                                    "Count":  1,
+                                                                    "Percent":  0.2
+                                                                }
+                                                            ]
+                                               },
+                                    "UniqueScientificName":  0,
+                                    "UniqueLocationID":  404,
+                                    "UniqueLocality":  404,
+                                    "UniqueSourceID":  0,
+                                    "DuplicateFullRows":  0,
+                                    "DuplicateLocationSpeciesRows":  0
+                                },
+                   "source":  {
+                                  "File":  "ERDP-2021-02.5.1-Source_List.csv",
+                                  "Rows":  272,
+                                  "Columns":  [
+                                                  "SourceID",
+                                                  "Source",
+                                                  "SourceType",
+                                                  "Source_CN"
+                                              ],
+                                  "Missing":  [
+                                                  {
+                                                      "Column":  "SourceID",
+                                                      "Missing":  0,
+                                                      "Percent":  0
+                                                  },
+                                                  {
+                                                      "Column":  "Source",
+                                                      "Missing":  0,
+                                                      "Percent":  0
+                                                  },
+                                                  {
+                                                      "Column":  "SourceType",
+                                                      "Missing":  0,
+                                                      "Percent":  0
+                                                  },
+                                                  {
+                                                      "Column":  "Source_CN",
+                                                      "Missing":  0,
+                                                      "Percent":  0
+                                                  }
+                                              ],
+                                  "Labels":  {
+                                                 "SourceType":  [
+                                                                    {
+                                                                        "Label":  "Paper",
+                                                                        "Count":  179,
+                                                                        "Percent":  65.8
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Online Database",
+                                                                        "Count":  37,
+                                                                        "Percent":  13.6
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Book",
+                                                                        "Count":  34,
+                                                                        "Percent":  12.5
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Research Report",
+                                                                        "Count":  18,
+                                                                        "Percent":  6.6
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Ebook",
+                                                                        "Count":  3,
+                                                                        "Percent":  1.1
+                                                                    },
+                                                                    {
+                                                                        "Label":  "Survey data",
+                                                                        "Count":  1,
+                                                                        "Percent":  0.4
+                                                                    }
+                                                                ]
+                                             },
+                                  "UniqueScientificName":  0,
+                                  "UniqueLocationID":  0,
+                                  "UniqueLocality":  0,
+                                  "UniqueSourceID":  272,
+                                  "DuplicateFullRows":  0,
+                                  "DuplicateLocationSpeciesRows":  0
+                              },
+                   "shanghai_campus":  {
+                                           "File":  "Plants_Shanghai.csv",
+                                           "Rows":  1257,
+                                           "Columns":  [
+                                                           "LocationID",
+                                                           "Locality",
+                                                           "ScientificName",
+                                                           "Family",
+                                                           "Genus",
+                                                           "SpecificEpithet",
+                                                           "TaxonRank",
+                                                           "GrowthForm",
+                                                           "Plant_NativenessStatus",
+                                                           "SourceID"
+                                                       ],
+                                           "Missing":  [
+                                                           {
+                                                               "Column":  "LocationID",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "Locality",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "ScientificName",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "Family",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "Genus",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "SpecificEpithet",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "TaxonRank",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "GrowthForm",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "Plant_NativenessStatus",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           },
+                                                           {
+                                                               "Column":  "SourceID",
+                                                               "Missing":  0,
+                                                               "Percent":  0
+                                                           }
+                                                       ],
+                                           "Labels":  {
+                                                          "GrowthForm":  [
+                                                                             {
+                                                                                 "Label":  "Tree",
+                                                                                 "Count":  546,
+                                                                                 "Percent":  43.4
+                                                                             },
+                                                                             {
+                                                                                 "Label":  "Herb",
+                                                                                 "Count":  419,
+                                                                                 "Percent":  33.3
+                                                                             },
+                                                                             {
+                                                                                 "Label":  "Shrub",
+                                                                                 "Count":  292,
+                                                                                 "Percent":  23.2
+                                                                             }
+                                                                         ],
+                                                          "Plant_NativenessStatus":  [
+                                                                                         {
+                                                                                             "Label":  "Native",
+                                                                                             "Count":  705,
+                                                                                             "Percent":  56.1
+                                                                                         },
+                                                                                         {
+                                                                                             "Label":  "Nonnative",
+                                                                                             "Count":  552,
+                                                                                             "Percent":  43.9
+                                                                                         }
+                                                                                     ],
+                                                          "TaxonRank":  [
+                                                                            {
+                                                                                "Label":  "Species",
+                                                                                "Count":  1181,
+                                                                                "Percent":  94
+                                                                            },
+                                                                            {
+                                                                                "Label":  "Varietas",
+                                                                                "Count":  29,
+                                                                                "Percent":  2.3
+                                                                            },
+                                                                            {
+                                                                                "Label":  "Cultivar",
+                                                                                "Count":  23,
+                                                                                "Percent":  1.8
+                                                                            },
+                                                                            {
+                                                                                "Label":  "Forma",
+                                                                                "Count":  16,
+                                                                                "Percent":  1.3
+                                                                            },
+                                                                            {
+                                                                                "Label":  "Subspecies",
+                                                                                "Count":  8,
+                                                                                "Percent":  0.6
+                                                                            }
+                                                                        ]
+                                                      },
+                                           "UniqueScientificName":  690,
+                                           "UniqueLocationID":  7,
+                                           "UniqueLocality":  7,
+                                           "UniqueSourceID":  6,
+                                           "DuplicateFullRows":  0,
+                                           "DuplicateLocationSpeciesRows":  0
+                                       },
+                   "shanghai_campus_enriched":  {
+                                                    "File":  "Plants_Shanghai_enriched.csv",
+                                                    "Rows":  1257,
+                                                    "Columns":  [
+                                                                    "LocationID",
+                                                                    "Locality",
+                                                                    "District",
+                                                                    "Longitude",
+                                                                    "Latitude",
+                                                                    "ScientificName",
+                                                                    "Family",
+                                                                    "Genus",
+                                                                    "SpecificEpithet",
+                                                                    "TaxonRank",
+                                                                    "GrowthForm",
+                                                                    "Plant_NativenessStatus",
+                                                                    "SourceID"
+                                                                ],
+                                                    "Missing":  [
+                                                                    {
+                                                                        "Column":  "LocationID",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Locality",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "District",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Longitude",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Latitude",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "ScientificName",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Family",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Genus",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "SpecificEpithet",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "TaxonRank",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "GrowthForm",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "Plant_NativenessStatus",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    },
+                                                                    {
+                                                                        "Column":  "SourceID",
+                                                                        "Missing":  0,
+                                                                        "Percent":  0
+                                                                    }
+                                                                ],
+                                                    "Labels":  {
+                                                                   "GrowthForm":  [
+                                                                                      {
+                                                                                          "Label":  "Tree",
+                                                                                          "Count":  546,
+                                                                                          "Percent":  43.4
+                                                                                      },
+                                                                                      {
+                                                                                          "Label":  "Herb",
+                                                                                          "Count":  419,
+                                                                                          "Percent":  33.3
+                                                                                      },
+                                                                                      {
+                                                                                          "Label":  "Shrub",
+                                                                                          "Count":  292,
+                                                                                          "Percent":  23.2
+                                                                                      }
+                                                                                  ],
+                                                                   "District":  [
+                                                                                    {
+                                                                                        "Label":  "Yangpu District",
+                                                                                        "Count":  554,
+                                                                                        "Percent":  44.1
+                                                                                    },
+                                                                                    {
+                                                                                        "Label":  "Baoshan District",
+                                                                                        "Count":  361,
+                                                                                        "Percent":  28.7
+                                                                                    },
+                                                                                    {
+                                                                                        "Label":  "Minhang District",
+                                                                                        "Count":  275,
+                                                                                        "Percent":  21.9
+                                                                                    },
+                                                                                    {
+                                                                                        "Label":  "Fengxian District",
+                                                                                        "Count":  67,
+                                                                                        "Percent":  5.3
+                                                                                    }
+                                                                                ],
+                                                                   "Plant_NativenessStatus":  [
+                                                                                                  {
+                                                                                                      "Label":  "Native",
+                                                                                                      "Count":  705,
+                                                                                                      "Percent":  56.1
+                                                                                                  },
+                                                                                                  {
+                                                                                                      "Label":  "Nonnative",
+                                                                                                      "Count":  552,
+                                                                                                      "Percent":  43.9
+                                                                                                  }
+                                                                                              ]
+                                                               },
+                                                    "UniqueScientificName":  690,
+                                                    "UniqueLocationID":  7,
+                                                    "UniqueLocality":  7,
+                                                    "UniqueSourceID":  6,
+                                                    "DuplicateFullRows":  0,
+                                                    "DuplicateLocationSpeciesRows":  0
+                                                },
+                   "shanghai_city_workbook":  {
+                                                  "district_record_rows":  7008,
+                                                  "unique_scientific_names":  1238,
+                                                  "normalized_unique_names":  1191,
+                                                  "native_status_unique_species":  [
+                                                                                       {
+                                                                                           "Label":  "上海原生种",
+                                                                                           "Count":  858,
+                                                                                           "Percent":  69.3
+                                                                                       },
+                                                                                       {
+                                                                                           "Label":  "非上海原生",
+                                                                                           "Count":  380,
+                                                                                           "Percent":  30.7
+                                                                                       }
+                                                                                   ],
+                                                  "invasive_status_unique_species":  [
+                                                                                         {
+                                                                                             "Label":  "非入侵",
+                                                                                             "Count":  1155,
+                                                                                             "Percent":  93.3
+                                                                                         },
+                                                                                         {
+                                                                                             "Label":  "入侵",
+                                                                                             "Count":  83,
+                                                                                             "Percent":  6.7
+                                                                                         }
+                                                                                     ]
+                                              }
+               },
+    "comparison":  {
+                       "shanghai_campus_unique_species":  690,
+                       "shanghai_campus_normalized_unique_species":  653,
+                       "city_unique_species":  1238,
+                       "city_normalized_unique_species":  1191,
+                       "normalized_overlap":  205,
+                       "city_species_coverage_by_campus_percent":  17.2,
+                       "campus_species_matched_to_city_percent":  31.4
+                   }
+}

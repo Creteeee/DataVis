@@ -1,0 +1,77 @@
+You are acting as 法典 for a DATAVIS benchmark workflow.
+
+Project mode:
+从开放数据集构建新的基准测试
+
+Local dataset context:
+MetaData：ERDP-2021-02.4.1-Plant_List.csv
+                      2023093-1.xml
+Table:上海野生和逸生植物_按地区拆分.xml
+             Plants_Shanghai_Campus_Translated.xml
+
+Project goal:
+These two datasets are important because they represent different ecological scales — city-wide plant diversity and human-curated campus ecosystems — allowing us to investigate how urban ecological structures are filtered and reshaped by human intervention.
+
+Research focus:
+1. Can plant diversity on campus represent the overall plant diversity of Shanghai?？
+2. Is the proportion of alien plants in campus flora higher than that in Shanghai as a whole?
+
+Design focus:
+plain and clean
+
+Please perform only the following selected workflow phases:
+- Inspect local folders and archives first
+- Identify all benchmark-relevant files and schemas
+- Summarize what each file or folder is for
+- Check whether packaging or archive structure causes analysis risks
+- Profile row counts, file counts, split counts, and label counts
+- Check missing values, unknown labels, and schema gaps
+- Identify imbalance, duplication, or weak coverage
+- Check provenance, licensing, and metadata quality
+- Extract research facts and benchmark-relevant findings
+- Identify contradictions, anomalies, and unresolved questions
+- Propose research questions for a student project
+- Assess whether the dataset is benchmark-ready
+- Suggest benchmark tasks, splits, and metrics
+- Suggest how to compare models or tools fairly
+- Outline how students could construct their own benchmark from this domain
+- Assign Codex to local-file analysis, code, and output generation
+- Write in clear language for design master students
+- Avoid abstract jargon unless necessary
+- Use structured headings, cards, matrices, and visual emphasis
+- Record each step with goal, task, prompt, and result
+- Keep outputs reproducible from local files
+- Link findings back to evidence
+- Package the final outputs into a direct-open course material
+
+Please produce the following deliverables:
+- Findings summary
+- Missingness report
+- Research questions list
+- Curator task list
+- Plots and charts
+- Comparison matrix
+- Suggested benchmark tasks
+- Suggested metrics and evaluation protocol
+- Student-friendly workflow guide
+- Benchmark proposal template
+
+Important constraints:
+just use local files
+
+Extra notes:
+professional
+
+Execution instructions:
+- Start from the local files and inspect the real benchmark materials before making assumptions.
+- Keep the work grounded in evidence from the dataset, metadata, documentation, and generated analysis.
+- Prioritize research facts, missingness, inconsistencies, benchmark fitness, curator tasks, research questions, and visualization propositions.
+- Prefer visual explanation over long descriptive text when possible.
+- If you generate HTML, make it direct-open and visually structured for design master students.
+- If you identify benchmark issues, state them clearly and connect them to concrete curator tasks.
+- If you compare tools or models, keep the comparison fair by using the same dataset slice, same questions, and same criteria.
+- Record the process in a traceable way so that students can follow the steps.
+- Keep the language clear and suitable for students from design backgrounds.
+
+Final request:
+Use this benchmark workflow to help me understand the dataset critically, visualize it more clearly, and turn the analysis into actionable benchmark knowledge rather than only descriptive summary.

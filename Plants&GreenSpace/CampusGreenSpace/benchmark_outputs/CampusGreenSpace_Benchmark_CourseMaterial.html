@@ -1,0 +1,238 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Green Space Benchmark Course Material</title>
+<style>
+:root {
+  --paper: #fbfaf5;
+  --ink: #243126;
+  --muted: #657066;
+  --line: #d8d2c3;
+  --accent: #2f6f5e;
+  --accent2: #c97b43;
+  --warn: #9f3f2f;
+  --card: #ffffff;
+  --soft: #eef1e6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(circle at top left, #e6eee2, transparent 34rem), linear-gradient(135deg, #fbfaf5, #efe8d8); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 34px 22px 56px; }
+header { border: 1px solid var(--line); background: rgba(255,255,255,.72); padding: 28px; border-radius: 28px; box-shadow: 0 20px 60px rgba(49,57,41,.08); }
+h1 { margin: 0 0 10px; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spacing: -.04em; }
+h2 { margin: 34px 0 12px; font-size: 28px; letter-spacing: -.02em; }
+h3 { margin: 22px 0 8px; font-size: 20px; }
+p { line-height: 1.62; }
+.deck { max-width: 850px; color: var(--muted); font-size: 18px; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: 0 10px 30px rgba(49,57,41,.05); }
+.metric { font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1; }
+.label { margin-top: 8px; color: var(--muted); font-size: 14px; }
+.callout { border-left: 6px solid var(--accent2); background: #fff7eb; padding: 16px 18px; border-radius: 14px; }
+.risk { border-left-color: var(--warn); background: #fff0ec; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
+th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+th { background: var(--soft); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.bar { height: 12px; background: #e7e0d1; border-radius: 999px; overflow: hidden; min-width: 120px; }
+.bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #7fa56f); border-radius: inherit; }
+.matrix td:nth-child(4) { color: var(--warn); }
+.pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: var(--soft); margin: 3px 4px 3px 0; font-size: 13px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+ol, ul { padding-left: 22px; }
+li { margin: 8px 0; line-height: 1.48; }
+code { background: #ede6d8; padding: 2px 5px; border-radius: 5px; }
+footer { color: var(--muted); margin-top: 34px; font-size: 13px; }
+@media (max-width: 900px) { .grid, .two { grid-template-columns: 1fr; } main { padding: 18px 12px 36px; } header { padding: 20px; } }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="pill">Local-only benchmark analysis</p>
+  <p class="pill">Generated: 04/20/2026 16:17:24</p>
+  <h1>Can Shanghai campus flora stand for Shanghai plant diversity?</h1>
+  <p class="deck">This direct-open course material turns the local plant files into benchmark knowledge for design master students. It focuses on evidence, missingness, coverage, research questions, curator tasks, and fair benchmark design.</p>
+</header>
+
+<section>
+  <h2>Key Findings</h2>
+  <div class="grid">
+    <div class="card"><div class="metric">690</div><div class="label">unique Shanghai campus scientific names</div></div>
+    <div class="card"><div class="metric">1238</div><div class="label">unique city checklist scientific names</div></div>
+    <div class="card"><div class="metric">17.2%</div><div class="label">city normalized species covered by campus subset</div></div>
+    <div class="card"><div class="metric">0</div><div class="label">external archive files found</div></div>
+  </div>
+  <p class="callout risk"><strong>Benchmark readiness:</strong> useful for a teaching benchmark, but not ready as a high-stakes ecological benchmark without curation. The strongest risks are schema mismatch between campus and city files, weak exact name matching, uneven district coverage, no explicit license file, and no XML files present even though the prompt names XML materials.</p>
+</section>
+
+<section>
+  <h2>Evidence Cards</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Research focus 1</h3>
+      <p><strong>Can campus diversity represent Shanghai?</strong> Not fully. After simple binomial normalization, the Shanghai campus subset matches 205 of 1191 city normalized species, or 17.2% city coverage. This means the campus subset is informative but not representative enough by itself.</p>
+    </div>
+    <div class="card">
+      <h3>Research focus 2</h3>
+      <p><strong>Is alien plant proportion higher on campus?</strong> The campus subset has 322 nonnative unique species out of 690, or 46.7%. The city workbook has 380 non-native unique species out of 1238, or 30.7%. Under these local labels, the campus nonnative share is higher, but the definitions should be harmonized before a formal claim.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Scale And Coverage</h2>
+  <table>
+    <thead><tr><th>Item</th><th class="num">Count</th><th>Visual scale</th></tr></thead>
+    <tbody><tr><td>Campus plant records</td><td class='num'>46558</td><td><div class='bar'><span style='width:100%'></span></div></td></tr>
+<tr><td>Shanghai campus plant records</td><td class='num'>1257</td><td><div class='bar'><span style='width:3%'></span></div></td></tr>
+<tr><td>Shanghai city district-record rows</td><td class='num'>7008</td><td><div class='bar'><span style='width:15%'></span></div></td></tr>
+<tr><td>Campus localities</td><td class='num'>404</td><td><div class='bar'><span style='width:2%'></span></div></td></tr>
+<tr><td>Sources</td><td class='num'>272</td><td><div class='bar'><span style='width:2%'></span></div></td></tr></tbody>
+  </table>
+  <h3>Shanghai Campus Localities</h3>
+  <table>
+    <thead><tr><th>Locality</th><th class="num">Rows</th><th>Visual scale</th></tr></thead>
+    <tbody><tr><td>Shanghai University, Baoshan Campus</td><td class='num'>361</td><td><div class='bar'><span style='width:100%'></span></div></td></tr>
+<tr><td>Fudan University, Handan Campus</td><td class='num'>254</td><td><div class='bar'><span style='width:70%'></span></div></td></tr>
+<tr><td>East China Normal University, Minhang Campus</td><td class='num'>199</td><td><div class='bar'><span style='width:55%'></span></div></td></tr>
+<tr><td>Tongji University</td><td class='num'>171</td><td><div class='bar'><span style='width:47%'></span></div></td></tr>
+<tr><td>Fudan University, Jiangwan Campus</td><td class='num'>129</td><td><div class='bar'><span style='width:36%'></span></div></td></tr>
+<tr><td>Shanghai Jiao Tong University</td><td class='num'>76</td><td><div class='bar'><span style='width:21%'></span></div></td></tr>
+<tr><td>Shanghai Institute of Technology</td><td class='num'>67</td><td><div class='bar'><span style='width:19%'></span></div></td></tr></tbody>
+  </table>
+  <h3>Shanghai Campus Districts</h3>
+  <table>
+    <thead><tr><th>District</th><th class="num">Rows</th><th>Visual scale</th></tr></thead>
+    <tbody><tr><td>Yangpu District</td><td class='num'>554</td><td><div class='bar'><span style='width:100%'></span></div></td></tr>
+<tr><td>Baoshan District</td><td class='num'>361</td><td><div class='bar'><span style='width:65%'></span></div></td></tr>
+<tr><td>Minhang District</td><td class='num'>275</td><td><div class='bar'><span style='width:50%'></span></div></td></tr>
+<tr><td>Fengxian District</td><td class='num'>67</td><td><div class='bar'><span style='width:12%'></span></div></td></tr></tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Nativeness Comparison</h2>
+  <div class="two">
+    <div>
+      <h3>Campus unique species</h3>
+      <table><thead><tr><th>Status</th><th class="num">Species</th><th class="num">Percent</th></tr></thead><tbody><tr><td>Native</td><td>368</td><td>53.3</td></tr>
+<tr><td>Nonnative</td><td>322</td><td>46.7</td></tr></tbody></table>
+    </div>
+    <div>
+      <h3>City unique species</h3>
+      <table><thead><tr><th>Status</th><th class="num">Species</th><th class="num">Percent</th></tr></thead><tbody><tr><td>上海原生种</td><td>858</td><td>69.3</td></tr>
+<tr><td>非上海原生</td><td>380</td><td>30.7</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Missingness Report</h2>
+  <p>The inspected core CSV tables have no missing cells in their declared columns. This is good for classroom exercises, but it does not solve schema gaps such as missing campus invasive labels or missing city campus identifiers.</p>
+  <table><thead><tr><th>File</th><th>Column</th><th class="num">Missing</th><th class="num">Percent</th></tr></thead><tbody><tr><td>ERDP-2021-02.3.1-Locality_Infor.csv</td><td>MAP (mm)</td><td>1</td><td>0.25</td></tr></tbody></table>
+</section>
+
+<section>
+  <h2>Comparison Matrix</h2>
+  <table class="matrix"><thead><tr><th>Aspect</th><th>Campus evidence</th><th>City evidence</th><th>Benchmark risk</th></tr></thead><tbody><tr><td>Scale</td><td>1257 records from 7 Shanghai campus localities</td><td>7008 district-record rows across 17 district sheets</td><td>Different record units: campus occurrence rows vs district checklist rows.</td></tr>
+<tr><td>Species coverage</td><td>690 unique scientific names; 653 normalized binomials</td><td>1238 unique scientific names; 1191 normalized binomials</td><td>Only 205 normalized names overlap; campus covers 17.2% of city normalized species.</td></tr>
+<tr><td>Alien / nonnative</td><td>Native: 368 (53.3%); Nonnative: 322 (46.7%)</td><td>上海原生种: 858 (69.3%); 非上海原生: 380 (30.7%)</td><td>Definitions differ: campus uses Native/Nonnative, city uses Shanghai native/non-native.</td></tr>
+<tr><td>Invasive label</td><td>Not available in campus plant CSV</td><td>非入侵: 1155 (93.3%); 入侵: 83 (6.7%)</td><td>Cannot train or evaluate invasive-label tasks fairly without adding labels to campus data.</td></tr>
+<tr><td>Spatial coverage</td><td>Yangpu District: 554; Baoshan District: 361; Minhang District: 275; Fengxian District: 67</td><td>17 district/unknown sheets</td><td>Shanghai campus subset is concentrated in Yangpu, Baoshan, Minhang, and Fengxian.</td></tr></tbody></table>
+</section>
+
+<section>
+  <h2>Files And Schemas</h2>
+  <table><thead><tr><th>File</th><th>Purpose</th><th>Evidence</th></tr></thead><tbody>
+    <tr><td>ERDP-2021-02.4.1-Plant_List.csv</td><td>Campus plant occurrence table.</td><td>46558 rows, 5917 species names, columns: LocationID, Locality, ScientificName, Family, Genus, SpecificEpithet, TaxonRank, GrowthForm, Plant_NativenessStatus, SourceID.</td></tr>
+    <tr><td>ERDP-2021-02.3.1-Locality_Infor.csv</td><td>Campus/locality metadata table.</td><td>404 rows, location, region, city, climate, area, and establishment fields.</td></tr>
+    <tr><td>ERDP-2021-02.5.1-Source_List.csv</td><td>Bibliographic provenance table.</td><td>272 sources; useful for provenance, but licensing is not explicit in the local folder.</td></tr>
+    <tr><td>Plants_Shanghai.csv</td><td>Filtered Shanghai campus plant subset.</td><td>1257 rows from 7 localities. Filter note explains inclusion rules.</td></tr>
+    <tr><td>Plants_Shanghai_enriched.csv</td><td>Shanghai campus subset with district and coordinate fields.</td><td>1257 rows split across 4 districts.</td></tr>
+    <tr><td>上海野生和逸生植物_按地区拆分.xlsx</td><td>City-wide wild and escaped vascular plant checklist split by district.</td><td>7008 district-record rows, 1238 unique scientific names, 2 native-status categories.</td></tr>
+    <tr><td>Plants_Shanghai_*Translated.xlsx</td><td>Derived translated/exported campus workbooks.</td><td>Useful for presentation, but XLSX headers include blank styled rows in some sheets, so CSV is safer for reproducible analysis.</td></tr>
+  </tbody></table>
+</section>
+
+<section>
+  <h2>Risks, Anomalies, And Curator Tasks</h2>
+  <ul>
+    <li><strong>Missing prompt files:</strong> no local <code>.xml</code> file was found, although the prompt names XML materials. Curator task: place the XML files in the folder or update the benchmark manifest.</li>
+    <li><strong>Name mismatch:</strong> exact scientific-name overlap between campus and city files fails because the campus file includes author strings while the city scientific-name field usually does not. Curator task: create a canonical taxon key.</li>
+    <li><strong>Schema mismatch:</strong> campus has growth form and nativeness, city has Shanghai native/non-native plus invasive labels. Curator task: create a crosswalk table with shared label definitions.</li>
+    <li><strong>Coverage imbalance:</strong> Shanghai campus rows concentrate in Yangpu, Baoshan, Minhang, and Fengxian. Curator task: document whether missing districts are true absence or sampling absence.</li>
+    <li><strong>Packaging risk:</strong> no external archive is present, but XLSX is itself a zipped format with styled or blank header rows. Curator task: publish canonical CSV exports for each sheet.</li>
+    <li><strong>Provenance risk:</strong> source metadata exists, but no explicit license file was found. Curator task: add a license and citation instructions before public benchmark release.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Research Questions For Students</h2>
+  <ol>
+    <li>Which Shanghai campus plant species are shared with the city-wide checklist after taxon-name normalization?</li>
+    <li>Which plant families are overrepresented on campuses compared with the city checklist?</li>
+    <li>Do campuses show a higher nonnative share than Shanghai overall after labels are harmonized?</li>
+    <li>Which districts are under-covered by the campus subset, and how does that affect visual interpretation?</li>
+    <li>Are campus tree, shrub, and herb proportions shaped more by design choices or by regional ecology?</li>
+    <li>How would the conclusion change if representation is measured by species, families, or growth forms?</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Suggested Benchmark Tasks</h2>
+  <table><thead><tr><th>Task</th><th>Input</th><th>Expected output</th><th>Why it matters</th></tr></thead><tbody>
+    <tr><td>Schema matching</td><td>Campus and city plant tables</td><td>Column crosswalk and risk notes</td><td>Tests whether a tool understands messy ecological tables.</td></tr>
+    <tr><td>Taxon normalization</td><td>Scientific names with and without authors</td><td>Canonical binomial or accepted-name key</td><td>Required before fair overlap measurement.</td></tr>
+    <tr><td>Nativeness comparison</td><td>Harmonized native labels</td><td>Campus vs city nonnative proportions</td><td>Directly addresses the research focus.</td></tr>
+    <tr><td>Coverage audit</td><td>District and locality fields</td><td>Coverage map/table and bias statement</td><td>Prevents overclaiming representativeness.</td></tr>
+    <tr><td>Student dashboard</td><td>Curated CSV slices</td><td>Readable cards, matrix, and charts</td><td>Tests communication, not only computation.</td></tr>
+  </tbody></table>
+</section>
+
+<section>
+  <h2>Metrics And Fair Evaluation Protocol</h2>
+  <ul>
+    <li><strong>Schema task metrics:</strong> precision/recall of matched columns against a curator-approved crosswalk.</li>
+    <li><strong>Taxon task metrics:</strong> exact match rate on canonical names, plus manual review rate for uncertain names.</li>
+    <li><strong>Comparison task metrics:</strong> correct numerator, denominator, percentage, and caveat for label-definition differences.</li>
+    <li><strong>Visualization metrics:</strong> all charts must cite source files, show units, and avoid implying unobserved districts are zero-diversity districts.</li>
+    <li><strong>Fair tool comparison:</strong> give every model or tool the same file slice, same prompt, same allowed operations, and same scoring rubric. Do not let one tool use internet taxonomy lookup if others are local-only.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Student-Friendly Workflow Guide</h2>
+  <ol>
+    <li>Make a file manifest: list every CSV, XLSX, note, script, and output file.</li>
+    <li>Read schemas before drawing charts: identify keys, labels, and missing columns.</li>
+    <li>Profile counts: rows, unique species, localities, districts, labels, and sources.</li>
+    <li>Separate description from benchmark judgment: a pretty chart is not enough if coverage is biased.</li>
+    <li>Create a name-normalization rule and record its limits.</li>
+    <li>Compare campus and city data only after units and labels are made comparable.</li>
+    <li>Write curator tasks for every unresolved risk.</li>
+    <li>Package outputs so another student can open the HTML and rerun <code>generate_benchmark_materials.ps1</code>.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Benchmark Proposal Template</h2>
+  <table><thead><tr><th>Section</th><th>Student fill-in</th></tr></thead><tbody>
+    <tr><td>Benchmark name</td><td>Short title and ecological scale.</td></tr>
+    <tr><td>Dataset slice</td><td>Files, rows, filters, and date of generation.</td></tr>
+    <tr><td>Research question</td><td>One measurable question plus why it matters.</td></tr>
+    <tr><td>Gold standard</td><td>Curated schema crosswalk, taxon key, and label definitions.</td></tr>
+    <tr><td>Tasks</td><td>What a model/tool must produce.</td></tr>
+    <tr><td>Metrics</td><td>How outputs are scored fairly.</td></tr>
+    <tr><td>Known risks</td><td>Missing files, biased coverage, ambiguous labels, licensing gaps.</td></tr>
+    <tr><td>Visual communication</td><td>Cards, matrix, chart types, and evidence links.</td></tr>
+  </tbody></table>
+</section>
+
+<footer>
+  Evidence is generated from local files only. Machine-readable profile: <code>benchmark_profile.json</code>. Summary markdown: <code>benchmark_findings_summary.md</code>.
+</footer>
+</main>
+</body>
+</html>
