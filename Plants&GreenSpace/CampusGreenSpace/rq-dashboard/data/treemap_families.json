@@ -1,0 +1,652 @@
+{
+  "campus": {
+    "name": "Campus",
+    "children": [
+      {
+        "name": "Rosaceae",
+        "value": 125
+      },
+      {
+        "name": "Oleaceae",
+        "value": 60
+      },
+      {
+        "name": "Compositae",
+        "value": 48
+      },
+      {
+        "name": "Leguminosae",
+        "value": 45
+      },
+      {
+        "name": "Cupressaceae",
+        "value": 43
+      },
+      {
+        "name": "Poaceae",
+        "value": 39
+      },
+      {
+        "name": "Asparagaceae",
+        "value": 36
+      },
+      {
+        "name": "Magnoliaceae",
+        "value": 31
+      },
+      {
+        "name": "Arecaceae",
+        "value": 30
+      },
+      {
+        "name": "Lamiaceae",
+        "value": 25
+      },
+      {
+        "name": "Euphorbiaceae",
+        "value": 22
+      },
+      {
+        "name": "Pinaceae",
+        "value": 22
+      },
+      {
+        "name": "Berberidaceae",
+        "value": 21
+      },
+      {
+        "name": "Moraceae",
+        "value": 20
+      },
+      {
+        "name": "Sapindaceae",
+        "value": 18
+      },
+      {
+        "name": "Malvaceae",
+        "value": 18
+      },
+      {
+        "name": "Lauraceae",
+        "value": 17
+      },
+      {
+        "name": "Amaryllidaceae",
+        "value": 17
+      },
+      {
+        "name": "Apocynaceae",
+        "value": 17
+      },
+      {
+        "name": "Brassicaceae",
+        "value": 17
+      },
+      {
+        "name": "Araceae",
+        "value": 15
+      },
+      {
+        "name": "Araliaceae",
+        "value": 14
+      },
+      {
+        "name": "Lythraceae",
+        "value": 14
+      },
+      {
+        "name": "Rubiaceae",
+        "value": 13
+      },
+      {
+        "name": "Adoxaceae",
+        "value": 13
+      },
+      {
+        "name": "Hamamelidaceae",
+        "value": 12
+      },
+      {
+        "name": "Celastraceae",
+        "value": 12
+      },
+      {
+        "name": "Aquifoliaceae",
+        "value": 12
+      },
+      {
+        "name": "Iridaceae",
+        "value": 12
+      },
+      {
+        "name": "Plantaginaceae",
+        "value": 12
+      },
+      {
+        "name": "Amaranthaceae",
+        "value": 12
+      },
+      {
+        "name": "Buxaceae",
+        "value": 11
+      },
+      {
+        "name": "Theaceae",
+        "value": 11
+      },
+      {
+        "name": "Cornaceae",
+        "value": 11
+      },
+      {
+        "name": "Rutaceae",
+        "value": 11
+      },
+      {
+        "name": "Solanaceae",
+        "value": 11
+      },
+      {
+        "name": "Oxalidaceae",
+        "value": 10
+      },
+      {
+        "name": "Salicaceae",
+        "value": 10
+      },
+      {
+        "name": "Ulmaceae",
+        "value": 10
+      },
+      {
+        "name": "Ranunculaceae",
+        "value": 10
+      },
+      {
+        "name": "Convolvulaceae",
+        "value": 10
+      },
+      {
+        "name": "Cactaceae",
+        "value": 10
+      },
+      {
+        "name": "Cannabaceae",
+        "value": 9
+      },
+      {
+        "name": "Hydrangeaceae",
+        "value": 9
+      },
+      {
+        "name": "Caprifoliaceae",
+        "value": 9
+      },
+      {
+        "name": "Podocarpaceae",
+        "value": 8
+      },
+      {
+        "name": "Commelinaceae",
+        "value": 8
+      },
+      {
+        "name": "Cyperaceae",
+        "value": 8
+      },
+      {
+        "name": "Thymelaeaceae",
+        "value": 7
+      },
+      {
+        "name": "Meliaceae",
+        "value": 7
+      },
+      {
+        "name": "Pittosporaceae",
+        "value": 7
+      },
+      {
+        "name": "Ericaceae",
+        "value": 7
+      },
+      {
+        "name": "Garryaceae",
+        "value": 6
+      },
+      {
+        "name": "Calycanthaceae",
+        "value": 6
+      },
+      {
+        "name": "Elaeocarpaceae",
+        "value": 6
+      },
+      {
+        "name": "Ginkgoaceae",
+        "value": 6
+      },
+      {
+        "name": "Hypericaceae",
+        "value": 6
+      },
+      {
+        "name": "Fagaceae",
+        "value": 6
+      },
+      {
+        "name": "Caryophyllaceae",
+        "value": 6
+      },
+      {
+        "name": "Crassulaceae",
+        "value": 6
+      },
+      {
+        "name": "Bignoniaceae",
+        "value": 5
+      },
+      {
+        "name": "Cycadaceae",
+        "value": 5
+      },
+      {
+        "name": "Ebenaceae",
+        "value": 5
+      },
+      {
+        "name": "Elaeagnaceae",
+        "value": 5
+      },
+      {
+        "name": "Altingiaceae",
+        "value": 5
+      },
+      {
+        "name": "Musaceae",
+        "value": 5
+      },
+      {
+        "name": "Paeoniaceae",
+        "value": 5
+      },
+      {
+        "name": "Myrtaceae",
+        "value": 5
+      },
+      {
+        "name": "Violaceae",
+        "value": 5
+      },
+      {
+        "name": "Verbenaceae",
+        "value": 5
+      },
+      {
+        "name": "Polygonaceae",
+        "value": 5
+      },
+      {
+        "name": "Portulacaceae",
+        "value": 5
+      },
+      {
+        "name": "Phyllanthaceae",
+        "value": 4
+      },
+      {
+        "name": "Scrophulariaceae",
+        "value": 4
+      },
+      {
+        "name": "Cannaceae",
+        "value": 4
+      },
+      {
+        "name": "Juglandaceae",
+        "value": 4
+      },
+      {
+        "name": "Nelumbonaceae",
+        "value": 4
+      },
+      {
+        "name": "Nymphaeaceae",
+        "value": 4
+      },
+      {
+        "name": "Platanaceae",
+        "value": 4
+      },
+      {
+        "name": "Anacardiaceae",
+        "value": 4
+      }
+    ]
+  },
+  "city": {
+    "name": "Shanghai",
+    "children": [
+      {
+        "name": "Poaceae",
+        "value": 825
+      },
+      {
+        "name": "Asteraceae",
+        "value": 821
+      },
+      {
+        "name": "Fabaceae",
+        "value": 411
+      },
+      {
+        "name": "Polygonaceae",
+        "value": 287
+      },
+      {
+        "name": "Amaranthaceae",
+        "value": 279
+      },
+      {
+        "name": "Lamiaceae",
+        "value": 267
+      },
+      {
+        "name": "Cyperaceae",
+        "value": 217
+      },
+      {
+        "name": "Brassicaceae",
+        "value": 195
+      },
+      {
+        "name": "Euphorbiaceae",
+        "value": 184
+      },
+      {
+        "name": "Rosaceae",
+        "value": 178
+      },
+      {
+        "name": "Convolvulaceae",
+        "value": 162
+      },
+      {
+        "name": "Plantaginaceae",
+        "value": 143
+      },
+      {
+        "name": "Caryophyllaceae",
+        "value": 130
+      },
+      {
+        "name": "Ranunculaceae",
+        "value": 129
+      },
+      {
+        "name": "Apiaceae",
+        "value": 109
+      },
+      {
+        "name": "Solanaceae",
+        "value": 107
+      },
+      {
+        "name": "Apocynaceae",
+        "value": 77
+      },
+      {
+        "name": "Araliaceae",
+        "value": 76
+      },
+      {
+        "name": "Araceae",
+        "value": 70
+      },
+      {
+        "name": "Moraceae",
+        "value": 70
+      },
+      {
+        "name": "Oxalidaceae",
+        "value": 66
+      },
+      {
+        "name": "Boraginaceae",
+        "value": 60
+      },
+      {
+        "name": "Malvaceae",
+        "value": 59
+      },
+      {
+        "name": "Dryopteridaceae",
+        "value": 58
+      },
+      {
+        "name": "Urticaceae",
+        "value": 58
+      },
+      {
+        "name": "Primulaceae",
+        "value": 55
+      },
+      {
+        "name": "Oleaceae",
+        "value": 54
+      },
+      {
+        "name": "Cucurbitaceae",
+        "value": 52
+      },
+      {
+        "name": "Rubiaceae",
+        "value": 52
+      },
+      {
+        "name": "Ulmaceae",
+        "value": 51
+      },
+      {
+        "name": "Crassulaceae",
+        "value": 50
+      },
+      {
+        "name": "Cannabaceae",
+        "value": 50
+      },
+      {
+        "name": "Berberidaceae",
+        "value": 48
+      },
+      {
+        "name": "Sapindaceae",
+        "value": 48
+      },
+      {
+        "name": "Amaryllidaceae",
+        "value": 42
+      },
+      {
+        "name": "Adoxaceae",
+        "value": 40
+      },
+      {
+        "name": "Salicaceae",
+        "value": 39
+      },
+      {
+        "name": "Celastraceae",
+        "value": 38
+      },
+      {
+        "name": "Lythraceae",
+        "value": 36
+      },
+      {
+        "name": "Onagraceae",
+        "value": 35
+      },
+      {
+        "name": "Alismataceae",
+        "value": 34
+      },
+      {
+        "name": "Vitaceae",
+        "value": 33
+      },
+      {
+        "name": "Rhamnaceae",
+        "value": 33
+      },
+      {
+        "name": "Violaceae",
+        "value": 33
+      },
+      {
+        "name": "Hydrocharitaceae",
+        "value": 32
+      },
+      {
+        "name": "Commelinaceae",
+        "value": 31
+      },
+      {
+        "name": "Potamogetonaceae",
+        "value": 30
+      },
+      {
+        "name": "Papaveraceae",
+        "value": 30
+      },
+      {
+        "name": "Phyllanthaceae",
+        "value": 30
+      },
+      {
+        "name": "Salviniaceae",
+        "value": 28
+      },
+      {
+        "name": "Linderniaceae",
+        "value": 28
+      },
+      {
+        "name": "Asparagaceae",
+        "value": 25
+      },
+      {
+        "name": "Rutaceae",
+        "value": 25
+      },
+      {
+        "name": "Phytolaccaceae",
+        "value": 25
+      },
+      {
+        "name": "Acanthaceae",
+        "value": 25
+      },
+      {
+        "name": "Lauraceae",
+        "value": 24
+      },
+      {
+        "name": "Menispermaceae",
+        "value": 24
+      },
+      {
+        "name": "Haloragaceae",
+        "value": 24
+      },
+      {
+        "name": "Pteridaceae",
+        "value": 23
+      },
+      {
+        "name": "Pontederiaceae",
+        "value": 23
+      },
+      {
+        "name": "Portulacaceae",
+        "value": 23
+      },
+      {
+        "name": "Geraniaceae",
+        "value": 22
+      },
+      {
+        "name": "Verbenaceae",
+        "value": 22
+      },
+      {
+        "name": "Caprifoliaceae",
+        "value": 21
+      },
+      {
+        "name": "Hamamelidaceae",
+        "value": 20
+      },
+      {
+        "name": "Thelypteridaceae",
+        "value": 18
+      },
+      {
+        "name": "Dioscoreaceae",
+        "value": 18
+      },
+      {
+        "name": "Juglandaceae",
+        "value": 18
+      },
+      {
+        "name": "Mazaceae",
+        "value": 18
+      },
+      {
+        "name": "Orchidaceae",
+        "value": 17
+      },
+      {
+        "name": "Equisetaceae",
+        "value": 16
+      },
+      {
+        "name": "Calycanthaceae",
+        "value": 16
+      },
+      {
+        "name": "Acoraceae",
+        "value": 16
+      },
+      {
+        "name": "Arecaceae",
+        "value": 16
+      },
+      {
+        "name": "Typhaceae",
+        "value": 16
+      },
+      {
+        "name": "Ceratophyllaceae",
+        "value": 16
+      },
+      {
+        "name": "Nelumbonaceae",
+        "value": 16
+      },
+      {
+        "name": "Altingiaceae",
+        "value": 16
+      },
+      {
+        "name": "Elaeocarpaceae",
+        "value": 16
+      },
+      {
+        "name": "Meliaceae",
+        "value": 16
+      }
+    ]
+  }
+}

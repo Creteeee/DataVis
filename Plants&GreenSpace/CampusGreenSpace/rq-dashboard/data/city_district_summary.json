@@ -1,0 +1,843 @@
+{
+  "kpi": {
+    "districtCount": 17,
+    "speciesCount": 1238,
+    "genusCount": 609,
+    "familyCount": 148
+  },
+  "districts": [
+    {
+      "district": "Baoshan District",
+      "speciesCount": 398,
+      "genusCount": 258,
+      "familyCount": 90,
+      "nonnativeRatio": 0.3844221105527638,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 53
+        },
+        {
+          "family": "Poaceae",
+          "count": 49
+        },
+        {
+          "family": "Fabaceae",
+          "count": 22
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 19
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 17
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 15
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 14
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 13
+        },
+        {
+          "family": "Rosaceae",
+          "count": 11
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "district": "Changning District",
+      "speciesCount": 310,
+      "genusCount": 215,
+      "familyCount": 81,
+      "nonnativeRatio": 0.4161290322580645,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 46
+        },
+        {
+          "family": "Poaceae",
+          "count": 34
+        },
+        {
+          "family": "Fabaceae",
+          "count": 15
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 14
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 13
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 10
+        },
+        {
+          "family": "Rosaceae",
+          "count": 9
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 9
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "district": "Chongming District",
+      "speciesCount": 434,
+      "genusCount": 274,
+      "familyCount": 97,
+      "nonnativeRatio": 0.35023041474654376,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 56
+        },
+        {
+          "family": "Poaceae",
+          "count": 49
+        },
+        {
+          "family": "Fabaceae",
+          "count": 23
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 22
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 20
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 16
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 14
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 12
+        },
+        {
+          "family": "Dryopteridaceae",
+          "count": 11
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "district": "Fengxian District",
+      "speciesCount": 464,
+      "genusCount": 310,
+      "familyCount": 101,
+      "nonnativeRatio": 0.3254310344827586,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 59
+        },
+        {
+          "family": "Asteraceae",
+          "count": 55
+        },
+        {
+          "family": "Fabaceae",
+          "count": 29
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 19
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 17
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 17
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 16
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 13
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        },
+        {
+          "family": "Rosaceae",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "district": "Hongkou District",
+      "speciesCount": 297,
+      "genusCount": 208,
+      "familyCount": 80,
+      "nonnativeRatio": 0.4208754208754209,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 40
+        },
+        {
+          "family": "Poaceae",
+          "count": 34
+        },
+        {
+          "family": "Fabaceae",
+          "count": 14
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 14
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 12
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 11
+        },
+        {
+          "family": "Rosaceae",
+          "count": 8
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 8
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "district": "Huangpu District",
+      "speciesCount": 291,
+      "genusCount": 203,
+      "familyCount": 77,
+      "nonnativeRatio": 0.4329896907216495,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 39
+        },
+        {
+          "family": "Poaceae",
+          "count": 34
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 15
+        },
+        {
+          "family": "Fabaceae",
+          "count": 14
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 11
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 10
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 9
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 8
+        },
+        {
+          "family": "Rosaceae",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "district": "Jiading District",
+      "speciesCount": 449,
+      "genusCount": 296,
+      "familyCount": 101,
+      "nonnativeRatio": 0.32962138084632514,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 56
+        },
+        {
+          "family": "Asteraceae",
+          "count": 49
+        },
+        {
+          "family": "Fabaceae",
+          "count": 29
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 22
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 19
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 16
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 13
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 12
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 12
+        },
+        {
+          "family": "Rosaceae",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "district": "Jing'an District",
+      "speciesCount": 483,
+      "genusCount": 295,
+      "familyCount": 90,
+      "nonnativeRatio": 0.4886128364389234,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 59
+        },
+        {
+          "family": "Poaceae",
+          "count": 40
+        },
+        {
+          "family": "Fabaceae",
+          "count": 34
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 31
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 29
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 22
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 21
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 12
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 12
+        },
+        {
+          "family": "Plantaginaceae",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "district": "Jinshan District",
+      "speciesCount": 569,
+      "genusCount": 346,
+      "familyCount": 115,
+      "nonnativeRatio": 0.2513181019332162,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 64
+        },
+        {
+          "family": "Asteraceae",
+          "count": 53
+        },
+        {
+          "family": "Fabaceae",
+          "count": 39
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 25
+        },
+        {
+          "family": "Dryopteridaceae",
+          "count": 19
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 18
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 18
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 16
+        },
+        {
+          "family": "Rosaceae",
+          "count": 16
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "district": "Minhang District",
+      "speciesCount": 402,
+      "genusCount": 279,
+      "familyCount": 95,
+      "nonnativeRatio": 0.3283582089552239,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 58
+        },
+        {
+          "family": "Asteraceae",
+          "count": 40
+        },
+        {
+          "family": "Fabaceae",
+          "count": 22
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 16
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 15
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 14
+        },
+        {
+          "family": "Rosaceae",
+          "count": 13
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 10
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 10
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "district": "Pudong New Area",
+      "speciesCount": 474,
+      "genusCount": 305,
+      "familyCount": 99,
+      "nonnativeRatio": 0.34810126582278483,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 57
+        },
+        {
+          "family": "Poaceae",
+          "count": 56
+        },
+        {
+          "family": "Fabaceae",
+          "count": 26
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 22
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 22
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 19
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 15
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 13
+        },
+        {
+          "family": "Rosaceae",
+          "count": 12
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "district": "Putuo District",
+      "speciesCount": 361,
+      "genusCount": 245,
+      "familyCount": 86,
+      "nonnativeRatio": 0.4099722991689751,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 45
+        },
+        {
+          "family": "Poaceae",
+          "count": 44
+        },
+        {
+          "family": "Fabaceae",
+          "count": 25
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 17
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 12
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 12
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 12
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 11
+        },
+        {
+          "family": "Rosaceae",
+          "count": 10
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "district": "Qingpu District",
+      "speciesCount": 371,
+      "genusCount": 249,
+      "familyCount": 91,
+      "nonnativeRatio": 0.353099730458221,
+      "topFamilies": [
+        {
+          "family": "Asteraceae",
+          "count": 46
+        },
+        {
+          "family": "Poaceae",
+          "count": 41
+        },
+        {
+          "family": "Fabaceae",
+          "count": 20
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 17
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 15
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 13
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 10
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 10
+        },
+        {
+          "family": "Rosaceae",
+          "count": 9
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "district": "Songjiang District",
+      "speciesCount": 771,
+      "genusCount": 439,
+      "familyCount": 129,
+      "nonnativeRatio": 0.21660181582360571,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 83
+        },
+        {
+          "family": "Asteraceae",
+          "count": 75
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 43
+        },
+        {
+          "family": "Fabaceae",
+          "count": 43
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 36
+        },
+        {
+          "family": "Rosaceae",
+          "count": 25
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 21
+        },
+        {
+          "family": "Dryopteridaceae",
+          "count": 19
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 17
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "district": "Unknown",
+      "speciesCount": 37,
+      "genusCount": 30,
+      "familyCount": 24,
+      "nonnativeRatio": 0.02702702702702703,
+      "topFamilies": [
+        {
+          "family": "Selaginellaceae",
+          "count": 4
+        },
+        {
+          "family": "Ranunculaceae",
+          "count": 4
+        },
+        {
+          "family": "Polypodiaceae",
+          "count": 3
+        },
+        {
+          "family": "Poaceae",
+          "count": 3
+        },
+        {
+          "family": "Athyriaceae",
+          "count": 2
+        },
+        {
+          "family": "Thelypteridaceae",
+          "count": 2
+        },
+        {
+          "family": "Asteraceae",
+          "count": 2
+        },
+        {
+          "family": "Lycopodiaceae",
+          "count": 1
+        },
+        {
+          "family": "Isoetaceae",
+          "count": 1
+        },
+        {
+          "family": "Equisetaceae",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "district": "Xuhui District",
+      "speciesCount": 451,
+      "genusCount": 284,
+      "familyCount": 96,
+      "nonnativeRatio": 0.3946784922394678,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 53
+        },
+        {
+          "family": "Asteraceae",
+          "count": 49
+        },
+        {
+          "family": "Fabaceae",
+          "count": 28
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 27
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 22
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 16
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 14
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 13
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 11
+        },
+        {
+          "family": "Plantaginaceae",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "district": "Yangpu District",
+      "speciesCount": 446,
+      "genusCount": 278,
+      "familyCount": 93,
+      "nonnativeRatio": 0.3632286995515695,
+      "topFamilies": [
+        {
+          "family": "Poaceae",
+          "count": 68
+        },
+        {
+          "family": "Asteraceae",
+          "count": 57
+        },
+        {
+          "family": "Fabaceae",
+          "count": 28
+        },
+        {
+          "family": "Cyperaceae",
+          "count": 23
+        },
+        {
+          "family": "Polygonaceae",
+          "count": 18
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 16
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 13
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 12
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 11
+        },
+        {
+          "family": "Convolvulaceae",
+          "count": 11
+        }
+      ]
+    }
+  ]
+}

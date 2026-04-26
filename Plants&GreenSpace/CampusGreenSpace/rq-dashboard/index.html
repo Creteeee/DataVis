@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shanghai Campus Plant Diversity Dashboard</title>
+    <meta
+      name="description"
+      content="回答RQ：校园植物多样性是否能代表上海整体多样性？并对比非乡土植物比例。"
+    />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brandMark" aria-hidden="true"></div>
+          <div class="brandText">
+            <div class="title">Campus × Shanghai Plant Diversity</div>
+            <div class="subtitle">
+              RQ: Can plant diversity on campus represent the overall plant diversity of Shanghai?
+            </div>
+          </div>
+        </div>
+
+        <nav class="controls" aria-label="Dashboard controls">
+          <button class="chip isActive" data-view="rq1" type="button">RQ1 代表性</button>
+          <button class="chip" data-view="rq2" type="button">RQ2 非乡土</button>
+          <button class="chip" data-view="families" type="button">Family 深入</button>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <div class="heroCopy">
+            <div class="eyebrow">结论导向</div>
+            <h1 class="h1">用“可解释的重叠”回答代表性，而不是用直觉。</h1>
+            <p class="lead">
+              我们把<strong>上海全市（按行政区）</strong>与<strong>上海高校校园</strong>放在同一套度量下：物种数、科数、非乡土比例，以及（最关键的）科层级的重叠度。
+            </p>
+            <div class="heroBadges" role="list">
+              <div class="badge" role="listitem">
+                <div class="badgeK" id="kpiCampusSpecies">—</div>
+                <div class="badgeL">校园物种数（去重）</div>
+              </div>
+              <div class="badge" role="listitem">
+                <div class="badgeK" id="kpiCitySpecies">—</div>
+                <div class="badgeL">上海物种数（去重）</div>
+              </div>
+              <div class="badge" role="listitem">
+                <div class="badgeK" id="kpiFamilyOverlap">—</div>
+                <div class="badgeL" id="kpiOverlapLabel">校园-所在区 Family 重叠（均值）</div>
+              </div>
+            </div>
+          </div>
+          <div class="heroViz">
+            <div class="panel">
+              <div class="panelHead">
+                <div>
+                  <div class="panelTitle">物种数 / 属数 / 科数对比</div>
+                  <div class="panelHint">校园（7 个样点）与上海全市（17 个区）</div>
+                </div>
+                <div class="panelMeta" id="asOfMeta">—</div>
+              </div>
+              <div class="panelBody">
+                <div id="chartOverview" class="chart" aria-label="Overview bar chart"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid" id="view-rq1">
+          <div class="panel span7">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">RQ1：校园多样性代表性</div>
+                <div class="panelHint">
+                  以<strong>Species / Genus / Family 重叠（Jaccard）</strong>为核心证据。
+                  <a
+                    class="inlineLink"
+                    href="https://en.wikipedia.org/wiki/Jaccard_index"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Jaccard index (Wikipedia)</a>
+                </div>
+              </div>
+              <div class="panelActions">
+                <label class="select">
+                  <span class="selectLabel">选择校园</span>
+                  <select id="campusSelect" aria-label="Select campus"></select>
+                </label>
+                <label class="select">
+                  <span class="selectLabel">Jaccard层级</span>
+                  <select id="overlapMetricSelect" aria-label="Select overlap metric">
+                    <option value="species">Species</option>
+                    <option value="genus">Genus</option>
+                    <option value="family" selected>Family</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="panelBody">
+              <div class="twoCol">
+                <div class="chartBox">
+                  <div class="miniTitle">校园 vs 所在区：Species / Genus / Family</div>
+                  <div id="chartCampusVsDistrict" class="chart chartTall"></div>
+                </div>
+                <div class="chartBox">
+                  <div class="miniTitle">重叠（Jaccard）分布（随层级切换）</div>
+                  <div id="chartOverlap" class="chart chartTall"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel span5">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">地图：校园样点</div>
+                <div class="panelHint">大小＝物种数（放大），颜色＝乡土水平（按中位数）</div>
+              </div>
+            </div>
+            <div class="panelBody">
+              <div id="map" class="map" aria-label="Campus map"></div>
+              <div class="mapLegend">
+                <div class="legendRow">
+                  <span class="dot dotLow"></span><span>低乡土（低于中位数）</span>
+                  <span class="dot dotHigh"></span><span>高乡土（高于/等于中位数）</span>
+                </div>
+                <div class="legendNote">注：坐标为校区/公园代表点（WGS84）。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel span12">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">桑基图：区 → 校园 → Family（Top）</div>
+                <div class="panelHint">用于观察“共享的主导科”是否稳定地跨越城市与校园边界。点击 Family 可跳转 Wikipedia。</div>
+              </div>
+            </div>
+            <div class="panelBody">
+              <div id="chartSankey" class="chart chartXL"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid isHidden" id="view-rq2">
+          <div class="panel span12">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">RQ2：非乡土植物盛行率</div>
+                <div class="panelHint">左：上海全市（按区，已去除 Unknown），右：校园样点（按校区）。</div>
+              </div>
+              <div class="panelActions">
+                <label class="select">
+                  <span class="selectLabel">统计层级</span>
+                  <select id="rq2MetricSelect" aria-label="Select RQ2 metric">
+                    <option value="species">Species</option>
+                    <option value="genus">Genus</option>
+                    <option value="family" selected>Family</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="panelBody">
+              <div class="twoCol">
+                <div class="chartBox">
+                  <div class="miniTitle" id="rq2CityTitle">上海全市：非乡土比例分布（Family）</div>
+                  <div id="chartCityNonnative" class="chart chartTall"></div>
+                </div>
+                <div class="chartBox">
+                  <div class="miniTitle" id="rq2CampusTitle">校园：非乡土比例分布（Family）</div>
+                  <div id="chartCampusNonnative" class="chart chartTall"></div>
+                </div>
+              </div>
+              <div class="callout" id="rq2Callout">
+                <div class="calloutTitle">对比提示</div>
+                <div class="calloutBody">—</div>
+              </div>
+
+              <div class="rq2Compare">
+                <div class="miniTitle" id="rq2CompareTitle">学校放入所在区后：区 vs 校园（双颜色对比，Family）</div>
+                <div id="chartDistrictCampusCompare" class="chart chartXL"></div>
+                <div class="tableWrap">
+                  <table class="statsTable" id="rq2StatsTable" aria-label="Non-native stats summary">
+                    <thead>
+                      <tr>
+                        <th>组别</th>
+                        <th>最低值</th>
+                        <th>最高值</th>
+                        <th>平均值</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>学校（校区）</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                      </tr>
+                      <tr>
+                        <td>行政区</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid isHidden" id="view-families">
+          <div class="panel span12">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">Family 层级深入：Treemap</div>
+                <div class="panelHint">悬停查看 Family 的物种数（记录数）。点击方块可跳转 Wikipedia。可切换 Campus / Shanghai。</div>
+              </div>
+              <div class="panelActions">
+                <div class="seg">
+                  <button class="segBtn isActive" data-treemap="campus" type="button">Campus</button>
+                  <button class="segBtn" data-treemap="city" type="button">Shanghai</button>
+                </div>
+              </div>
+            </div>
+            <div class="panelBody">
+              <div id="chartTreemap" class="chart chartXL"></div>
+              <div class="footnote">
+                说明：这里的 value 为该数据集中该 Family 的出现次数（记录数）。若你更希望用“去重物种数”，我可以把预处理脚本改成按物种去重再绘制。
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footerLeft">
+          <div class="footerTitle">Data sources</div>
+          <div class="footerText">
+            Campus: <code>Plants_Shanghai_Translated.xlsx</code> · Citywide:
+            <code>上海野生和逸生植物_按地区拆分.xlsx</code>
+          </div>
+        </div>
+        <div class="footerRight">
+          <div class="footerTitle">How to run</div>
+          <div class="footerText">
+            直接双击打开本文件，或用本地静态服务器打开（推荐）。
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
+
