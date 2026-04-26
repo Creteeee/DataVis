@@ -1,0 +1,203 @@
+{
+  "species": {
+    "items": [
+      {
+        "campus": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "campusCount": 191,
+        "districtCount": 400,
+        "sharedCount": 44,
+        "unionCount": 547,
+        "jaccard": 0.08043875685557587
+      },
+      {
+        "campus": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "campusCount": 251,
+        "districtCount": 440,
+        "sharedCount": 85,
+        "unionCount": 606,
+        "jaccard": 0.14026402640264027
+      },
+      {
+        "campus": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "campusCount": 128,
+        "districtCount": 440,
+        "sharedCount": 56,
+        "unionCount": 512,
+        "jaccard": 0.109375
+      },
+      {
+        "campus": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "campusCount": 67,
+        "districtCount": 459,
+        "sharedCount": 18,
+        "unionCount": 508,
+        "jaccard": 0.03543307086614173
+      },
+      {
+        "campus": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "campusCount": 75,
+        "districtCount": 400,
+        "sharedCount": 25,
+        "unionCount": 450,
+        "jaccard": 0.05555555555555555
+      },
+      {
+        "campus": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "campusCount": 348,
+        "districtCount": 393,
+        "sharedCount": 46,
+        "unionCount": 695,
+        "jaccard": 0.06618705035971223
+      },
+      {
+        "campus": "Tongji University",
+        "district": "Yangpu District",
+        "campusCount": 171,
+        "districtCount": 440,
+        "sharedCount": 65,
+        "unionCount": 546,
+        "jaccard": 0.11904761904761904
+      }
+    ]
+  },
+  "genus": {
+    "items": [
+      {
+        "campus": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "campusCount": 132,
+        "districtCount": 279,
+        "sharedCount": 49,
+        "unionCount": 362,
+        "jaccard": 0.13535911602209943
+      },
+      {
+        "campus": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "campusCount": 215,
+        "districtCount": 278,
+        "sharedCount": 106,
+        "unionCount": 387,
+        "jaccard": 0.2739018087855297
+      },
+      {
+        "campus": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "campusCount": 110,
+        "districtCount": 278,
+        "sharedCount": 67,
+        "unionCount": 321,
+        "jaccard": 0.2087227414330218
+      },
+      {
+        "campus": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "campusCount": 54,
+        "districtCount": 310,
+        "sharedCount": 24,
+        "unionCount": 340,
+        "jaccard": 0.07058823529411765
+      },
+      {
+        "campus": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "campusCount": 61,
+        "districtCount": 279,
+        "sharedCount": 32,
+        "unionCount": 308,
+        "jaccard": 0.1038961038961039
+      },
+      {
+        "campus": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "campusCount": 257,
+        "districtCount": 258,
+        "sharedCount": 71,
+        "unionCount": 444,
+        "jaccard": 0.15990990990990991
+      },
+      {
+        "campus": "Tongji University",
+        "district": "Yangpu District",
+        "campusCount": 142,
+        "districtCount": 278,
+        "sharedCount": 77,
+        "unionCount": 343,
+        "jaccard": 0.22448979591836735
+      }
+    ]
+  },
+  "family": {
+    "items": [
+      {
+        "campus": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "campusCount": 69,
+        "districtCount": 95,
+        "sharedCount": 38,
+        "unionCount": 126,
+        "jaccard": 0.30158730158730157
+      },
+      {
+        "campus": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "campusCount": 98,
+        "districtCount": 93,
+        "sharedCount": 64,
+        "unionCount": 127,
+        "jaccard": 0.5039370078740157
+      },
+      {
+        "campus": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "campusCount": 65,
+        "districtCount": 93,
+        "sharedCount": 51,
+        "unionCount": 107,
+        "jaccard": 0.4766355140186916
+      },
+      {
+        "campus": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "campusCount": 38,
+        "districtCount": 101,
+        "sharedCount": 23,
+        "unionCount": 116,
+        "jaccard": 0.19827586206896552
+      },
+      {
+        "campus": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "campusCount": 38,
+        "districtCount": 95,
+        "sharedCount": 24,
+        "unionCount": 109,
+        "jaccard": 0.22018348623853212
+      },
+      {
+        "campus": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "campusCount": 106,
+        "districtCount": 90,
+        "sharedCount": 56,
+        "unionCount": 140,
+        "jaccard": 0.4
+      },
+      {
+        "campus": "Tongji University",
+        "district": "Yangpu District",
+        "campusCount": 80,
+        "districtCount": 93,
+        "sharedCount": 50,
+        "unionCount": 123,
+        "jaccard": 0.4065040650406504
+      }
+    ]
+  }
+}

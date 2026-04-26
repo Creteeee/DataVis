@@ -1,0 +1,408 @@
+{
+  "kpi": {
+    "campusCount": 7,
+    "speciesCount": 690,
+    "genusCount": 428,
+    "familyCount": 134
+  },
+  "campuses": [
+    {
+      "locality": "East China Normal University, Minhang Campus",
+      "district": "Minhang District",
+      "longitude": 121.4531,
+      "latitude": 31.0318,
+      "speciesCount": 199,
+      "genusCount": 132,
+      "familyCount": 69,
+      "nonnativeRatio": 0.35678391959798994,
+      "growthFormCounts": {
+        "Tree": 122,
+        "Shrub": 61,
+        "Herb": 16
+      },
+      "topFamilies": [
+        {
+          "family": "Rosaceae",
+          "count": 35
+        },
+        {
+          "family": "Oleaceae",
+          "count": 13
+        },
+        {
+          "family": "Leguminosae",
+          "count": 9
+        },
+        {
+          "family": "Cupressaceae",
+          "count": 9
+        },
+        {
+          "family": "Magnoliaceae",
+          "count": 8
+        },
+        {
+          "family": "Asparagaceae",
+          "count": 6
+        },
+        {
+          "family": "Berberidaceae",
+          "count": 5
+        },
+        {
+          "family": "Lauraceae",
+          "count": 5
+        },
+        {
+          "family": "Sapindaceae",
+          "count": 4
+        },
+        {
+          "family": "Poaceae",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "locality": "Fudan University, Handan Campus",
+      "district": "Yangpu District",
+      "longitude": 121.5038,
+      "latitude": 31.2985,
+      "speciesCount": 254,
+      "genusCount": 215,
+      "familyCount": 98,
+      "nonnativeRatio": 0.4763779527559055,
+      "growthFormCounts": {
+        "Tree": 71,
+        "Herb": 135,
+        "Shrub": 48
+      },
+      "topFamilies": [
+        {
+          "family": "Rosaceae",
+          "count": 19
+        },
+        {
+          "family": "Compositae",
+          "count": 17
+        },
+        {
+          "family": "Poaceae",
+          "count": 12
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 10
+        },
+        {
+          "family": "Leguminosae",
+          "count": 8
+        },
+        {
+          "family": "Oleaceae",
+          "count": 7
+        },
+        {
+          "family": "Amaryllidaceae",
+          "count": 6
+        },
+        {
+          "family": "Araceae",
+          "count": 6
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 6
+        },
+        {
+          "family": "Amaranthaceae",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "locality": "Fudan University, Jiangwan Campus",
+      "district": "Yangpu District",
+      "longitude": 121.5115,
+      "latitude": 31.3388,
+      "speciesCount": 129,
+      "genusCount": 110,
+      "familyCount": 65,
+      "nonnativeRatio": 0.40310077519379844,
+      "growthFormCounts": {
+        "Shrub": 15,
+        "Herb": 95,
+        "Tree": 19
+      },
+      "topFamilies": [
+        {
+          "family": "Compositae",
+          "count": 13
+        },
+        {
+          "family": "Lamiaceae",
+          "count": 7
+        },
+        {
+          "family": "Poaceae",
+          "count": 6
+        },
+        {
+          "family": "Rosaceae",
+          "count": 6
+        },
+        {
+          "family": "Asparagaceae",
+          "count": 5
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 4
+        },
+        {
+          "family": "Apocynaceae",
+          "count": 4
+        },
+        {
+          "family": "Iridaceae",
+          "count": 4
+        },
+        {
+          "family": "Malvaceae",
+          "count": 3
+        },
+        {
+          "family": "Amaryllidaceae",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "locality": "Shanghai Institute of Technology",
+      "district": "Fengxian District",
+      "longitude": 121.4996,
+      "latitude": 30.8877,
+      "speciesCount": 67,
+      "genusCount": 54,
+      "familyCount": 38,
+      "nonnativeRatio": 0.3582089552238806,
+      "growthFormCounts": {
+        "Tree": 45,
+        "Shrub": 22
+      },
+      "topFamilies": [
+        {
+          "family": "Oleaceae",
+          "count": 7
+        },
+        {
+          "family": "Rosaceae",
+          "count": 6
+        },
+        {
+          "family": "Cupressaceae",
+          "count": 5
+        },
+        {
+          "family": "Berberidaceae",
+          "count": 4
+        },
+        {
+          "family": "Buxaceae",
+          "count": 3
+        },
+        {
+          "family": "Pinaceae",
+          "count": 3
+        },
+        {
+          "family": "Arecaceae",
+          "count": 3
+        },
+        {
+          "family": "Theaceae",
+          "count": 2
+        },
+        {
+          "family": "Leguminosae",
+          "count": 2
+        },
+        {
+          "family": "Lythraceae",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "locality": "Shanghai Jiao Tong University",
+      "district": "Minhang District",
+      "longitude": 121.4379,
+      "latitude": 31.0249,
+      "speciesCount": 76,
+      "genusCount": 61,
+      "familyCount": 38,
+      "nonnativeRatio": 0.40789473684210525,
+      "growthFormCounts": {
+        "Tree": 37,
+        "Shrub": 22,
+        "Herb": 17
+      },
+      "topFamilies": [
+        {
+          "family": "Rosaceae",
+          "count": 9
+        },
+        {
+          "family": "Oleaceae",
+          "count": 7
+        },
+        {
+          "family": "Cupressaceae",
+          "count": 6
+        },
+        {
+          "family": "Leguminosae",
+          "count": 5
+        },
+        {
+          "family": "Pinaceae",
+          "count": 4
+        },
+        {
+          "family": "Compositae",
+          "count": 3
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 2
+        },
+        {
+          "family": "Poaceae",
+          "count": 2
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 2
+        },
+        {
+          "family": "Celastraceae",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "locality": "Shanghai University, Baoshan Campus",
+      "district": "Baoshan District",
+      "longitude": 121.3912,
+      "latitude": 31.3198,
+      "speciesCount": 361,
+      "genusCount": 257,
+      "familyCount": 106,
+      "nonnativeRatio": 0.5235457063711911,
+      "growthFormCounts": {
+        "Tree": 185,
+        "Shrub": 87,
+        "Herb": 89
+      },
+      "topFamilies": [
+        {
+          "family": "Rosaceae",
+          "count": 34
+        },
+        {
+          "family": "Arecaceae",
+          "count": 18
+        },
+        {
+          "family": "Asparagaceae",
+          "count": 16
+        },
+        {
+          "family": "Poaceae",
+          "count": 13
+        },
+        {
+          "family": "Cupressaceae",
+          "count": 13
+        },
+        {
+          "family": "Oleaceae",
+          "count": 13
+        },
+        {
+          "family": "Leguminosae",
+          "count": 12
+        },
+        {
+          "family": "Magnoliaceae",
+          "count": 12
+        },
+        {
+          "family": "Cactaceae",
+          "count": 10
+        },
+        {
+          "family": "Compositae",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "locality": "Tongji University",
+      "district": "Yangpu District",
+      "longitude": 121.5064,
+      "latitude": 31.2825,
+      "speciesCount": 171,
+      "genusCount": 142,
+      "familyCount": 80,
+      "nonnativeRatio": 0.3742690058479532,
+      "growthFormCounts": {
+        "Herb": 67,
+        "Tree": 67,
+        "Shrub": 37
+      },
+      "topFamilies": [
+        {
+          "family": "Rosaceae",
+          "count": 16
+        },
+        {
+          "family": "Oleaceae",
+          "count": 11
+        },
+        {
+          "family": "Leguminosae",
+          "count": 6
+        },
+        {
+          "family": "Brassicaceae",
+          "count": 6
+        },
+        {
+          "family": "Euphorbiaceae",
+          "count": 5
+        },
+        {
+          "family": "Compositae",
+          "count": 5
+        },
+        {
+          "family": "Magnoliaceae",
+          "count": 5
+        },
+        {
+          "family": "Malvaceae",
+          "count": 3
+        },
+        {
+          "family": "Sapindaceae",
+          "count": 3
+        },
+        {
+          "family": "Berberidaceae",
+          "count": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,617 @@
+{
+  "species": {
+    "districts": [
+      {
+        "district": "Baoshan District",
+        "nativeCount": 240,
+        "nonnativeCount": 153,
+        "unknownCount": 0,
+        "knownTotal": 393,
+        "nonnativeRatio": 0.3893129770992366
+      },
+      {
+        "district": "Changning District",
+        "nativeCount": 178,
+        "nonnativeCount": 129,
+        "unknownCount": 0,
+        "knownTotal": 307,
+        "nonnativeRatio": 0.4201954397394137
+      },
+      {
+        "district": "Chongming District",
+        "nativeCount": 276,
+        "nonnativeCount": 152,
+        "unknownCount": 0,
+        "knownTotal": 428,
+        "nonnativeRatio": 0.35514018691588783
+      },
+      {
+        "district": "Fengxian District",
+        "nativeCount": 309,
+        "nonnativeCount": 150,
+        "unknownCount": 0,
+        "knownTotal": 459,
+        "nonnativeRatio": 0.32679738562091504
+      },
+      {
+        "district": "Hongkou District",
+        "nativeCount": 170,
+        "nonnativeCount": 125,
+        "unknownCount": 0,
+        "knownTotal": 295,
+        "nonnativeRatio": 0.423728813559322
+      },
+      {
+        "district": "Huangpu District",
+        "nativeCount": 163,
+        "nonnativeCount": 126,
+        "unknownCount": 0,
+        "knownTotal": 289,
+        "nonnativeRatio": 0.4359861591695502
+      },
+      {
+        "district": "Jiading District",
+        "nativeCount": 294,
+        "nonnativeCount": 148,
+        "unknownCount": 0,
+        "knownTotal": 442,
+        "nonnativeRatio": 0.334841628959276
+      },
+      {
+        "district": "Jing'an District",
+        "nativeCount": 244,
+        "nonnativeCount": 236,
+        "unknownCount": 0,
+        "knownTotal": 480,
+        "nonnativeRatio": 0.49166666666666664
+      },
+      {
+        "district": "Jinshan District",
+        "nativeCount": 419,
+        "nonnativeCount": 143,
+        "unknownCount": 0,
+        "knownTotal": 562,
+        "nonnativeRatio": 0.25444839857651247
+      },
+      {
+        "district": "Minhang District",
+        "nativeCount": 268,
+        "nonnativeCount": 132,
+        "unknownCount": 0,
+        "knownTotal": 400,
+        "nonnativeRatio": 0.33
+      },
+      {
+        "district": "Pudong New Area",
+        "nativeCount": 305,
+        "nonnativeCount": 164,
+        "unknownCount": 0,
+        "knownTotal": 469,
+        "nonnativeRatio": 0.34968017057569295
+      },
+      {
+        "district": "Putuo District",
+        "nativeCount": 210,
+        "nonnativeCount": 148,
+        "unknownCount": 0,
+        "knownTotal": 358,
+        "nonnativeRatio": 0.4134078212290503
+      },
+      {
+        "district": "Qingpu District",
+        "nativeCount": 237,
+        "nonnativeCount": 131,
+        "unknownCount": 0,
+        "knownTotal": 368,
+        "nonnativeRatio": 0.35597826086956524
+      },
+      {
+        "district": "Songjiang District",
+        "nativeCount": 593,
+        "nonnativeCount": 167,
+        "unknownCount": 0,
+        "knownTotal": 760,
+        "nonnativeRatio": 0.21973684210526315
+      },
+      {
+        "district": "Unknown",
+        "nativeCount": 35,
+        "nonnativeCount": 1,
+        "unknownCount": 0,
+        "knownTotal": 36,
+        "nonnativeRatio": 0.027777777777777776
+      },
+      {
+        "district": "Xuhui District",
+        "nativeCount": 269,
+        "nonnativeCount": 178,
+        "unknownCount": 0,
+        "knownTotal": 447,
+        "nonnativeRatio": 0.3982102908277405
+      },
+      {
+        "district": "Yangpu District",
+        "nativeCount": 278,
+        "nonnativeCount": 162,
+        "unknownCount": 0,
+        "knownTotal": 440,
+        "nonnativeRatio": 0.36818181818181817
+      }
+    ],
+    "campuses": [
+      {
+        "locality": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "nativeCount": 124,
+        "nonnativeCount": 67,
+        "unknownCount": 0,
+        "knownTotal": 191,
+        "nonnativeRatio": 0.3507853403141361
+      },
+      {
+        "locality": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 132,
+        "nonnativeCount": 119,
+        "unknownCount": 0,
+        "knownTotal": 251,
+        "nonnativeRatio": 0.47410358565737054
+      },
+      {
+        "locality": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 77,
+        "nonnativeCount": 51,
+        "unknownCount": 0,
+        "knownTotal": 128,
+        "nonnativeRatio": 0.3984375
+      },
+      {
+        "locality": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "nativeCount": 43,
+        "nonnativeCount": 24,
+        "unknownCount": 0,
+        "knownTotal": 67,
+        "nonnativeRatio": 0.3582089552238806
+      },
+      {
+        "locality": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "nativeCount": 45,
+        "nonnativeCount": 30,
+        "unknownCount": 0,
+        "knownTotal": 75,
+        "nonnativeRatio": 0.4
+      },
+      {
+        "locality": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "nativeCount": 168,
+        "nonnativeCount": 180,
+        "unknownCount": 0,
+        "knownTotal": 348,
+        "nonnativeRatio": 0.5172413793103449
+      },
+      {
+        "locality": "Tongji University",
+        "district": "Yangpu District",
+        "nativeCount": 107,
+        "nonnativeCount": 64,
+        "unknownCount": 0,
+        "knownTotal": 171,
+        "nonnativeRatio": 0.3742690058479532
+      }
+    ]
+  },
+  "genus": {
+    "districts": [
+      {
+        "district": "Baoshan District",
+        "nativeCount": 140,
+        "nonnativeCount": 118,
+        "unknownCount": 0,
+        "knownTotal": 258,
+        "nonnativeRatio": 0.4573643410852713
+      },
+      {
+        "district": "Changning District",
+        "nativeCount": 117,
+        "nonnativeCount": 98,
+        "unknownCount": 0,
+        "knownTotal": 215,
+        "nonnativeRatio": 0.4558139534883721
+      },
+      {
+        "district": "Chongming District",
+        "nativeCount": 158,
+        "nonnativeCount": 116,
+        "unknownCount": 0,
+        "knownTotal": 274,
+        "nonnativeRatio": 0.4233576642335766
+      },
+      {
+        "district": "Fengxian District",
+        "nativeCount": 192,
+        "nonnativeCount": 118,
+        "unknownCount": 0,
+        "knownTotal": 310,
+        "nonnativeRatio": 0.38064516129032255
+      },
+      {
+        "district": "Hongkou District",
+        "nativeCount": 112,
+        "nonnativeCount": 96,
+        "unknownCount": 0,
+        "knownTotal": 208,
+        "nonnativeRatio": 0.46153846153846156
+      },
+      {
+        "district": "Huangpu District",
+        "nativeCount": 106,
+        "nonnativeCount": 97,
+        "unknownCount": 0,
+        "knownTotal": 203,
+        "nonnativeRatio": 0.47783251231527096
+      },
+      {
+        "district": "Jiading District",
+        "nativeCount": 185,
+        "nonnativeCount": 111,
+        "unknownCount": 0,
+        "knownTotal": 296,
+        "nonnativeRatio": 0.375
+      },
+      {
+        "district": "Jing'an District",
+        "nativeCount": 134,
+        "nonnativeCount": 161,
+        "unknownCount": 0,
+        "knownTotal": 295,
+        "nonnativeRatio": 0.5457627118644067
+      },
+      {
+        "district": "Jinshan District",
+        "nativeCount": 238,
+        "nonnativeCount": 108,
+        "unknownCount": 0,
+        "knownTotal": 346,
+        "nonnativeRatio": 0.31213872832369943
+      },
+      {
+        "district": "Minhang District",
+        "nativeCount": 175,
+        "nonnativeCount": 104,
+        "unknownCount": 0,
+        "knownTotal": 279,
+        "nonnativeRatio": 0.3727598566308244
+      },
+      {
+        "district": "Pudong New Area",
+        "nativeCount": 182,
+        "nonnativeCount": 123,
+        "unknownCount": 0,
+        "knownTotal": 305,
+        "nonnativeRatio": 0.40327868852459015
+      },
+      {
+        "district": "Putuo District",
+        "nativeCount": 136,
+        "nonnativeCount": 109,
+        "unknownCount": 0,
+        "knownTotal": 245,
+        "nonnativeRatio": 0.4448979591836735
+      },
+      {
+        "district": "Qingpu District",
+        "nativeCount": 145,
+        "nonnativeCount": 104,
+        "unknownCount": 0,
+        "knownTotal": 249,
+        "nonnativeRatio": 0.41767068273092367
+      },
+      {
+        "district": "Songjiang District",
+        "nativeCount": 313,
+        "nonnativeCount": 126,
+        "unknownCount": 0,
+        "knownTotal": 439,
+        "nonnativeRatio": 0.2870159453302961
+      },
+      {
+        "district": "Unknown",
+        "nativeCount": 29,
+        "nonnativeCount": 1,
+        "unknownCount": 0,
+        "knownTotal": 30,
+        "nonnativeRatio": 0.03333333333333333
+      },
+      {
+        "district": "Xuhui District",
+        "nativeCount": 155,
+        "nonnativeCount": 129,
+        "unknownCount": 0,
+        "knownTotal": 284,
+        "nonnativeRatio": 0.45422535211267606
+      },
+      {
+        "district": "Yangpu District",
+        "nativeCount": 158,
+        "nonnativeCount": 120,
+        "unknownCount": 0,
+        "knownTotal": 278,
+        "nonnativeRatio": 0.4316546762589928
+      }
+    ],
+    "campuses": [
+      {
+        "locality": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "nativeCount": 80,
+        "nonnativeCount": 52,
+        "unknownCount": 0,
+        "knownTotal": 132,
+        "nonnativeRatio": 0.3939393939393939
+      },
+      {
+        "locality": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 110,
+        "nonnativeCount": 105,
+        "unknownCount": 0,
+        "knownTotal": 215,
+        "nonnativeRatio": 0.4883720930232558
+      },
+      {
+        "locality": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 63,
+        "nonnativeCount": 47,
+        "unknownCount": 0,
+        "knownTotal": 110,
+        "nonnativeRatio": 0.42727272727272725
+      },
+      {
+        "locality": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "nativeCount": 32,
+        "nonnativeCount": 22,
+        "unknownCount": 0,
+        "knownTotal": 54,
+        "nonnativeRatio": 0.4074074074074074
+      },
+      {
+        "locality": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "nativeCount": 37,
+        "nonnativeCount": 24,
+        "unknownCount": 0,
+        "knownTotal": 61,
+        "nonnativeRatio": 0.39344262295081966
+      },
+      {
+        "locality": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "nativeCount": 105,
+        "nonnativeCount": 152,
+        "unknownCount": 0,
+        "knownTotal": 257,
+        "nonnativeRatio": 0.5914396887159533
+      },
+      {
+        "locality": "Tongji University",
+        "district": "Yangpu District",
+        "nativeCount": 86,
+        "nonnativeCount": 56,
+        "unknownCount": 0,
+        "knownTotal": 142,
+        "nonnativeRatio": 0.39436619718309857
+      }
+    ]
+  },
+  "family": {
+    "districts": [
+      {
+        "district": "Baoshan District",
+        "nativeCount": 36,
+        "nonnativeCount": 54,
+        "unknownCount": 0,
+        "knownTotal": 90,
+        "nonnativeRatio": 0.6
+      },
+      {
+        "district": "Changning District",
+        "nativeCount": 32,
+        "nonnativeCount": 49,
+        "unknownCount": 0,
+        "knownTotal": 81,
+        "nonnativeRatio": 0.6049382716049383
+      },
+      {
+        "district": "Chongming District",
+        "nativeCount": 41,
+        "nonnativeCount": 56,
+        "unknownCount": 0,
+        "knownTotal": 97,
+        "nonnativeRatio": 0.5773195876288659
+      },
+      {
+        "district": "Fengxian District",
+        "nativeCount": 49,
+        "nonnativeCount": 52,
+        "unknownCount": 0,
+        "knownTotal": 101,
+        "nonnativeRatio": 0.5148514851485149
+      },
+      {
+        "district": "Hongkou District",
+        "nativeCount": 31,
+        "nonnativeCount": 49,
+        "unknownCount": 0,
+        "knownTotal": 80,
+        "nonnativeRatio": 0.6125
+      },
+      {
+        "district": "Huangpu District",
+        "nativeCount": 27,
+        "nonnativeCount": 50,
+        "unknownCount": 0,
+        "knownTotal": 77,
+        "nonnativeRatio": 0.6493506493506493
+      },
+      {
+        "district": "Jiading District",
+        "nativeCount": 46,
+        "nonnativeCount": 55,
+        "unknownCount": 0,
+        "knownTotal": 101,
+        "nonnativeRatio": 0.5445544554455446
+      },
+      {
+        "district": "Jing'an District",
+        "nativeCount": 29,
+        "nonnativeCount": 61,
+        "unknownCount": 0,
+        "knownTotal": 90,
+        "nonnativeRatio": 0.6777777777777778
+      },
+      {
+        "district": "Jinshan District",
+        "nativeCount": 59,
+        "nonnativeCount": 56,
+        "unknownCount": 0,
+        "knownTotal": 115,
+        "nonnativeRatio": 0.48695652173913045
+      },
+      {
+        "district": "Minhang District",
+        "nativeCount": 43,
+        "nonnativeCount": 52,
+        "unknownCount": 0,
+        "knownTotal": 95,
+        "nonnativeRatio": 0.5473684210526316
+      },
+      {
+        "district": "Pudong New Area",
+        "nativeCount": 43,
+        "nonnativeCount": 56,
+        "unknownCount": 0,
+        "knownTotal": 99,
+        "nonnativeRatio": 0.5656565656565656
+      },
+      {
+        "district": "Putuo District",
+        "nativeCount": 30,
+        "nonnativeCount": 56,
+        "unknownCount": 0,
+        "knownTotal": 86,
+        "nonnativeRatio": 0.6511627906976745
+      },
+      {
+        "district": "Qingpu District",
+        "nativeCount": 39,
+        "nonnativeCount": 52,
+        "unknownCount": 0,
+        "knownTotal": 91,
+        "nonnativeRatio": 0.5714285714285714
+      },
+      {
+        "district": "Songjiang District",
+        "nativeCount": 67,
+        "nonnativeCount": 62,
+        "unknownCount": 0,
+        "knownTotal": 129,
+        "nonnativeRatio": 0.4806201550387597
+      },
+      {
+        "district": "Unknown",
+        "nativeCount": 23,
+        "nonnativeCount": 1,
+        "unknownCount": 0,
+        "knownTotal": 24,
+        "nonnativeRatio": 0.041666666666666664
+      },
+      {
+        "district": "Xuhui District",
+        "nativeCount": 35,
+        "nonnativeCount": 61,
+        "unknownCount": 0,
+        "knownTotal": 96,
+        "nonnativeRatio": 0.6354166666666666
+      },
+      {
+        "district": "Yangpu District",
+        "nativeCount": 39,
+        "nonnativeCount": 54,
+        "unknownCount": 0,
+        "knownTotal": 93,
+        "nonnativeRatio": 0.5806451612903226
+      }
+    ],
+    "campuses": [
+      {
+        "locality": "East China Normal University, Minhang Campus",
+        "district": "Minhang District",
+        "nativeCount": 38,
+        "nonnativeCount": 31,
+        "unknownCount": 0,
+        "knownTotal": 69,
+        "nonnativeRatio": 0.4492753623188406
+      },
+      {
+        "locality": "Fudan University, Handan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 41,
+        "nonnativeCount": 57,
+        "unknownCount": 0,
+        "knownTotal": 98,
+        "nonnativeRatio": 0.5816326530612245
+      },
+      {
+        "locality": "Fudan University, Jiangwan Campus",
+        "district": "Yangpu District",
+        "nativeCount": 33,
+        "nonnativeCount": 32,
+        "unknownCount": 0,
+        "knownTotal": 65,
+        "nonnativeRatio": 0.49230769230769234
+      },
+      {
+        "locality": "Shanghai Institute of Technology",
+        "district": "Fengxian District",
+        "nativeCount": 20,
+        "nonnativeCount": 18,
+        "unknownCount": 0,
+        "knownTotal": 38,
+        "nonnativeRatio": 0.47368421052631576
+      },
+      {
+        "locality": "Shanghai Jiao Tong University",
+        "district": "Minhang District",
+        "nativeCount": 20,
+        "nonnativeCount": 18,
+        "unknownCount": 0,
+        "knownTotal": 38,
+        "nonnativeRatio": 0.47368421052631576
+      },
+      {
+        "locality": "Shanghai University, Baoshan Campus",
+        "district": "Baoshan District",
+        "nativeCount": 36,
+        "nonnativeCount": 70,
+        "unknownCount": 0,
+        "knownTotal": 106,
+        "nonnativeRatio": 0.660377358490566
+      },
+      {
+        "locality": "Tongji University",
+        "district": "Yangpu District",
+        "nativeCount": 39,
+        "nonnativeCount": 41,
+        "unknownCount": 0,
+        "knownTotal": 80,
+        "nonnativeRatio": 0.5125
+      }
+    ]
+  }
+}

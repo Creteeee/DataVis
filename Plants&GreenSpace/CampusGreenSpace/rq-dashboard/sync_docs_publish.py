@@ -8,7 +8,7 @@ import shutil
 
 
 HERE = Path(__file__).resolve().parent
-REPO_ROOT = HERE.parents[3]  # .../DataVis/DataVis
+REPO_ROOT = HERE.parents[2]  # .../DataVis/DataVis (actual git repo root)
 DOCS = REPO_ROOT / "docs"
 
 FILES = ["index.html", "app.js", "styles.css"]
