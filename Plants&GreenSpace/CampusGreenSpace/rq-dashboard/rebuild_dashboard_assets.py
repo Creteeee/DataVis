@@ -358,27 +358,97 @@ def build_overlap_taxa(campus_rows: list[CampusRow], city_rows: list[dict[str, A
     return result
 
 
+# 桑基图左列行政区自上而下顺序（与 DISTRICT_MAP 英文一致）
+SANKEY_DISTRICT_ORDER: tuple[str, ...] = (
+    "Yangpu District",
+    "Baoshan District",
+    "Minhang District",
+    "Fengxian District",
+)
+
+
+def _district_sankey_rank(name: str) -> int:
+    try:
+        return SANKEY_DISTRICT_ORDER.index(name)
+    except ValueError:
+        return 999
+
+
 def build_sankey(campus_rows: list[CampusRow]) -> dict[str, Any]:
+    """
+    区→校与校→科均用去重物种数；仅 Top8 科；不生成「其余科」。
+    区→校 value = 该校 Top8 科下去重物种数之和（与右侧流出一致）。
+    nodes 顺序供 ECharts 同列垂直排列：区按 Yangpu→Baoshan→Minhang→Fengxian，校按区顺序，
+    科按全图汇入总流量降序。
+    """
     by_campus: dict[str, list[CampusRow]] = defaultdict(list)
     for r in campus_rows:
         by_campus[r.locality].append(r)
 
-    nodes: dict[str, dict[str, Any]] = {}
+    node_meta: dict[str, dict[str, Any]] = {}
     links: list[dict[str, Any]] = []
+    all_campuses: set[str] = set()
+    districts_seen: set[str] = set()
 
-    def add_node(name: str, kind: str) -> None:
-        if name not in nodes:
-            nodes[name] = {"name": name, "kind": kind}
+    def ensure_node(name: str, kind: str) -> None:
+        if name not in node_meta:
+            node_meta[name] = {"name": name, "kind": kind}
 
     for campus, rs in by_campus.items():
         district = rs[0].district
-        add_node(district, "district")
-        add_node(campus, "campus")
-        links.append({"source": district, "target": campus, "value": len({x.species for x in rs if x.species})})
-        for fam, c in Counter(x.family for x in rs if x.family).most_common(8):
-            add_node(fam, "family")
-            links.append({"source": campus, "target": fam, "value": c})
-    return {"nodes": list(nodes.values()), "links": links}
+
+        by_family: dict[str, set[str]] = defaultdict(set)
+        for x in rs:
+            if not x.species or not x.family:
+                continue
+            by_family[x.family].add(_species_key(x.species))
+        top8 = sorted(by_family.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:8]
+        out_sum = sum(len(s) for _, s in top8)
+        if out_sum == 0:
+            continue
+        districts_seen.add(district)
+        all_campuses.add(campus)
+        ensure_node(district, "district")
+        ensure_node(campus, "campus")
+        links.append({"source": district, "target": campus, "value": out_sum})
+        for fam, sset in top8:
+            if not sset:
+                continue
+            ensure_node(fam, "family")
+            links.append({"source": campus, "target": fam, "value": len(sset)})
+
+    # 科：全图总流量（所有校园→该科 value 之和），降序
+    family_inflow: dict[str, int] = defaultdict(int)
+    for l in links:
+        if l["source"] in all_campuses:
+            family_inflow[l["target"]] += int(l["value"])
+
+    families_sorted = sorted(family_inflow.keys(), key=lambda f: (-family_inflow[f], f))
+
+    # 区：按指定顺序，仅出现过的
+    districts_sorted = sorted(
+        districts_seen,
+        key=lambda d: (_district_sankey_rank(d), d),
+    )
+    # 校：按区顺序，区内校名排序
+    campus_by_district: dict[str, list[str]] = defaultdict(list)
+    for c in by_campus:
+        d = by_campus[c][0].district
+        campus_by_district[d].append(c)
+    for d in campus_by_district:
+        campus_by_district[d].sort()
+
+    ordered_nodes: list[dict[str, Any]] = []
+    for d in districts_sorted:
+        ordered_nodes.append(node_meta[d])
+    for d in districts_sorted:
+        for c in campus_by_district.get(d, []):
+            if c in node_meta:
+                ordered_nodes.append(node_meta[c])
+    for fam in families_sorted:
+        ordered_nodes.append(node_meta[fam])
+
+    return {"nodes": ordered_nodes, "links": links}
 
 
 def build_treemap(campus_rows: list[CampusRow], city_rows: list[dict[str, Any]]) -> dict[str, Any]:

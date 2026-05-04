@@ -1,11 +1,47 @@
 {
   "nodes": [
     {
+      "name": "Yangpu District",
+      "kind": "district"
+    },
+    {
+      "name": "Baoshan District",
+      "kind": "district"
+    },
+    {
       "name": "Minhang District",
       "kind": "district"
     },
     {
+      "name": "Fengxian District",
+      "kind": "district"
+    },
+    {
+      "name": "Fudan University, Handan Campus",
+      "kind": "campus"
+    },
+    {
+      "name": "Fudan University, Jiangwan Campus",
+      "kind": "campus"
+    },
+    {
+      "name": "Tongji University",
+      "kind": "campus"
+    },
+    {
+      "name": "Shanghai University, Baoshan Campus",
+      "kind": "campus"
+    },
+    {
       "name": "East China Normal University, Minhang Campus",
+      "kind": "campus"
+    },
+    {
+      "name": "Shanghai Jiao Tong University",
+      "kind": "campus"
+    },
+    {
+      "name": "Shanghai Institute of Technology",
       "kind": "campus"
     },
     {
@@ -17,7 +53,7 @@
       "kind": "family"
     },
     {
-      "name": "Leguminosae",
+      "name": "Compositae",
       "kind": "family"
     },
     {
@@ -25,7 +61,11 @@
       "kind": "family"
     },
     {
-      "name": "Magnoliaceae",
+      "name": "Poaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Leguminosae",
       "kind": "family"
     },
     {
@@ -33,87 +73,7 @@
       "kind": "family"
     },
     {
-      "name": "Berberidaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Lauraceae",
-      "kind": "family"
-    },
-    {
-      "name": "Shanghai Jiao Tong University",
-      "kind": "campus"
-    },
-    {
-      "name": "Pinaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Compositae",
-      "kind": "family"
-    },
-    {
-      "name": "Euphorbiaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Poaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Yangpu District",
-      "kind": "district"
-    },
-    {
-      "name": "Fudan University, Handan Campus",
-      "kind": "campus"
-    },
-    {
-      "name": "Lamiaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Amaryllidaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Araceae",
-      "kind": "family"
-    },
-    {
-      "name": "Fudan University, Jiangwan Campus",
-      "kind": "campus"
-    },
-    {
-      "name": "Apocynaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Iridaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Tongji University",
-      "kind": "campus"
-    },
-    {
-      "name": "Brassicaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Malvaceae",
-      "kind": "family"
-    },
-    {
-      "name": "Fengxian District",
-      "kind": "district"
-    },
-    {
-      "name": "Shanghai Institute of Technology",
-      "kind": "campus"
-    },
-    {
-      "name": "Buxaceae",
+      "name": "Magnoliaceae",
       "kind": "family"
     },
     {
@@ -121,28 +81,72 @@
       "kind": "family"
     },
     {
-      "name": "Theaceae",
+      "name": "Lamiaceae",
       "kind": "family"
     },
     {
-      "name": "Baoshan District",
-      "kind": "district"
+      "name": "Cactaceae",
+      "kind": "family"
     },
     {
-      "name": "Shanghai University, Baoshan Campus",
-      "kind": "campus"
+      "name": "Amaryllidaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Berberidaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Euphorbiaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Pinaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Araceae",
+      "kind": "family"
+    },
+    {
+      "name": "Brassicaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Lauraceae",
+      "kind": "family"
+    },
+    {
+      "name": "Iridaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Araliaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Buxaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Adoxaceae",
+      "kind": "family"
+    },
+    {
+      "name": "Aquifoliaceae",
+      "kind": "family"
     }
   ],
   "links": [
     {
       "source": "Minhang District",
       "target": "East China Normal University, Minhang Campus",
-      "value": 199
+      "value": 84
     },
     {
       "source": "East China Normal University, Minhang Campus",
       "target": "Rosaceae",
-      "value": 35
+      "value": 32
     },
     {
       "source": "East China Normal University, Minhang Campus",
@@ -151,18 +155,18 @@
     },
     {
       "source": "East China Normal University, Minhang Campus",
-      "target": "Leguminosae",
-      "value": 9
+      "target": "Cupressaceae",
+      "value": 8
     },
     {
       "source": "East China Normal University, Minhang Campus",
-      "target": "Cupressaceae",
-      "value": 9
+      "target": "Leguminosae",
+      "value": 8
     },
     {
       "source": "East China Normal University, Minhang Campus",
       "target": "Magnoliaceae",
-      "value": 8
+      "value": 7
     },
     {
       "source": "East China Normal University, Minhang Campus",
@@ -182,7 +186,7 @@
     {
       "source": "Minhang District",
       "target": "Shanghai Jiao Tong University",
-      "value": 76
+      "value": 38
     },
     {
       "source": "Shanghai Jiao Tong University",
@@ -216,23 +220,23 @@
     },
     {
       "source": "Shanghai Jiao Tong University",
-      "target": "Euphorbiaceae",
+      "target": "Adoxaceae",
       "value": 2
     },
     {
       "source": "Shanghai Jiao Tong University",
-      "target": "Poaceae",
+      "target": "Aquifoliaceae",
       "value": 2
     },
     {
       "source": "Yangpu District",
       "target": "Fudan University, Handan Campus",
-      "value": 254
+      "value": 84
     },
     {
       "source": "Fudan University, Handan Campus",
       "target": "Rosaceae",
-      "value": 19
+      "value": 18
     },
     {
       "source": "Fudan University, Handan Campus",
@@ -272,7 +276,7 @@
     {
       "source": "Yangpu District",
       "target": "Fudan University, Jiangwan Campus",
-      "value": 129
+      "value": 48
     },
     {
       "source": "Fudan University, Jiangwan Campus",
@@ -306,18 +310,18 @@
     },
     {
       "source": "Fudan University, Jiangwan Campus",
-      "target": "Apocynaceae",
-      "value": 4
-    },
-    {
-      "source": "Fudan University, Jiangwan Campus",
       "target": "Iridaceae",
       "value": 4
     },
     {
+      "source": "Fudan University, Jiangwan Campus",
+      "target": "Amaryllidaceae",
+      "value": 3
+    },
+    {
       "source": "Yangpu District",
       "target": "Tongji University",
-      "value": 171
+      "value": 57
     },
     {
       "source": "Tongji University",
@@ -331,22 +335,22 @@
     },
     {
       "source": "Tongji University",
-      "target": "Leguminosae",
-      "value": 6
-    },
-    {
-      "source": "Tongji University",
       "target": "Brassicaceae",
       "value": 6
     },
     {
       "source": "Tongji University",
-      "target": "Euphorbiaceae",
-      "value": 5
+      "target": "Leguminosae",
+      "value": 6
     },
     {
       "source": "Tongji University",
       "target": "Compositae",
+      "value": 5
+    },
+    {
+      "source": "Tongji University",
+      "target": "Euphorbiaceae",
       "value": 5
     },
     {
@@ -356,13 +360,13 @@
     },
     {
       "source": "Tongji University",
-      "target": "Malvaceae",
+      "target": "Araliaceae",
       "value": 3
     },
     {
       "source": "Fengxian District",
       "target": "Shanghai Institute of Technology",
-      "value": 67
+      "value": 33
     },
     {
       "source": "Shanghai Institute of Technology",
@@ -386,6 +390,11 @@
     },
     {
       "source": "Shanghai Institute of Technology",
+      "target": "Arecaceae",
+      "value": 3
+    },
+    {
+      "source": "Shanghai Institute of Technology",
       "target": "Buxaceae",
       "value": 3
     },
@@ -396,23 +405,18 @@
     },
     {
       "source": "Shanghai Institute of Technology",
-      "target": "Arecaceae",
-      "value": 3
-    },
-    {
-      "source": "Shanghai Institute of Technology",
-      "target": "Theaceae",
+      "target": "Leguminosae",
       "value": 2
     },
     {
       "source": "Baoshan District",
       "target": "Shanghai University, Baoshan Campus",
-      "value": 361
+      "value": 120
     },
     {
       "source": "Shanghai University, Baoshan Campus",
       "target": "Rosaceae",
-      "value": 34
+      "value": 29
     },
     {
       "source": "Shanghai University, Baoshan Campus",
@@ -426,28 +430,28 @@
     },
     {
       "source": "Shanghai University, Baoshan Campus",
-      "target": "Poaceae",
-      "value": 13
-    },
-    {
-      "source": "Shanghai University, Baoshan Campus",
-      "target": "Cupressaceae",
-      "value": 13
+      "target": "Magnoliaceae",
+      "value": 12
     },
     {
       "source": "Shanghai University, Baoshan Campus",
       "target": "Oleaceae",
-      "value": 13
-    },
-    {
-      "source": "Shanghai University, Baoshan Campus",
-      "target": "Leguminosae",
       "value": 12
     },
     {
       "source": "Shanghai University, Baoshan Campus",
-      "target": "Magnoliaceae",
+      "target": "Poaceae",
       "value": 12
+    },
+    {
+      "source": "Shanghai University, Baoshan Campus",
+      "target": "Cupressaceae",
+      "value": 11
+    },
+    {
+      "source": "Shanghai University, Baoshan Campus",
+      "target": "Cactaceae",
+      "value": 10
     }
   ]
 }

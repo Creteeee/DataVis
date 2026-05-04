@@ -306,30 +306,84 @@ def compute_overlap(
     return {"items": items}
 
 
+SANKEY_DISTRICT_ORDER: tuple[str, ...] = (
+    "Yangpu District",
+    "Baoshan District",
+    "Minhang District",
+    "Fengxian District",
+)
+
+
+def _district_sankey_rank(name: str) -> int:
+    try:
+        return SANKEY_DISTRICT_ORDER.index(name)
+    except ValueError:
+        return 999
+
+
 def build_sankey(campus_rows: list[CampusRow]) -> dict[str, Any]:
+    """与 rebuild_dashboard_assets.build_sankey 一致：Top8 去重物种、无其余科、nodes 顺序固定。"""
     by_campus: dict[str, list[CampusRow]] = defaultdict(list)
     for r in campus_rows:
         by_campus[r.locality].append(r)
 
-    nodes: dict[str, dict[str, Any]] = {}
+    node_meta: dict[str, dict[str, Any]] = {}
     links: list[dict[str, Any]] = []
+    all_campuses: set[str] = set()
+    districts_seen: set[str] = set()
 
-    def node(name: str, kind: str) -> None:
-        if name not in nodes:
-            nodes[name] = {"name": name, "kind": kind}
+    def ensure_node(name: str, kind: str) -> None:
+        if name not in node_meta:
+            node_meta[name] = {"name": name, "kind": kind}
 
     for campus, rs in by_campus.items():
         dist = next((x.district for x in rs if x.district), "Unknown")
-        node(dist, "district")
-        node(campus, "campus")
-        links.append({"source": dist, "target": campus, "value": len({x.sci_name for x in rs if x.sci_name})})
 
-        fam_counts = Counter(x.family for x in rs if x.family).most_common(8)
-        for fam, c in fam_counts:
-            node(fam, "family")
-            links.append({"source": campus, "target": fam, "value": c})
+        by_family: dict[str, set[str]] = defaultdict(set)
+        for x in rs:
+            if not x.sci_name or not x.family:
+                continue
+            by_family[x.family].add(x.sci_name.strip().lower())
+        top8 = sorted(by_family.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:8]
+        out_sum = sum(len(s) for _, s in top8)
+        if out_sum == 0:
+            continue
+        districts_seen.add(dist)
+        all_campuses.add(campus)
+        ensure_node(dist, "district")
+        ensure_node(campus, "campus")
+        links.append({"source": dist, "target": campus, "value": out_sum})
+        for fam, sset in top8:
+            if not sset:
+                continue
+            ensure_node(fam, "family")
+            links.append({"source": campus, "target": fam, "value": len(sset)})
 
-    return {"nodes": list(nodes.values()), "links": links}
+    family_inflow: dict[str, int] = defaultdict(int)
+    for l in links:
+        if l["source"] in all_campuses:
+            family_inflow[l["target"]] += int(l["value"])
+
+    families_sorted = sorted(family_inflow.keys(), key=lambda f: (-family_inflow[f], f))
+    districts_sorted = sorted(districts_seen, key=lambda d: (_district_sankey_rank(d), d))
+    campus_by_district: dict[str, list[str]] = defaultdict(list)
+    for c in by_campus:
+        d = next((x.district for x in by_campus[c] if x.district), "Unknown")
+        campus_by_district[d].append(c)
+    for d in campus_by_district:
+        campus_by_district[d].sort()
+
+    ordered_nodes: list[dict[str, Any]] = []
+    for d in districts_sorted:
+        ordered_nodes.append(node_meta[d])
+    for d in districts_sorted:
+        for c in campus_by_district.get(d, []):
+            if c in node_meta:
+                ordered_nodes.append(node_meta[c])
+    for fam in families_sorted:
+        ordered_nodes.append(node_meta[fam])
+
+    return {"nodes": ordered_nodes, "links": links}
 
 
 def build_treemap(campus_rows: list[CampusRow], city_rows: list[dict[str, Any]]) -> dict[str, Any]:

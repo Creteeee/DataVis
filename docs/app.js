@@ -398,6 +398,35 @@ function overlapMetricLabel(metric) {
   return "Family";
 }
 
+function buildSankeyNodeData(sankey) {
+  const nodes = sankey.nodes || [];
+  const links = sankey.links || [];
+  const inflow = new Map();
+  const outflow = new Map();
+  for (const l of links) {
+    const v = Number(l.value) || 0;
+    inflow.set(l.target, (inflow.get(l.target) || 0) + v);
+    outflow.set(l.source, (outflow.get(l.source) || 0) + v);
+  }
+  return nodes.map((n) => {
+    const v = Math.max(inflow.get(n.name) || 0, outflow.get(n.name) || 0);
+    const base = {
+      name: n.name,
+      kind: n.kind,
+      ...(v > 0 ? { value: v } : {}),
+      itemStyle:
+        n.kind === "district"
+          ? { color: "rgba(11,106,103,0.55)" }
+          : n.kind === "campus"
+            ? { color: "rgba(16,20,23,0.22)" }
+            : n.kind === "other"
+              ? { color: "rgba(16,20,23,0.16)" }
+              : { color: "rgba(16,20,23,0.10)" },
+    };
+    return base;
+  });
+}
+
 function buildSankey(el, sankey) {
   const chart = echarts.init(el, null, { renderer: "canvas" });
   const familyNames = new Set(
@@ -410,19 +439,13 @@ function buildSankey(el, sankey) {
     series: [
       {
         type: "sankey",
-        data: sankey.nodes.map((n) => ({
-          name: n.name,
-          kind: n.kind,
-          itemStyle:
-            n.kind === "district"
-              ? { color: "rgba(11,106,103,0.55)" }
-              : n.kind === "campus"
-                ? { color: "rgba(16,20,23,0.22)" }
-                : { color: "rgba(16,20,23,0.10)" },
-        })),
+        data: buildSankeyNodeData(sankey),
         links: sankey.links,
         emphasis: { focus: "adjacency" },
         lineStyle: { color: "source", opacity: 0.25, curveness: 0.55 },
+        layoutIterations: 0,
+        nodeAlign: "left",
+        draggable: false,
         nodeGap: 10,
         nodeWidth: 14,
         label: { color: "rgba(16,20,23,0.75)", fontSize: 11 },
