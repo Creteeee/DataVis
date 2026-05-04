@@ -52,7 +52,7 @@ body{
 .topbar{
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 9999;
   backdrop-filter: blur(10px);
   background: color-mix(in oklab, var(--bg) 78%, transparent);
   border-bottom: 1px solid var(--line);
@@ -104,12 +104,82 @@ body{
   color: var(--text);
 }
 
+.topbarKpis{
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 320px;
+}
+.topbarKpis .badge{
+  background: color-mix(in oklab, var(--surface) 70%, var(--accentWash));
+  border-radius: 999px;
+  padding: 8px 10px 7px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  min-width: 0;
+  text-align: center;
+}
+.topbarKpis .badgeK{
+  font-size: 14px;
+  font-weight: 760;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.topbarKpis .badgeL{
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--subtle);
+  line-height: 1.15;
+  max-width: 22ch;
+}
+
 .content{
   width: min(1200px, calc(100% - 36px));
   margin: 18px auto 30px;
   display:flex;
   flex-direction:column;
   gap: 18px;
+}
+
+.introGrid{
+  display:grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 14px;
+  align-items: stretch;
+}
+.introPanel .panelBody{
+  padding-top: 10px;
+}
+.introTitle{
+  font-size: 16px;
+  font-weight: 760;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: rgba(16,20,23,0.92);
+  max-width: 52ch;
+}
+.introList{
+  margin: 0 0 10px;
+  padding-left: 18px;
+  color: rgba(16,20,23,0.86);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.introList li{ margin: 4px 0; }
+.introSubhead{
+  margin-top: 10px;
+  font-weight: 750;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(16,20,23,0.82);
+}
+.introPara{
+  margin: 6px 0 0;
+  color: rgba(16,20,23,0.72);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .hero{
@@ -232,6 +302,25 @@ body{
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+.threeCol{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.rq1Tri{ display:grid; gap: 8px; }
+.rq1TriTitles{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  align-items:end;
+}
+.rq1TriTitles .miniTitle{ margin: 0; }
+.rq1TriCharts{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
 .chartBox{ min-width: 0; }
 .miniTitle{
   font-size: 12px;
@@ -243,7 +332,14 @@ body{
 .chart{ width: 100%; height: 320px; }
 .chartTall{ height: 360px; }
 .chartXL{ height: 440px; }
-.map{ height: 360px; border-radius: 14px; overflow:hidden; border: 1px solid var(--line); }
+.map{
+  height: 360px;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid var(--line);
+  position: relative;
+  z-index: 0;
+}
 
 .select{
   display:flex;
@@ -372,10 +468,84 @@ code{ font-family: var(--mono); font-size: 11px; }
 
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; }
+  .introGrid{ grid-template-columns: 1fr; }
   .twoCol{ grid-template-columns: 1fr; }
+  .threeCol{ grid-template-columns: 1fr; }
+  .rq1TriTitles{ grid-template-columns: 1fr; }
+  .rq1TriCharts{ grid-template-columns: 1fr; }
   .span7,.span5{ grid-column: span 12; }
   .heroBadges{ grid-template-columns: 1fr; }
+  .topbarKpis{ width: 100%; justify-content:center; }
+  .topbarKpis .badgeL{ max-width: 34ch; }
   select{ min-width: 220px; }
   .legendNote{ white-space: normal; }
+}
+
+/* 桑基图 tooltip：长标题换行、不撑破白底 */
+.sankey-chart-tooltip-inner{
+  min-width: 120px;
+  max-width: min(320px, 92vw);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.sankey-chart-tooltip-title{
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(16, 20, 23, 0.9);
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 桑基图 tooltip 内嵌校园 SVG */
+.sankey-tooltip-svg-wrap{
+  margin-top: 10px;
+  max-height: 240px;
+  overflow: auto;
+  border-radius: 10px;
+  background: rgba(11, 106, 103, 0.06);
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1.3;
+  flex-wrap: wrap;
+}
+.sankey-tooltip-svg-meta{
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(16, 20, 23, 0.78);
+  text-align: left;
+}
+.sankey-tooltip-svg-mu{
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.sankey-tooltip-svg-top{
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(11, 106, 103, 0.95);
+}
+.sankey-tooltip-svg-figure{
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.sankey-tooltip-svg-wrap svg{
+  max-width: calc(50% * var(--campus-svg-scale, 1));
+  height: auto;
+  display: block;
 }
 

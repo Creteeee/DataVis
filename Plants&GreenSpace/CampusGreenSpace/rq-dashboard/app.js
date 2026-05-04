@@ -292,7 +292,8 @@ function buildOverviewChart(el, campusSummary, citySummary, overlapStats) {
       axisLabel: { color: "rgba(16,20,23,0.70)" },
     },
     legend: {
-      left: 0,
+      right: 0,
+      top: 0,
       textStyle: { color: "rgba(16,20,23,0.70)" },
       itemWidth: 10,
       itemHeight: 10,
@@ -302,14 +303,14 @@ function buildOverviewChart(el, campusSummary, citySummary, overlapStats) {
         name: "Campus (7 sites)",
         type: "bar",
         barMaxWidth: 34,
-        itemStyle: { color: "rgba(11,106,103,0.72)", borderRadius: [8, 8, 0, 0] },
+        itemStyle: { color: "rgba(11,106,103,0.72)", borderRadius: 0 },
         data: [campus.speciesCount, campus.genusCount, campus.familyCount],
       },
       {
         name: "Shanghai (districts)",
         type: "bar",
         barMaxWidth: 34,
-        itemStyle: { color: "rgba(16,20,23,0.18)", borderRadius: [8, 8, 0, 0] },
+        itemStyle: { color: "rgba(16,20,23,0.18)", borderRadius: 0 },
         data: [city.speciesCount, city.genusCount, city.familyCount],
       },
     ],
@@ -373,18 +374,24 @@ function buildOverviewChart(el, campusSummary, citySummary, overlapStats) {
   return chart;
 }
 
-function buildCampusVsDistrictChart(el, campusSummary, citySummary, overlap, selectedCampus, metricLabel) {
+function buildCampusVsDistrictChart(el, campusSummary, citySummary, overlap, selectedCampus, metricKey, metricLabel) {
   const chart = echarts.init(el, null, { renderer: "canvas" });
 
   const campus = campusSummary.campuses.find((c) => c.locality === selectedCampus);
   const distName = campus?.district;
   const dist = citySummary.districts.find((d) => d.district === distName);
 
-  const data = [
-    { metric: "Species", campus: campus?.speciesCount ?? null, district: dist?.speciesCount ?? null },
-    { metric: "Genus", campus: campus?.genusCount ?? null, district: dist?.genusCount ?? null },
-    { metric: "Family", campus: campus?.familyCount ?? null, district: dist?.familyCount ?? null },
-  ];
+  const getCounts = () => {
+    if (metricKey === "species") {
+      return { metric: "Species", campus: campus?.speciesCount ?? null, district: dist?.speciesCount ?? null };
+    }
+    if (metricKey === "genus") {
+      return { metric: "Genus", campus: campus?.genusCount ?? null, district: dist?.genusCount ?? null };
+    }
+    return { metric: "Family", campus: campus?.familyCount ?? null, district: dist?.familyCount ?? null };
+  };
+  const row = getCounts();
+  const data = [row];
 
   const ov = overlap.items.find((x) => x.campus === selectedCampus);
 
@@ -403,18 +410,18 @@ function buildCampusVsDistrictChart(el, campusSummary, citySummary, overlap, sel
       splitLine: { lineStyle: { color: "rgba(20,30,35,0.08)" } },
       axisLabel: { color: "rgba(16,20,23,0.70)" },
     },
-    legend: { left: 0, textStyle: { color: "rgba(16,20,23,0.70)" } },
+    legend: { right: 0, top: 0, textStyle: { color: "rgba(16,20,23,0.70)" } },
     series: [
       {
         name: "Campus",
         type: "bar",
-        itemStyle: { color: "rgba(11,106,103,0.72)", borderRadius: [8, 8, 0, 0] },
+        itemStyle: { color: "rgba(11,106,103,0.72)", borderRadius: 0 },
         data: data.map((d) => d.campus),
       },
       {
         name: "District",
         type: "bar",
-        itemStyle: { color: "rgba(16,20,23,0.18)", borderRadius: [8, 8, 0, 0] },
+        itemStyle: { color: "rgba(16,20,23,0.18)", borderRadius: 0 },
         data: data.map((d) => d.district),
       },
     ],
@@ -422,7 +429,7 @@ function buildCampusVsDistrictChart(el, campusSummary, citySummary, overlap, sel
       {
         type: "text",
         right: 4,
-        top: 4,
+        top: 30,
         style: {
           text: ov?.jaccard == null ? "Jaccard: —" : `Jaccard: ${ov.jaccard.toFixed(2)}`,
           fill: "rgba(16,20,23,0.70)",
@@ -432,7 +439,7 @@ function buildCampusVsDistrictChart(el, campusSummary, citySummary, overlap, sel
       {
         type: "text",
         right: 4,
-        top: 22,
+        top: 48,
         style: {
           text:
             ov == null
@@ -489,7 +496,7 @@ function buildOverlapDistributionChart(el, overlap) {
         data: items.map((d) => d.jaccard),
         barMaxWidth: 16,
         itemStyle: {
-          borderRadius: 999,
+          borderRadius: 0,
           color: (p) => {
             const v = items[p.dataIndex].jaccard ?? 0;
             return `rgba(11,106,103,${0.20 + v * 0.65})`;
@@ -506,6 +513,88 @@ function overlapMetricLabel(metric) {
   if (metric === "species") return "Species";
   if (metric === "genus") return "Genus";
   return "Family";
+}
+
+function escapeHtmlText(s) {
+  if (s == null) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+/** 各校占地面积（亩）与本数据集内 TOP 标注；用于 tooltip 缩放（1→最大亩 · 0.2→最小亩） */
+const CAMPUS_MAP_META = {
+  "East China Normal University, Minhang Campus": { mu: 1821, top: 3 },
+  "Fudan University, Handan Campus": { mu: 1383, top: null },
+  "Fudan University, Jiangwan Campus": { mu: 1600, top: null },
+  "Shanghai Institute of Technology": { mu: 1427.4, top: null },
+  "Shanghai Jiao Tong University": { mu: 4500, top: 1 },
+  "Shanghai University, Baoshan Campus": { mu: 2700, top: 2 },
+  "Tongji University": { mu: 1100, top: null },
+};
+const CAMPUS_AREA_MU_MIN = 1100;
+const CAMPUS_AREA_MU_MAX = 4500;
+const CAMPUS_AREA_MU_RANGE = CAMPUS_AREA_MU_MAX - CAMPUS_AREA_MU_MIN;
+
+function campusSvgAreaScale(campusName) {
+  const mu = CAMPUS_MAP_META[campusName]?.mu;
+  if (mu == null || !Number.isFinite(mu)) return 1;
+  const t = (mu - CAMPUS_AREA_MU_MIN) / CAMPUS_AREA_MU_RANGE;
+  return 0.2 + 0.8 * Math.max(0, Math.min(1, t));
+}
+
+function campusSvgMetaHtml(campusName) {
+  const m = CAMPUS_MAP_META[campusName];
+  if (!m) return "";
+  const muLine = `${fmtNum(m.mu)}亩`;
+  const topLine = m.top != null ? `TOP${m.top}` : "";
+  return `<div class="sankey-tooltip-svg-meta"><div class="sankey-tooltip-svg-mu">${escapeHtmlText(muLine)}</div>${
+    topLine ? `<div class="sankey-tooltip-svg-top">${escapeHtmlText(topLine)}</div>` : ""
+  }</div>`;
+}
+
+/** 校园 SVG 嵌入 tooltip：去掉 script / 内联事件 */
+function sanitizeCampusInlineSvg(svg) {
+  if (!svg || typeof svg !== "string") return "";
+  return svg
+    .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+    .replace(/\s(on\w+|javascript:)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+}
+
+function campusSvgTooltipFragment(mapShapes, campusName) {
+  const row = mapShapes[campusName];
+  const raw = row && typeof row.svg === "string" ? row.svg.trim() : "";
+  if (!raw) return "";
+  const scale = campusSvgAreaScale(campusName);
+  const meta = campusSvgMetaHtml(campusName);
+  return `<div class="sankey-tooltip-svg-wrap" style="--campus-svg-scale:${scale}">${meta}<div class="sankey-tooltip-svg-figure">${sanitizeCampusInlineSvg(
+    raw,
+  )}</div></div>`;
+}
+
+function formatSankeyTooltipHtml(params, campusSet, mapShapes) {
+  const wrap = (titleLine, value, campusForSvg) => {
+    const valBlock =
+      value != null && value !== ""
+        ? `<div style="font-weight:800;font-size:15px;margin-top:4px;letter-spacing:-0.02em;">${fmtNum(
+            value,
+          )}</div>`
+        : "";
+    const svgBlock = campusForSvg ? campusSvgTooltipFragment(mapShapes, campusForSvg) : "";
+    return `<div class="sankey-chart-tooltip-inner">
+      <div class="sankey-chart-tooltip-title">${titleLine}</div>
+      ${valBlock}
+      ${svgBlock}
+    </div>`;
+  };
+
+  if (params.dataType !== "node") return "";
+  const name = params.name;
+  const v = params.value;
+  const campus = campusSet.has(name) ? name : null;
+  return wrap(escapeHtmlText(name), v, campus);
 }
 
 function buildSankeyNodeData(sankey) {
@@ -537,20 +626,34 @@ function buildSankeyNodeData(sankey) {
   });
 }
 
-function buildSankey(el, sankey) {
+function buildSankey(el, sankey, campusMapShapes) {
   const chart = echarts.init(el, null, { renderer: "canvas" });
   const familyNames = new Set(
     (sankey.nodes || [])
       .filter((n) => n.kind === "family")
       .map((n) => n.name),
   );
+  const campusSet = new Set(
+    (sankey.nodes || [])
+      .filter((n) => n.kind === "campus")
+      .map((n) => n.name),
+  );
+  const shapes = campusMapShapes && typeof campusMapShapes === "object" ? campusMapShapes : {};
   chart.setOption({
-    tooltip: { trigger: "item", triggerOn: "mousemove" },
+    tooltip: {
+      trigger: "item",
+      triggerOn: "mousemove",
+      confine: true,
+      enterable: true,
+      extraCssText:
+        "max-width:min(320px,92vw);box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;white-space:normal;",
+      formatter: (p) => formatSankeyTooltipHtml(p, campusSet, shapes),
+    },
     series: [
       {
         type: "sankey",
         data: buildSankeyNodeData(sankey),
-        links: sankey.links,
+        links: (sankey.links || []).map((l) => ({ ...l, silent: true })),
         emphasis: { focus: "adjacency" },
         lineStyle: { color: "source", opacity: 0.25, curveness: 0.55 },
         layoutIterations: 0,
@@ -667,6 +770,25 @@ function buildNonnativeDistribution(el, items, labelKey) {
     .filter((d) => d.v != null)
     .sort((a, b) => (b.v ?? 0) - (a.v ?? 0));
 
+  const stripDistrictSuffix = (s) =>
+    String(s ?? "")
+      .replace(/\s*District$/i, "")
+      .replace(/\s*New Area$/i, "")
+      .trim();
+
+  const wrapTwoLines = (s) => {
+    const t0 = String(s ?? "");
+    const t = labelKey === "district" ? stripDistrictSuffix(t0) : t0;
+    if (!t) return "";
+    // Prefer splitting on the first comma (e.g., "Fudan University, Handan Campus")
+    const comma = t.indexOf(", ");
+    if (comma > 0) return `${t.slice(0, comma)},\n${t.slice(comma + 2)}`;
+    // Fallback: split at the last space
+    const sp = t.lastIndexOf(" ");
+    if (sp > 0) return `${t.slice(0, sp)}\n${t.slice(sp + 1)}`;
+    return t;
+  };
+
   chart.setOption({
     grid: { left: 10, right: 10, top: 8, bottom: 22, containLabel: true },
     tooltip: {
@@ -676,7 +798,8 @@ function buildNonnativeDistribution(el, items, labelKey) {
         const p = params?.[0];
         if (!p) return "";
         const d = rows[p.dataIndex];
-        return `<div style="font-weight:700;margin-bottom:6px">${d.name}</div>
+        const name = wrapTwoLines(d.name).replace(/\n/g, "<br/>");
+        return `<div style="font-weight:700;margin-bottom:6px">${name}</div>
           <div style="color:rgba(16,20,23,0.70)">Non-native: ${(d.v * 100).toFixed(1)}%</div>`;
       },
     },
@@ -689,8 +812,14 @@ function buildNonnativeDistribution(el, items, labelKey) {
     },
     yAxis: {
       type: "category",
-      data: rows.map((d) => d.name),
-      axisLabel: { color: "rgba(16,20,23,0.70)", width: 200, overflow: "truncate" },
+      data: rows.map((d) => wrapTwoLines(d.name).replace(/\n/g, " ")),
+      axisLabel: {
+        color: "rgba(16,20,23,0.70)",
+        width: 150,
+        overflow: "truncate",
+        lineHeight: 14,
+        formatter: (v) => wrapTwoLines(v),
+      },
       axisTick: { show: false },
       axisLine: { lineStyle: { color: "rgba(20,30,35,0.12)" } },
     },
@@ -700,7 +829,7 @@ function buildNonnativeDistribution(el, items, labelKey) {
         data: rows.map((d) => d.v),
         barMaxWidth: 16,
         itemStyle: {
-          borderRadius: 999,
+          borderRadius: 0,
           color: (p) => quantizeColor(rows[p.dataIndex].v),
         },
       },
@@ -761,14 +890,14 @@ function buildDistrictCampusCompareChart(el, rows) {
         type: "bar",
         data: rows.map((r) => r.districtRatio),
         barMaxWidth: 14,
-        itemStyle: { color: "rgba(16,20,23,0.28)", borderRadius: 999 },
+        itemStyle: { color: "rgba(16,20,23,0.28)", borderRadius: 0 },
       },
       {
         name: "校园（所在区均值）",
         type: "bar",
         data: rows.map((r) => r.campusAvg),
         barMaxWidth: 14,
-        itemStyle: { color: "rgba(11,106,103,0.82)", borderRadius: 999 },
+        itemStyle: { color: "rgba(11,106,103,0.82)", borderRadius: 0 },
       },
     ],
   });
@@ -861,8 +990,93 @@ function buildMap(el, campuses) {
   return map;
 }
 
+function buildRq1OverlapMap(el, campuses, overlapSpecies) {
+  const map = L.map(el, {
+    zoomControl: true,
+    scrollWheelZoom: true,
+  }).setView([31.23, 121.47], 10);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap contributors",
+  }).addTo(map);
+
+  const campusList = campuses || [];
+  const maxSpecies = Math.max(1, ...campusList.map((c) => Number(c.speciesCount) || 0));
+
+  const ovItems = overlapSpecies?.items || [];
+  const ovByCampus = new Map(ovItems.map((x) => [x.campus, x]));
+  const jaccards = ovItems
+    .map((x) => x.jaccard)
+    .filter((v) => v != null)
+    .sort((a, b) => a - b);
+  const med =
+    jaccards.length === 0
+      ? null
+      : jaccards.length % 2 === 1
+        ? jaccards[(jaccards.length - 1) / 2]
+        : (jaccards[jaccards.length / 2 - 1] + jaccards[jaccards.length / 2]) / 2;
+
+  const legend = L.control({ position: "bottomright" });
+  legend.onAdd = () => {
+    const div = L.DomUtil.create("div", "leaflet-control rq1-map-legend");
+    div.style.background = "rgba(255,255,255,0.92)";
+    div.style.border = "1px solid rgba(20,30,35,0.16)";
+    div.style.borderRadius = "12px";
+    div.style.padding = "10px 10px 9px";
+    div.style.boxShadow = "0 10px 30px rgba(16,20,23,0.10)";
+    div.style.font = "600 11px ui-sans-serif, system-ui";
+    div.style.color = "rgba(16,20,23,0.82)";
+    const m = med == null ? "—" : med.toFixed(2);
+    div.innerHTML = `
+      <div style="font-weight:800;margin-bottom:6px;letter-spacing:-0.01em;">Species Jaccard</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:10px;height:10px;border-radius:3px;background:rgba(22,122,74,0.90);display:inline-block;"></span>
+          <span>&ge; median (${m})</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:10px;height:10px;border-radius:3px;background:rgba(181,97,18,0.92);display:inline-block;"></span>
+          <span>&lt; median (${m})</span>
+        </div>
+        <div style="margin-top:2px;color:rgba(16,20,23,0.62);font-weight:600;">Circle size: Species (unique)</div>
+      </div>
+    `;
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+    return div;
+  };
+  legend.addTo(map);
+
+  campusList.forEach((c) => {
+    if (c.latitude == null || c.longitude == null) return;
+    const r = 10 + ((Number(c.speciesCount) || 0) / maxSpecies) * 26;
+    const ov = ovByCampus.get(c.locality);
+    const j = ov?.jaccard ?? null;
+    const isHigh = med == null || j == null ? false : j >= med;
+    const color = isHigh ? "rgba(22,122,74,0.90)" : "rgba(181,97,18,0.92)";
+    const circle = L.circleMarker([c.latitude, c.longitude], {
+      radius: r * 0.75,
+      color,
+      weight: 2,
+      fillColor: color,
+      fillOpacity: isHigh ? 0.35 : 0.26,
+    }).addTo(map);
+
+    const html = `
+      <div style="font-weight:800;margin-bottom:6px">${c.locality}</div>
+      <div style="color:rgba(16,20,23,0.75)">District: ${c.district}</div>
+      <div style="color:rgba(16,20,23,0.75)">Species: ${fmtNum(c.speciesCount)}</div>
+      <div style="color:rgba(16,20,23,0.75)">Species Jaccard: ${j == null ? "—" : j.toFixed(2)} (median=${med == null ? "—" : med.toFixed(2)})</div>
+    `;
+    circle.bindPopup(html, { maxWidth: 320 });
+  });
+
+  return map;
+}
+
 async function main() {
-  const [campusSummary, citySummary, overlapTaxa, rq2Taxa, sankey, treemap, wikiThumbsRaw] =
+  const [campusSummary, citySummary, overlapTaxa, rq2Taxa, sankey, treemap, wikiThumbsRaw, campusMapShapesRaw] =
     await Promise.all([
       loadJson("./data/campus_summary.json"),
       loadJson("./data/city_district_summary.json"),
@@ -871,8 +1085,11 @@ async function main() {
       loadJson("./data/sankey_district_campus_family.json"),
       loadJson("./data/treemap_families.json"),
       loadJson("./data/treemap_wiki_thumbs.json").catch(() => ({})),
+      loadJson("./data/campus_map_shapes.json").catch(() => ({})),
     ]);
   const wikiThumbs = wikiThumbsRaw && typeof wikiThumbsRaw === "object" ? wikiThumbsRaw : {};
+  const campusMapShapes =
+    campusMapShapesRaw && typeof campusMapShapesRaw === "object" ? campusMapShapesRaw : {};
 
   let activeMetric = "family";
   let overlap = overlapTaxa[activeMetric];
@@ -884,7 +1101,10 @@ async function main() {
     overlapStats.avg == null ? "—" : overlapStats.avg.toFixed(2);
   document.getElementById("kpiOverlapLabel").textContent =
     `校园-所在区 ${overlapMetricLabel(activeMetric)} 重叠（均值）`;
-  document.getElementById("asOfMeta").textContent = `campus=${campusSummary.kpi.campusCount} · city_districts=${citySummary.kpi.districtCount}`;
+  const asOfMetaEl = document.getElementById("asOfMeta");
+  if (asOfMetaEl) {
+    asOfMetaEl.textContent = `campus=${campusSummary.kpi.campusCount} · city_districts=${citySummary.kpi.districtCount}`;
+  }
 
   // View switching
   setActiveChips("rq1");
@@ -893,12 +1113,11 @@ async function main() {
   });
 
   // Overview
-  const overviewChart = buildOverviewChart(
-    document.getElementById("chartOverview"),
-    campusSummary,
-    citySummary,
-    overlapStats,
-  );
+  let overviewChart = null;
+  const overviewEl = document.getElementById("chartOverview");
+  if (overviewEl) {
+    overviewChart = buildOverviewChart(overviewEl, campusSummary, citySummary, overlapStats);
+  }
 
   // Campus select + charts
   const sel = document.getElementById("campusSelect");
@@ -921,6 +1140,7 @@ async function main() {
       citySummary,
       overlap,
       sel.value,
+      activeMetric,
       overlapMetricLabel(activeMetric),
     );
   };
@@ -940,10 +1160,16 @@ async function main() {
   });
 
   // Sankey
-  const sankeyChart = buildSankey(document.getElementById("chartSankey"), sankey);
+  const sankeyChart = buildSankey(
+    document.getElementById("chartSankey"),
+    sankey,
+    campusMapShapes,
+  );
 
   // Map
   const map = buildMap(document.getElementById("map"), campusSummary.campuses);
+  const rq1MapEl = document.getElementById("mapRq1");
+  const rq1Map = rq1MapEl ? buildRq1OverlapMap(rq1MapEl, campusSummary.campuses, overlapTaxa?.species) : null;
 
   // RQ2: non-native comparisons
   const rq2MetricSel = document.getElementById("rq2MetricSelect");
@@ -1046,6 +1272,7 @@ async function main() {
     districtCampusChart?.resize?.();
     treemapChart?.resize?.();
     map?.invalidateSize?.();
+    rq1Map?.invalidateSize?.();
   };
 }
 

@@ -23,55 +23,79 @@
         <div class="brand">
           <div class="brandMark" aria-hidden="true"></div>
           <div class="brandText">
-            <div class="title">Campus × Shanghai Plant Diversity</div>
+            <div class="title">Campus × Shanghai Plant Diversity and Nativeness</div>
             <div class="subtitle">
-              RQ: Can plant diversity on campus represent the overall plant diversity of Shanghai?
+              By Zhang Xinyue & Qin YuQing
             </div>
           </div>
         </div>
 
+        <div class="topbarKpis" role="list" aria-label="Topline KPIs">
+          <div class="badge" role="listitem">
+            <div class="badgeK" id="kpiCampusSpecies">—</div>
+            <div class="badgeL">校园物种数（去重）</div>
+          </div>
+          <div class="badge" role="listitem">
+            <div class="badgeK" id="kpiCitySpecies">—</div>
+            <div class="badgeL">上海物种数（去重）</div>
+          </div>
+          <div class="badge" role="listitem">
+            <div class="badgeK" id="kpiFamilyOverlap">—</div>
+            <div class="badgeL" id="kpiOverlapLabel">校园-所在区 Family 重叠（均值）</div>
+          </div>
+        </div>
+
         <nav class="controls" aria-label="Dashboard controls">
-          <button class="chip isActive" data-view="rq1" type="button">RQ1 代表性</button>
+          <button class="chip isActive" data-view="rq1" type="button">RQ1 多样性</button>
           <button class="chip" data-view="rq2" type="button">RQ2 非乡土</button>
           <button class="chip" data-view="families" type="button">Family 深入</button>
         </nav>
       </header>
 
       <main class="content">
-        <section class="hero">
-          <div class="heroCopy">
-            <div class="eyebrow">结论导向</div>
-            <h1 class="h1">用“可解释的重叠”回答代表性，而不是用直觉。</h1>
-            <p class="lead">
-              我们把<strong>上海全市（按行政区）</strong>与<strong>上海高校校园</strong>放在同一套度量下：物种数、科数、非乡土比例，以及（最关键的）科层级的重叠度。
-            </p>
-            <div class="heroBadges" role="list">
-              <div class="badge" role="listitem">
-                <div class="badgeK" id="kpiCampusSpecies">—</div>
-                <div class="badgeL">校园物种数（去重）</div>
-              </div>
-              <div class="badge" role="listitem">
-                <div class="badgeK" id="kpiCitySpecies">—</div>
-                <div class="badgeL">上海物种数（去重）</div>
-              </div>
-              <div class="badge" role="listitem">
-                <div class="badgeK" id="kpiFamilyOverlap">—</div>
-                <div class="badgeL" id="kpiOverlapLabel">校园-所在区 Family 重叠（均值）</div>
+        <section class="introGrid" aria-label="Domain and scope">
+          <div class="panel introPanel">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">Domain and Scope</div>
+                <div class="panelHint">Structure-Based Ecology</div>
               </div>
             </div>
+            <div class="panelBody">
+              <div class="introTitle">
+                Plant Systems: Classification, Distribution &amp; Ecological Networks
+              </div>
+
+              <div class="introSubhead">Main Benchmark Question</div>
+              <ol class="introList">
+                <li>
+                  Can plant diversity on campus represent the overall plant diversity of Shanghai?
+                </li>
+                <li>
+                  Is the proportion of alien plants in campus flora higher than that in Shanghai as a whole?
+                </li>
+              </ol>
+
+              <div class="introSubhead">Why This Dataset Matters</div>
+              <p class="introPara">
+                These two datasets are important because they represent different ecological scales — Updated checklist
+                of Shanghai vascular plants (2022) + Biodiversity dataset of vascular plants and birds in Chinese urban
+                greenspace, city-wide plant diversity and human-curated campus ecosystems — allowing us to investigate
+                how urban ecological structures are filtered and reshaped by human intervention.
+              </p>
+            </div>
           </div>
-          <div class="heroViz">
-            <div class="panel">
-              <div class="panelHead">
-                <div>
-                  <div class="panelTitle">物种数 / 属数 / 科数对比</div>
-                  <div class="panelHint">校园（7 个样点）与上海全市（17 个区）</div>
-                </div>
-                <div class="panelMeta" id="asOfMeta">—</div>
+
+          <div class="panel introPanel">
+            <div class="panelHead">
+              <div>
+                <div class="panelTitle">物种数 / 属数 / 科数对比</div>
+                <div class="panelHint">校园（7 个样点）与上海全市（17 个区）</div>
               </div>
-              <div class="panelBody">
-                <div id="chartOverview" class="chart" aria-label="Overview bar chart"></div>
-              </div>
+              <div class="panelMeta" id="asOfMeta">—</div>
+            </div>
+            <div class="panelBody">
+              <div id="chartOverview" class="chart" aria-label="Overview bar chart"></div>
             </div>
           </div>
         </section>
@@ -107,14 +131,16 @@
               </div>
             </div>
             <div class="panelBody">
-              <div class="twoCol">
-                <div class="chartBox">
+              <div class="rq1Tri">
+                <div class="rq1TriTitles">
                   <div class="miniTitle">校园 vs 所在区：Species / Genus / Family</div>
-                  <div id="chartCampusVsDistrict" class="chart chartTall"></div>
-                </div>
-                <div class="chartBox">
                   <div class="miniTitle">重叠（Jaccard）分布（随层级切换）</div>
+                  <div class="miniTitle">地图：物种重合度（Species Jaccard）</div>
+                </div>
+                <div class="rq1TriCharts">
+                  <div id="chartCampusVsDistrict" class="chart chartTall"></div>
                   <div id="chartOverlap" class="chart chartTall"></div>
+                  <div id="mapRq1" class="map" aria-label="RQ1 overlap map"></div>
                 </div>
               </div>
             </div>

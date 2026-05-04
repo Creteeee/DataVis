@@ -13,6 +13,7 @@ DOCS = REPO_ROOT / "docs"
 
 FILES = ["index.html", "app.js", "styles.css"]
 DATA_FILES = [
+    "campus_map_shapes.json",
     "campus_summary.json",
     "city_district_summary.json",
     "overlap_taxa.json",
