@@ -103,6 +103,53 @@ body{
   border-color: rgba(11,106,103,0.35);
   color: var(--text);
 }
+.chipCli.isActive{
+  background: rgba(16,20,23,0.92);
+  border-color: rgba(16,20,23,0.25);
+  color: rgba(246,247,247,0.98);
+}
+
+.cliTranscript{
+  display:none;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(16,20,23,0.14);
+  background: rgba(16,20,23,0.92);
+  color: rgba(246,247,247,0.96);
+  padding: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  overflow:auto;
+}
+.cliLine{ display:flex; gap: 10px; }
+.cliLabel{
+  flex: 0 0 auto;
+  width: 78px;
+  color: rgba(170,255,208,0.95);
+  font-weight: 700;
+}
+.cliBlock{
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: rgba(246,247,247,0.92);
+}
+.cliDivider{
+  margin: 10px 0;
+  height: 1px;
+  background: rgba(246,247,247,0.10);
+}
+
+/* CLI mode: hide viz, show transcripts */
+.isCliMode .chart,
+.isCliMode .map,
+.isCliMode .panelActions,
+.isCliMode .rq2Compare .tableWrap,
+.isCliMode .mapLegend,
+.isCliMode .callout{
+  display:none !important;
+}
+.isCliMode .cliTranscript{ display:block; }
 
 .topbarKpis{
   display:flex;

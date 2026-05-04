@@ -33,22 +33,25 @@
         <div class="topbarKpis" role="list" aria-label="Topline KPIs">
           <div class="badge" role="listitem">
             <div class="badgeK" id="kpiCampusSpecies">—</div>
-            <div class="badgeL">校园物种数（去重）</div>
+            <div class="badgeL">Campus species (unique)</div>
           </div>
           <div class="badge" role="listitem">
             <div class="badgeK" id="kpiCitySpecies">—</div>
-            <div class="badgeL">上海物种数（去重）</div>
+            <div class="badgeL">Shanghai species (unique)</div>
           </div>
           <div class="badge" role="listitem">
             <div class="badgeK" id="kpiFamilyOverlap">—</div>
-            <div class="badgeL" id="kpiOverlapLabel">校园-所在区 Family 重叠（均值）</div>
+            <div class="badgeL" id="kpiOverlapLabel">Campus–district family overlap (avg)</div>
           </div>
         </div>
 
         <nav class="controls" aria-label="Dashboard controls">
-          <button class="chip isActive" data-view="rq1" type="button">RQ1 多样性</button>
-          <button class="chip" data-view="rq2" type="button">RQ2 非乡土</button>
-          <button class="chip" data-view="families" type="button">Family 深入</button>
+          <button class="chip isActive" data-view="rq1" type="button">RQ1 Diversity</button>
+          <button class="chip" data-view="rq2" type="button">RQ2 Nativeness</button>
+          <button class="chip" data-view="families" type="button">Family Drilldown</button>
+          <button class="chip chipCli" id="cliModeToggle" type="button" aria-pressed="false" title="Toggle CLI transcript mode">
+            CLI Mode
+          </button>
         </nav>
       </header>
 

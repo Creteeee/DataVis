@@ -524,6 +524,92 @@ function escapeHtmlText(s) {
     .replace(/"/g, "&quot;");
 }
 
+function initCliModeTranscripts() {
+  const root = document.documentElement;
+  const toggle = document.getElementById("cliModeToggle");
+  const KEY = "datavis_cli_mode";
+
+  const setOn = (on) => {
+    root.classList.toggle("isCliMode", !!on);
+    if (toggle) {
+      toggle.setAttribute("aria-pressed", on ? "true" : "false");
+      toggle.classList.toggle("isActive", !!on);
+      toggle.textContent = on ? "Visual Mode" : "CLI Mode";
+    }
+    try {
+      localStorage.setItem(KEY, on ? "1" : "0");
+    } catch {}
+  };
+
+  if (toggle) {
+    toggle.addEventListener("click", () => setOn(!root.classList.contains("isCliMode")));
+  }
+  try {
+    setOn(localStorage.getItem(KEY) === "1");
+  } catch {
+    setOn(false);
+  }
+
+  const addTranscript = (targetEl, prompt, answer) => {
+    if (!targetEl) return;
+    const panel = targetEl.closest?.(".panel");
+    if (!panel) return;
+    if (panel.querySelector(".cliTranscript")) return;
+    const body = panel.querySelector(".panelBody") || panel;
+    const el = document.createElement("div");
+    el.className = "cliTranscript";
+    el.innerHTML = `
+      <div class="cliLine"><div class="cliLabel">PROMPT</div><div class="cliBlock">${escapeHtmlText(prompt)}</div></div>
+      <div class="cliDivider"></div>
+      <div class="cliLine"><div class="cliLabel">ANSWER</div><div class="cliBlock">${escapeHtmlText(answer)}</div></div>
+    `;
+    body.appendChild(el);
+  };
+
+  addTranscript(
+    document.getElementById("chartOverview"),
+    "Compare campus vs Shanghai (citywide) biodiversity using unique counts for Species, Genus, and Family, and summarize the coverage ratio.",
+    "I will compute unique counts for campus and city datasets at three taxonomic levels (Species/Genus/Family), then plot a side-by-side bar chart.\nNext, I will calculate coverage = campus / city for each level and display the percentages as a compact summary block for quick interpretation.",
+  );
+
+  addTranscript(
+    document.getElementById("chartCampusVsDistrict"),
+    "I want you to use the Jaccard method to quantify overlap between two tables (campus vs its district), and explain the calculation and outputs.",
+    "I will extract de-duplicated taxa lists for the selected level (Species/Genus/Family) from both campus and district, then compute Jaccard = |A∩B| / |A∪B|.\nI will also report sharedCount / unionCount, and visualize results as: (1) campus vs district comparison, (2) Jaccard distribution across campuses, and (3) a Sankey view to explain which families dominate the shared structure.",
+  );
+
+  addTranscript(
+    document.getElementById("chartSankey"),
+    "Build a Sankey diagram for District → Campus → Family, and show each campus' map shape as an SVG on hover.",
+    "I will construct nodes and links with an interpretable weight (e.g., counts / top families) and render the Sankey.\nOn hover, I will load the campus SVG from campus_map_shapes.json and embed it into the tooltip after sanitizing scripts/inline events. I will also scale the SVG based on campus area and annotate area + rank where available.",
+  );
+
+  addTranscript(
+    document.getElementById("chartCityNonnative"),
+    "Compare alien-plant ratio distributions for Shanghai districts vs campus sites, and report the averages and maxima.",
+    "I will compute nonnativeRatio for districts and campuses, rank them, and plot distributions.\nThen I will calculate the mean and the top (max) district/campus, and summarize the comparison in a short callout for quick reading.",
+  );
+
+  addTranscript(
+    document.getElementById("map"),
+    "Show campus sites on a map: circle size encodes species count; color encodes nativeness by a median split.",
+    "I will use Leaflet with circle markers: radius scales with species count, and color is determined by nativeness (= 1 - nonnativeRatio) compared against the median.\nI will include a legend and popups to make the encoding and values transparent.",
+  );
+
+  // RQ2 district vs campus comparison chart
+  addTranscript(
+    document.getElementById("chartDistrictCampusCompare"),
+    "I want you to build a comparison bar chart between each district and the campuses that belong to it, so I can directly compare district-level vs campus-level alien plant ratios.",
+    "I will first assign each campus to its corresponding district, then compute (1) the district alien ratio and (2) the average alien ratio across campus sites within that district.\nFinally, I will plot them as a two-color bar chart (district vs campus average) on the same scale, and keep the tooltip showing the campus breakdown for traceability.",
+  );
+
+  addTranscript(
+    document.getElementById("chartTreemap"),
+    "Run a local script to collect the first image URL from each Family’s Wikipedia page. When the page loads, fill each Treemap cell with that image (responsive, cover-fit). If an image is missing, use a solid-color fallback so I can manually add URLs later.",
+    "I will implement a reproducible pipeline:\n1) Local preprocessing: iterate over the Family names used in the Treemap, build Wikipedia page URLs, fetch HTML, and extract the first representative image (prefer infobox / lead image).\n2) Cache results: write Family → imageURL into data/treemap_wiki_thumbs.json so the dashboard can reuse it without re-scraping.\n3) Frontend rendering: preload images on startup; for each Treemap cell, draw the image with a cover-like scale (fill the rectangle while preserving aspect ratio, center-cropped).\n4) Fallback: if a Family has no URL or the image fails to load, keep the cell as a consistent solid color, while still showing the label/value.\n5) Manual patching: you can later fill missing URLs in treemap_wiki_thumbs.json and refresh—no code changes required.",
+  );
+}
+
 /** 各校占地面积（亩）与本数据集内 TOP 标注；用于 tooltip 缩放（1→最大亩 · 0.2→最小亩） */
 const CAMPUS_MAP_META = {
   "East China Normal University, Minhang Campus": { mu: 1821, top: 3 },
@@ -886,14 +972,14 @@ function buildDistrictCampusCompareChart(el, rows) {
     },
     series: [
       {
-        name: "行政区",
+        name: "District",
         type: "bar",
         data: rows.map((r) => r.districtRatio),
         barMaxWidth: 14,
         itemStyle: { color: "rgba(16,20,23,0.28)", borderRadius: 0 },
       },
       {
-        name: "校园（所在区均值）",
+        name: "Campuses (district average)",
         type: "bar",
         data: rows.map((r) => r.campusAvg),
         barMaxWidth: 14,
@@ -926,13 +1012,13 @@ function renderRq2StatsTable(tableEl, campusRows, districtRows) {
   const body = tableEl.querySelector("tbody");
   body.innerHTML = `
     <tr>
-      <td>学校（校区）</td>
+      <td>Campuses</td>
       <td>${campusStats.min}</td>
       <td>${campusStats.max}</td>
       <td>${campusStats.avg}</td>
     </tr>
     <tr>
-      <td>行政区</td>
+      <td>Districts</td>
       <td>${districtStats.min}</td>
       <td>${districtStats.max}</td>
       <td>${districtStats.avg}</td>
@@ -1100,7 +1186,7 @@ async function main() {
   document.getElementById("kpiFamilyOverlap").textContent =
     overlapStats.avg == null ? "—" : overlapStats.avg.toFixed(2);
   document.getElementById("kpiOverlapLabel").textContent =
-    `校园-所在区 ${overlapMetricLabel(activeMetric)} 重叠（均值）`;
+    `Campus–district ${overlapMetricLabel(activeMetric)} overlap (avg)`;
   const asOfMetaEl = document.getElementById("asOfMeta");
   if (asOfMetaEl) {
     asOfMetaEl.textContent = `campus=${campusSummary.kpi.campusCount} · city_districts=${citySummary.kpi.districtCount}`;
@@ -1111,6 +1197,7 @@ async function main() {
   document.querySelectorAll(".chip").forEach((b) => {
     b.addEventListener("click", () => setActiveChips(b.dataset.view));
   });
+  initCliModeTranscripts();
 
   // Overview
   let overviewChart = null;
@@ -1155,7 +1242,7 @@ async function main() {
     document.getElementById("kpiFamilyOverlap").textContent =
       newStats.avg == null ? "—" : newStats.avg.toFixed(2);
     document.getElementById("kpiOverlapLabel").textContent =
-      `校园-所在区 ${overlapMetricLabel(activeMetric)} 重叠（均值）`;
+      `Campus–district ${overlapMetricLabel(activeMetric)} overlap (avg)`;
     renderCampus();
   });
 
@@ -1208,10 +1295,10 @@ async function main() {
         ? campusN.rows.reduce((a, b) => a + (b.v ?? 0), 0) / campusN.rows.length
         : null;
     document.querySelector("#rq2Callout .calloutBody").innerHTML =
-      `（${rq2MetricName(rq2Metric)}）上海全市（按区）非乡土比例均值：<strong>${avgCity == null ? "—" : (avgCity * 100).toFixed(1) + "%"}</strong>；` +
-      `校园样点均值：<strong>${avgCampus == null ? "—" : (avgCampus * 100).toFixed(1) + "%"}</strong>。` +
-      `<br/>最高的区：<strong>${topCity?.name ?? "—"}</strong>（${topCity?.v == null ? "—" : (topCity.v * 100).toFixed(1) + "%"}），` +
-      `最高的校园：<strong>${topCampus?.name ?? "—"}</strong>（${topCampus?.v == null ? "—" : (topCampus.v * 100).toFixed(1) + "%"}）。`;
+      `(${rq2MetricName(rq2Metric)}) Average alien ratio in Shanghai (by district): <strong>${avgCity == null ? "—" : (avgCity * 100).toFixed(1) + "%"}</strong>; ` +
+      `average across campus sites: <strong>${avgCampus == null ? "—" : (avgCampus * 100).toFixed(1) + "%"}</strong>.` +
+      `<br/>Highest district: <strong>${topCity?.name ?? "—"}</strong> (${topCity?.v == null ? "—" : (topCity.v * 100).toFixed(1) + "%"}), ` +
+      `highest campus: <strong>${topCampus?.name ?? "—"}</strong> (${topCampus?.v == null ? "—" : (topCampus.v * 100).toFixed(1) + "%"}).`;
 
     const districtCampusRows = buildDistrictCampusComparisonDataFromRq2(campuses, districts);
     districtCampusChart = buildDistrictCampusCompareChart(
@@ -1225,11 +1312,11 @@ async function main() {
     );
 
     document.getElementById("rq2CityTitle").textContent =
-      `上海全市：非乡土比例分布（${rq2MetricName(rq2Metric)}）`;
+      `Shanghai: alien ratio distribution (${rq2MetricName(rq2Metric)})`;
     document.getElementById("rq2CampusTitle").textContent =
-      `校园：非乡土比例分布（${rq2MetricName(rq2Metric)}）`;
+      `Campuses: alien ratio distribution (${rq2MetricName(rq2Metric)})`;
     document.getElementById("rq2CompareTitle").textContent =
-      `学校放入所在区后：区 vs 校园（双颜色对比，${rq2MetricName(rq2Metric)}）`;
+      `After assigning campuses to districts: district vs campus (two-color comparison, ${rq2MetricName(rq2Metric)})`;
   };
 
   renderRQ2();
