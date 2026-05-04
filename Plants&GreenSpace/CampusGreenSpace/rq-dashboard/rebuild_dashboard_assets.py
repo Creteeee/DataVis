@@ -10,6 +10,7 @@ Outputs:
 - data/overlap_family.json (compat alias from overlap_taxa.family)
 - data/sankey_district_campus_family.json
 - data/treemap_families.json
+- data/treemap_wiki_thumbs.json（各科英文名维基主图缩略图 URL；可与已有文件合并，保留手填项）
 - workflow/Jaccard_Workflow_Species.xlsx
 - workflow/Jaccard_Workflow_Genus.xlsx
 - workflow/Jaccard_Workflow_Family.xlsx
@@ -22,6 +23,10 @@ from __future__ import annotations
 
 import json
 import math
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -464,6 +469,85 @@ def build_treemap(campus_rows: list[CampusRow], city_rows: list[dict[str, Any]])
     }
 
 
+WIKI_API = "https://en.wikipedia.org/w/api.php"
+
+
+def _treemap_all_family_names(treemap: dict[str, Any]) -> list[str]:
+    names: set[str] = set()
+    for key in ("campus", "city"):
+        block = treemap.get(key) or {}
+        for ch in block.get("children") or []:
+            n = _norm(ch.get("name", ""))
+            if n:
+                names.add(n)
+    return sorted(names)
+
+
+def _wiki_query_thumb_url(title: str) -> str | None:
+    """英文维基条目的主图（pageimage）缩略图 URL；无图则 None。"""
+    q = urllib.parse.urlencode(
+        {
+            "action": "query",
+            "format": "json",
+            "prop": "pageimages",
+            "piprop": "thumbnail",
+            "pithumbsize": "960",
+            "redirects": "1",
+            "titles": title,
+        }
+    )
+    url = f"{WIKI_API}?{q}"
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "DataVisDashboard/1.1 (local rebuild; contact: local)"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            raw = resp.read().decode("utf-8", errors="replace")
+        data = json.loads(raw)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError):
+        return None
+    pages = data.get("query", {}).get("pages") or {}
+    for p in pages.values():
+        if not isinstance(p, dict) or p.get("missing"):
+            continue
+        thumb = (p.get("thumbnail") or {}).get("source")
+        if thumb:
+            return str(thumb).strip() or None
+    return None
+
+
+def fetch_and_merge_treemap_wiki_thumbs(
+    treemap: dict[str, Any],
+    out_path: Path,
+    pause_s: float = 0.12,
+) -> dict[str, str]:
+    """与已有 treemap_wiki_thumbs.json 合并：非空 URL 不覆盖；仅对缺项请求 API。"""
+    existing: dict[str, Any] = {}
+    if out_path.is_file():
+        try:
+            existing = json.loads(out_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            existing = {}
+    merged: dict[str, str] = {
+        k: v.strip()
+        for k, v in existing.items()
+        if isinstance(k, str) and isinstance(v, str) and v.strip()
+    }
+    for name in _treemap_all_family_names(treemap):
+        if merged.get(name):
+            continue
+        u = _wiki_query_thumb_url(name)
+        if u:
+            merged[name] = u
+        time.sleep(pause_s)
+    out_path.write_text(
+        json.dumps(dict(sorted(merged.items())), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    return merged
+
+
 def _taxon_value_from_campus(row: CampusRow, level: str) -> str:
     if level == "species":
         return _species_key(row.species)
@@ -682,6 +766,7 @@ def main() -> None:
     (DATA_DIR / "treemap_families.json").write_text(
         json.dumps(treemap, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    fetch_and_merge_treemap_wiki_thumbs(treemap, DATA_DIR / "treemap_wiki_thumbs.json")
 
     write_overlap_workbook(
         WORKFLOW_DIR / "Jaccard_Workflow_Species.xlsx",

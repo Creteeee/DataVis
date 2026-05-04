@@ -19,6 +19,7 @@ DATA_FILES = [
     "rq2_taxa_native_nonnative.json",
     "sankey_district_campus_family.json",
     "treemap_families.json",
+    "treemap_wiki_thumbs.json",
     "overlap_family.json",
 ]
 

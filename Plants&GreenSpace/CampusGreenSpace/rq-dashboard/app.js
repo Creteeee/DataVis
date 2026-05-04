@@ -8,6 +8,116 @@ function familyWikiUrl(name) {
   return `https://en.wikipedia.org/wiki/${encodeURIComponent(n)}`;
 }
 
+/** Treemap：缩略图 URL 来自 data/treemap_wiki_thumbs.json（构建脚本抓取维基主图；缺项可手填） */
+function loadImageCrossOrigin(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("thumb load failed"));
+    img.src = url;
+  });
+}
+
+async function preloadTreemapWikiImages(wikiThumbTable, familyNames) {
+  const map = new Map();
+  const uniq = [...new Set(familyNames.filter(Boolean))];
+  await Promise.all(
+    uniq.map(async (name) => {
+      const url = wikiThumbTable[name];
+      if (!url || typeof url !== "string") return;
+      try {
+        const img = await loadImageCrossOrigin(url);
+        map.set(name, img);
+      } catch {
+        /* 跳过失效 URL */
+      }
+    }),
+  );
+  return map;
+}
+
+/** 等比放大以填满矩形（类似 object-fit: cover）：宽/高取较大缩放比，居中裁切 */
+function drawThumbCoverRect(img, cw, ch, fallbackFill) {
+  const w = Math.max(1, Math.round(cw));
+  const h = Math.max(1, Math.round(ch));
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  const nw = img.naturalWidth || img.width;
+  const nh = img.naturalHeight || img.height;
+  if (!nw || !nh) {
+    ctx.fillStyle = fallbackFill;
+    ctx.fillRect(0, 0, w, h);
+    return canvas;
+  }
+  const scale = Math.max(w / nw, h / nh);
+  const dw = nw * scale;
+  const dh = nh * scale;
+  const dx = (w - dw) / 2;
+  const dy = (h - dh) / 2;
+  ctx.drawImage(img, 0, 0, nw, nh, dx, dy, dw, dh);
+  return canvas;
+}
+
+function findTreemapItemLayout(data, name) {
+  for (let i = 0; i < data.count(); i++) {
+    if (data.getName(i) === name) return data.getItemLayout(i);
+  }
+  return null;
+}
+
+function parseTreemapLayout(layout) {
+  if (layout == null) return null;
+  if (Array.isArray(layout)) {
+    if (layout.length >= 4) return { width: layout[2], height: layout[3] };
+    return null;
+  }
+  const ww = layout.width ?? layout.w;
+  const hh = layout.height ?? layout.h;
+  if (ww != null && hh != null) return { width: ww, height: hh };
+  if (
+    layout.x0 != null &&
+    layout.x1 != null &&
+    layout.y0 != null &&
+    layout.y1 != null
+  ) {
+    return { width: layout.x1 - layout.x0, height: layout.y1 - layout.y0 };
+  }
+  return null;
+}
+
+const TREEMAP_FALLBACK_COLORS = [
+  "rgba(11,106,103,0.80)",
+  "rgba(11,106,103,0.58)",
+  "rgba(11,106,103,0.40)",
+  "rgba(16,20,23,0.18)",
+];
+const TREEMAP_LETTERBOX = "rgba(11,106,103,0.42)";
+
+function applyTreemapCellPatterns(chart, baseChildren, thumbImages) {
+  const sm = chart.getModel().getSeriesByIndex(0);
+  const data = sm?.getData();
+  if (!data || thumbImages.size === 0) return;
+  const next = baseChildren.map((bc) => {
+    const img = thumbImages.get(bc.name);
+    if (!img) return { ...bc };
+    const raw = findTreemapItemLayout(data, bc.name);
+    const box = parseTreemapLayout(raw);
+    if (!box?.width || !box?.height) return { ...bc };
+    const cvs = drawThumbCoverRect(img, box.width, box.height, TREEMAP_LETTERBOX);
+    return {
+      ...bc,
+      itemStyle: {
+        ...bc.itemStyle,
+        color: { type: "pattern", image: cvs, repeat: "no-repeat" },
+      },
+    };
+  });
+  chart.setOption({ series: [{ id: "tmFamilies", data: next }] }, { silent: true, lazyUpdate: true });
+}
+
 async function loadJson(path) {
   const res = await fetch(path);
   if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
@@ -464,10 +574,33 @@ function buildSankey(el, sankey) {
   return chart;
 }
 
-function buildTreemap(el, treemap, mode) {
+async function buildTreemap(el, treemap, mode, wikiThumbs) {
   const chart = echarts.init(el, null, { renderer: "canvas" });
   const root = mode === "city" ? treemap.city : treemap.campus;
+  const children = root.children || [];
+  const table = wikiThumbs && typeof wikiThumbs === "object" ? wikiThumbs : {};
+  const thumbImages = await preloadTreemapWikiImages(
+    table,
+    children.map((c) => c.name),
+  );
+
+  const baseChildren = children.map((c, i) => {
+    const fb = TREEMAP_FALLBACK_COLORS[i % TREEMAP_FALLBACK_COLORS.length];
+    return {
+      name: c.name,
+      value: c.value,
+      itemStyle: {
+        color: fb,
+        borderColor: "rgba(246,247,247,1)",
+        borderWidth: 2,
+        gapWidth: 2,
+      },
+    };
+  });
+
   chart.setOption({
+    animationDuration: 0,
+    animationDurationUpdate: 0,
     tooltip: {
       formatter: (info) =>
         `<div style="font-weight:700;margin-bottom:6px">${info.name}</div>
@@ -475,11 +608,21 @@ function buildTreemap(el, treemap, mode) {
     },
     series: [
       {
+        id: "tmFamilies",
         type: "treemap",
-        data: root.children,
+        data: baseChildren,
         roam: false,
         breadcrumb: { show: false },
-        label: { show: true, formatter: "{b}", color: "rgba(16,20,23,0.78)", fontSize: 11 },
+        label: {
+          show: true,
+          formatter: "{b}",
+          color: "#ffffff",
+          fontSize: 11,
+          fontWeight: 600,
+          textShadowColor: "rgba(0,0,0,0.75)",
+          textShadowBlur: 6,
+          textShadowOffsetY: 1,
+        },
         upperLabel: { show: false },
         itemStyle: { borderColor: "rgba(246,247,247,1)", borderWidth: 2, gapWidth: 2 },
         levels: [
@@ -491,15 +634,21 @@ function buildTreemap(el, treemap, mode) {
             },
           },
         ],
-        color: [
-          "rgba(11,106,103,0.80)",
-          "rgba(11,106,103,0.58)",
-          "rgba(11,106,103,0.40)",
-          "rgba(16,20,23,0.18)",
-        ],
       },
     ],
   });
+
+  const paint = () => {
+    try {
+      applyTreemapCellPatterns(chart, baseChildren, thumbImages);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+  chart.on("finished", () => {
+    requestAnimationFrame(paint);
+  });
+
   chart.off("click");
   chart.on("click", (params) => {
     const name = params?.name;
@@ -713,14 +862,17 @@ function buildMap(el, campuses) {
 }
 
 async function main() {
-  const [campusSummary, citySummary, overlapTaxa, rq2Taxa, sankey, treemap] = await Promise.all([
-    loadJson("./data/campus_summary.json"),
-    loadJson("./data/city_district_summary.json"),
-    loadJson("./data/overlap_taxa.json"),
-    loadJson("./data/rq2_taxa_native_nonnative.json"),
-    loadJson("./data/sankey_district_campus_family.json"),
-    loadJson("./data/treemap_families.json"),
-  ]);
+  const [campusSummary, citySummary, overlapTaxa, rq2Taxa, sankey, treemap, wikiThumbsRaw] =
+    await Promise.all([
+      loadJson("./data/campus_summary.json"),
+      loadJson("./data/city_district_summary.json"),
+      loadJson("./data/overlap_taxa.json"),
+      loadJson("./data/rq2_taxa_native_nonnative.json"),
+      loadJson("./data/sankey_district_campus_family.json"),
+      loadJson("./data/treemap_families.json"),
+      loadJson("./data/treemap_wiki_thumbs.json").catch(() => ({})),
+    ]);
+  const wikiThumbs = wikiThumbsRaw && typeof wikiThumbsRaw === "object" ? wikiThumbsRaw : {};
 
   let activeMetric = "family";
   let overlap = overlapTaxa[activeMetric];
@@ -862,14 +1014,24 @@ async function main() {
 
   // Treemap toggle
   let treemapMode = "campus";
-  let treemapChart = buildTreemap(document.getElementById("chartTreemap"), treemap, treemapMode);
+  let treemapChart = await buildTreemap(
+    document.getElementById("chartTreemap"),
+    treemap,
+    treemapMode,
+    wikiThumbs,
+  );
   document.querySelectorAll(".segBtn").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
       document.querySelectorAll(".segBtn").forEach((b) => b.classList.remove("isActive"));
       btn.classList.add("isActive");
       treemapMode = btn.dataset.treemap;
       treemapChart.dispose();
-      treemapChart = buildTreemap(document.getElementById("chartTreemap"), treemap, treemapMode);
+      treemapChart = await buildTreemap(
+        document.getElementById("chartTreemap"),
+        treemap,
+        treemapMode,
+        wikiThumbs,
+      );
     });
   });
 
